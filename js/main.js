@@ -37,6 +37,11 @@ window.onload = function (ev) {
                 deferredPrompt = null;
 
             });}
+
+            //teste nottification
+            $('#notification').click(function () {
+               displayNotification()
+            })
 }
 
 async function registerSW() {
@@ -46,6 +51,28 @@ async function registerSW() {
         } catch (e){
             console.log("SW registration failed lol")
         }
+    }
+}
+
+Notification.requestPermission(function(status) {
+    console.log('Notification permission status:', status);
+});
+
+function displayNotification() {
+    if (Notification.permission == 'granted') {
+        navigator.serviceWorker.getRegistration().then(function(reg) {
+            var options = {
+                body: 'Isto é um teste de uma notificação!',
+                icon: './assets/img/bioliving.png',
+                vibrate: [100, 50, 100],
+                data: {
+                    dateOfArrival: Date.now(),
+                    primaryKey: 1
+                }
+            };
+
+            reg.showNotification('Hello broto!', options);
+        });
     }
 }
 
