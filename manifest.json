@@ -19,7 +19,7 @@
     }],
   "start_url": "index.php",
   "display": "standalone",
-  "background_color": "#FFDB58",
-  "theme_color": "#FFDB58",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
   "prefer_related_applications": false
 }

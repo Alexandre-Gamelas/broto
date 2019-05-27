@@ -1,9 +1,5 @@
 window.onload = function (ev) {
     registerSW();
-    console.log("ola");
-
-
-
     var deferredPrompt;
 
     window.addEventListener('beforeinstallprompt', function (e) {
