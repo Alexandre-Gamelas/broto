@@ -9,5 +9,6 @@
             <button id="notification">NOTIFICATION</button>
         </article>
     </section>
+<?php include_once "componenentes/firebase.php" ?>
 </body>
 </html>
