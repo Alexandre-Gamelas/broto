@@ -18,3 +18,4 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 </script>
+<script src="firebase-messaging-sw.js"></script>

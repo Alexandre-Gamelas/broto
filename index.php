@@ -9,6 +9,11 @@
             <button id="notification">NOTIFICATION</button>
         </article>
     </section>
+    <?php
+    $teste = "aveiro";
+
+
+    ?>
 <?php include_once "components/firebase.php" ?>
 </body>
 </html>
