@@ -39,22 +39,22 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Bem-vindo de volta!</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" method="post" action="scripts/login.php">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Insira Email Address...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password">
                     </div>
 
-                    <a href="scripts/login.php" class="btn btn-success btn-user btn-block">
+                    <button type="submit" class="btn btn-success btn-user btn-block">
                       Login
-                    </a>
+                    </button>
                     <hr>
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="register.html">Create an Account!</a>
+                    <a class="small" href="register.php">Create an Account!</a>
                   </div>
                 </div>
               </div>
