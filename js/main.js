@@ -36,12 +36,8 @@ window.onload = function (ev) {
 
                 deferredPrompt = null;
 
-            });}
-
-            //teste nottification
-            $('#notification').click(function () {
-               displayNotification()
             })
+        ;}
 }
 
 async function registerSW() {
