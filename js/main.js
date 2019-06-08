@@ -8,7 +8,7 @@ window.onload = function (ev) {
         // Stash the event so it can be triggered later.
         deferredPrompt = e;
 
-        showAddToHomeScreen();
+        //showAddToHomeScreen();
 
     })
 
