@@ -39,9 +39,47 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Bem-vindo de volta!</h1>
                   </div>
+                    <?php
+                    if (isset($_GET["msg"])) {
+                        $msg_show = true;
+                        switch ($_GET["msg"]) {
+                            case 0:
+                                $message = "ocorreu um erro no registo";
+                                $class = "alert-warning";
+                                break;
+                            case 1:
+                                $message = "registo efectuado com sucesso";
+                                $class = "alert-success";
+                                break;
+                            case 2:
+                                $message = "ocorreu um erro no login";
+                                $class = "alert-warning";
+                                break;
+                            case 3:
+                                $message = "login efectuado com sucesso";
+                                $class = "alert-success";
+                                break;
+                            case 4:
+                                $message="Esta conta não está ativa";
+                                $class="alert-danger";
+                            default:
+                                $msg_show = false;
+                        }
+
+                        echo "<div class=\"alert $class alert-dismissible fade show\" role=\"alert\">
+" . $message . "
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>";
+                        if ($msg_show) {
+                            echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                        }
+                    }
+                    ?>
                   <form class="user" method="post" action="scripts/login.php">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Insira Email Address...">
+                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Email">
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password">
