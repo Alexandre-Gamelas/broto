@@ -50,9 +50,11 @@ async function registerSW() {
     }
 }
 
+/*
 Notification.requestPermission(function(status) {
     console.log('Notification permission status:', status);
 });
+
 
 function displayNotification() {
     if (Notification.permission == 'granted') {
@@ -73,4 +75,4 @@ function displayNotification() {
 }
 
 $('#notification').click(displayNotification());
-
+*/

@@ -1,8 +1,15 @@
 var messaging;
-var firebase;
 
 console.log("ola firebase", firebase);
 messaging = firebase.messaging();
+messaging.requestPermission()
+    .then(function () {
+        console.log("Permission granted")
+    })
+    .catch(function (err) {
+        console.log("Error ocurred.")
+    });
+
 messaging.usePublicVapidKey("BO9kkavM8DcT8GWt_ZuBVG9_vEH45_-5VYgV4s8fzmADGc7GKA0rUd__Trf-xy_YvIt3_SCP8ZO9m3ZkPesWztI");
 
 messaging.getToken().then(function (currentToken) {
