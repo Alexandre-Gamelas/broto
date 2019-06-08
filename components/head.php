@@ -18,7 +18,7 @@
 
     <!-- MEU -->
     <link rel="manifest" href="./manifest.json">
-    <link rel="icon" href="./assets/img/logo.png">
+    <link rel="icon" href="./assets/img/bioliving.png">
     <link rel="stylesheet" href="css/estilos.css">
     <script src="js/main.js"></script>
     <title>Broto</title>

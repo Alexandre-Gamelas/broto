@@ -10,7 +10,7 @@ window.onload = function (ev) {
 
         //showAddToHomeScreen();
 
-    })
+    });
 
     function showAddToHomeScreen() {
 
@@ -71,4 +71,6 @@ function displayNotification() {
         });
     }
 }
+
+$('#notification').click(displayNotification());
 
