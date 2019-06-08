@@ -1,4 +1,5 @@
 var messaging;
+var firebase;
 
 console.log("ola firebase", firebase);
 messaging = firebase.messaging();
