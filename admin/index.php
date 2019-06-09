@@ -1,6 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start();?>
+<?php
+
+//se temos session start no navbar nao precisamos de ter aqui novamente, mas vou deixar comentado por agora - AG
+//session_start();
+
+//get dados para pagina princiapl
+include_once "connections/connection.php";
+
+//++++++++++ NUMERO DE CONTAS +++++++++//
+$link = new_db_connection(); // Create a new DB connection
+
+$stmt = mysqli_stmt_init($link);
+
+$query = "SELECT COUNT(utilizadores.id_utilizadores) FROM utilizadores";
+
+if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+
+    mysqli_stmt_execute($stmt); // Execute the prepared statement
+
+    mysqli_stmt_bind_result($stmt, $num); // Bind results
+
+    if (mysqli_stmt_fetch($stmt)) { // Fetch values
+        $num_contas = $num;
+    }
+    mysqli_stmt_close($stmt); // Close statement
+}
+mysqli_close($link); // Close connection
+
+//++++++++++ NUMERO DE CONTAS CRIADAS RECENTEMENTE, ULTIMO MES +++++++++//
+$link = new_db_connection(); // Create a new DB connection
+
+$stmt = mysqli_stmt_init($link);
+
+$query = "SELECT COUNT(utilizadores.id_utilizadores) FROM utilizadores WHERE utilizadores.data_entrada LIKE ?";
+
+if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+
+    mysqli_stmt_bind_param($stmt,'s', $data); // Bind variables by type to each parameter
+    $data = date("Y-m")."%";
+    mysqli_stmt_execute($stmt); // Execute the prepared statement
+
+    mysqli_stmt_bind_result($stmt, $num); // Bind results
+
+    if (mysqli_stmt_fetch($stmt)) { // Fetch values
+        $num_contas_recentes = $num;
+    }
+    mysqli_stmt_close($stmt); // Close statement
+}
+mysqli_close($link); // Close connection
+?>
 <head>
 
     <meta charset="utf-8">
@@ -62,7 +111,7 @@
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Nº de contas
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">X Contas</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $num_contas ?></div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-tree fa-2x text-gray-300"></i>
@@ -81,7 +130,7 @@
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Contas criadas recentemente
                                             (mês)
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $num_contas_recentes ?></div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-seedling fa-2x text-gray-300"></i>
@@ -168,13 +217,7 @@
 
 
         <!-- Footer -->
-        <footer class="sticky-footer bg-white mx-auto">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto mx-auto">
-                    <span>Copyright &copy; Your Website 2019</span>
-                </div>
-            </div>
-        </footer>
+        <?php include_once "componentes/footer.php" ?>
         <!-- End of Footer -->
 
     </div>
