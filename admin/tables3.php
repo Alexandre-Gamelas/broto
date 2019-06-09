@@ -72,16 +72,13 @@
                                     <th>ID Evento</th>
                                     <th>Nome</th>
                                     <th>Data de início </th>
-                                    <th>Longitude</th>
-                                    <th>Latitude</th>
+                                    <th>Data de fim</th>
                                     <th>Descrição</th>
-                                    <th>Participantes</th>
                                     <th>Alcance</th>
-                                    <th>Super</th>
-                                    <th>acessibilidade</th>
-                                    <th>Desafio</th>
+                                    <th>Participantes</th>
+                                    <th>Acessibilidade</th>
                                     <th>Categoria</th>
-                                    <th>Apagar</th>
+                                    <th>Editar</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -89,16 +86,13 @@
                                     <th>ID Evento</th>
                                     <th>Nome</th>
                                     <th>Data de início </th>
-                                    <th>Longitude</th>
-                                    <th>Latitude</th>
+                                    <th>Data de fim</th>
                                     <th>Descrição</th>
-                                    <th>Participantes</th>
                                     <th>Alcance</th>
-                                    <th>Super</th>
-                                    <th>acessibilidade</th>
-                                    <th>Desafio</th>
+                                    <th>Participantes</th>
+                                    <th>Acessibilidade</th>
                                     <th>Categoria</th>
-                                    <th>Apagar</th>
+                                    <th>Editar</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
