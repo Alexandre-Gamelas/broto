@@ -1,6 +1,10 @@
-<?php if(!isset($_SESSION["nome"])){
+<?php
+   # 9/6 - introduzi session_start visto que todos os pedidos eram direcionados para a login.php sem isso
+    session_start();
+    if(!isset($_SESSION["nome"])){
     header("location: login.php");
 }?>
+
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                 <!-- Sidebar Toggle (Topbar) -->

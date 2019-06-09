@@ -26,6 +26,15 @@
 
 <body id="page-top">
 
+<?php
+
+
+
+
+
+
+?>
+
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -93,36 +102,7 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <tr>
-                                    <td>01</td>
-                                    <td>Plantar Lousada</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>01-05-2019</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button> posição Long.</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>posição Lat.</td>
-                                    <td>Plantação de árvores em Lousada</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>50</td>
-                                    <td>500 árvores</td>
-                                    <td>1000 árvores</td>
-                                    <td>AAA</td>
-                                    <td>Plantar 20 árvores</td>
-                                    <td>Plantação</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-eraser "></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>02</td>
-                                    <td>Campus sem Filtros</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>01-05-2019</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button> posição Long.</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>posição Lat.</td>
-                                    <td>Recolha de beatas de cigarro do campus da UA</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>35</td>
-                                    <td>5000</td>
-                                    <td>7500</td>
-                                    <td>AAA</td>
-                                    <td>Recolher 150 filtros</td>
-                                    <td>Recolha de lixo</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-eraser "></i></button></td>
-                                </tr>
+                                <?php include "componentes/eventos_table.php"?>
                                 </tbody>
                             </table>
                         </div>
