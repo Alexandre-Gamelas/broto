@@ -34,6 +34,27 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Crie uma conta!</h1>
               </div>
+                <?php
+                if (isset($_GET["msg"])) {
+                    $msg_show = true;
+                    switch ($_GET["msg"]) {
+                        case 0:
+                            $message = "ocorreu um erro no registo";
+                            $class = "alert-warning";
+                            break;
+                    }
+
+                    echo "<div class=\"alert $class alert-dismissible fade show\" role=\"alert\">
+" . $message . "
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>";
+                    if ($msg_show) {
+                        echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                    }
+                }
+                ?>
               <form class="user"  method="post" action="./scripts/register.php">
                 <div class="form-group row">
                   <div class="col-sm-12 mb-3 mb-sm-0">

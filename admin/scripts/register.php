@@ -14,12 +14,10 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     $password_cript = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     if (mysqli_stmt_execute($stmt)) {
-        header("location: ../login.php");
+        header("location: ../login.php?msg=3");
     }else{
-        echo mysqli_stmt_error($stmt);
+        header("location: ../register.php?msg=0");
     }
     mysqli_stmt_close($stmt);
-}else{
-    echo mysqli_stmt_error($stmt);
 }
 mysqli_close($link);

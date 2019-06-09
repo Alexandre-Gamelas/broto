@@ -1,7 +1,7 @@
 <?php
    # 9/6 - introduzi session_start visto que todos os pedidos eram direcionados para a login.php sem isso
     session_start();
-    if(!isset($_SESSION["nome"])){
+    if(!isset($_SESSION["nome"])||$_SESSION["papel"]!=1){
     header("location: login.php");
 }?>
 

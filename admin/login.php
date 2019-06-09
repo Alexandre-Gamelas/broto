@@ -56,11 +56,11 @@
                                 $class = "alert-warning";
                                 break;
                             case 3:
-                                $message = "login efectuado com sucesso";
+                                $message = "Registo efectuado com sucesso, faça login!";
                                 $class = "alert-success";
                                 break;
                             case 4:
-                                $message="Esta conta não está ativa";
+                                $message="Esta conta não tem permissões de administrador";
                                 $class="alert-danger";
                             default:
                                 $msg_show = false;
