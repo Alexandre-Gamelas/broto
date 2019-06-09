@@ -1,5 +1,5 @@
 <?php
-require_once "connections/connection2.php";
+require_once "../connections/connection.php";
 
 if (isset($_GET['id'])) {
     $registo = $_GET['id'];

@@ -56,52 +56,61 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Tabela</h1>
+                <h1 class="h3 mb-2 text-gray-800">EDITAR EVENTO</h1>
 
 
                 <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-success">Tabela de Eventos <?php if (isset($_GET['msg'])) {echo " - ".$_GET['msg']."";}?></h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th>ID Evento</th>
-                                    <th>Nome</th>
-                                    <th>Data de início </th>
-                                    <th>Data de fim</th>
-                                    <th>Descrição</th>
-                                    <th>Alcance</th>
-                                    <th>Participantes</th>
-                                    <th>Acessibilidade</th>
-                                    <th>Categoria</th>
-                                    <th>Editar</th>
-                                </tr>
-                                </thead>
-                                <tfoot>
-                                <tr>
-                                    <th>ID Evento</th>
-                                    <th>Nome</th>
-                                    <th>Data de início </th>
-                                    <th>Data de fim</th>
-                                    <th>Descrição</th>
-                                    <th>Alcance</th>
-                                    <th>Participantes</th>
-                                    <th>Acessibilidade</th>
-                                    <th>Categoria</th>
-                                    <th>Editar</th>
-                                </tr>
-                                </tfoot>
-                                <tbody>
-                                <?php include "componentes/eventos_table.php"?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+
+                        <?php
+                            require_once "connections/connection.php";
+
+                            if (isset($_GET['id'])) {
+                                $registo = $_GET['id'];
+                                $link = new_db_connection();
+                                $stmt = mysqli_stmt_init($link);
+                                $query = "SELECT * FROM eventos WHERE id_eventos = ?";
+                                if (mysqli_stmt_prepare($stmt, $query)) {
+                                    mysqli_stmt_bind_param($stmt, 'i', $registo);
+                                    if (mysqli_stmt_execute($stmt)) {
+                                        mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $super, $ref_categorias, $ref_acessibilidade);
+                                        while (mysqli_stmt_fetch($stmt)) {
+
+                                            echo "   
+                                                   <div class='card shadow mb-4'>
+                                                                    <div class='card-header py-3'>
+                                                                        <h6 class='m-0 font-weight-bold text-success'>Detalhes do Evento: ".htmlspecialchars($id_eventos)."</h6>
+                                                                    </div>
+                                                    <div class='card-body'>                                             
+                                                         <form class='form row justify-content-center' id='form_evento' method='post' action='scripts\altera_evento.php'>
+                                                         <input readonly class='col-8 form-control inputRegistar mt-4' type='text' name='id_eventos' placeholder='id_eventos' value='".htmlspecialchars($id_eventos)."'>
+                                                            <input autofocus class='col-8 form-control inputRegistar mt-4' type='text' name='nome' placeholder='nome' value='".htmlspecialchars($nome)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='descricao' placeholder='descricao' value='".htmlspecialchars($descricao)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='data_inicio' placeholder='data_inicio' value='".htmlspecialchars($data_inicio)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='data_fim' placeholder='data_fim' value='".htmlspecialchars($data_fim)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='latitude' placeholder='latitude' value='".htmlspecialchars($latitude)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='longitude' placeholder='longitude' value='".htmlspecialchars($longitude)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='participantes' placeholder='participantes' value='".htmlspecialchars($participantes)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='alcance' placeholder='alcance' value='".htmlspecialchars($alcance)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_categorias' placeholder='ref_categorias' value='".htmlspecialchars($ref_categorias)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_acessibilidade' placeholder='ref_acessibilidade' value='".htmlspecialchars($ref_acessibilidade)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='super' placeholder='super' value='".htmlspecialchars($super)."'>
+                                                            <button class='col-5 inputRegistar mt-4 p-2' type='submit'>Gravar</button>
+                                                        </form> 
+                                                </div>
+                                            </div>
+                                            ";
+                                        }
+                                    } else {
+                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                    }
+                                    mysqli_stmt_close($stmt);
+                                } else {
+                                    echo "Error: " . mysqli_error($link);
+                                }
+                            } else {
+                                header("location:../index.php");
+                            } ?>
+
 
             </div>
             <!-- /.container-fluid -->

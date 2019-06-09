@@ -22,7 +22,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             echo "<td>$data_fim</td>";
             echo "<td>$descricao</td>";
             echo "<td>$alcance pessoas alcançadas</td><td>$participantes participantes</td><td>$ref_acessibilidade</td><td>$ref_categorias</td>";
-            echo "<td><button class='btn-success mr-1' href='componentes/eventos_detail.php?id=".$id_eventos."'><i class='fas fa-edit '></i></button></td>";
+            echo "<td><a href='table_det3.php?id=".$id_eventos."'><button class='btn-success mr-1' type='button'><i class='fas fa-edit '></i></button></a></td>";
             echo "</tr>";
         }
 
