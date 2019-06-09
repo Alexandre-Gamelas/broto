@@ -49,6 +49,50 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
     mysqli_stmt_close($stmt); // Close statement
 }
 mysqli_close($link); // Close connection
+
+
+//+++++++ EVENTO COM MAIS PARTICIPAÇÕES ++++//
+$link = new_db_connection(); // Create a new DB connection
+
+$stmt = mysqli_stmt_init($link);
+
+$query = "SELECT nome FROM eventos ORDER BY participantes desc";
+
+if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+
+    mysqli_stmt_execute($stmt); // Execute the prepared statement
+
+    mysqli_stmt_bind_result($stmt, $nome); // Bind results
+
+    if (mysqli_stmt_fetch($stmt)) { // Fetch values
+        $evento_participantes_max = $nome;
+    }
+    mysqli_stmt_close($stmt); // Close statement
+}
+mysqli_close($link); // Close connection
+
+
+//++++++ CATEGORIA COM MAIS PESO ++++++++//
+$link = new_db_connection(); // Create a new DB connection
+
+$stmt = mysqli_stmt_init($link);
+
+$query = "SELECT SUM(utilizadores_has_categorias.peso) AS weight , categorias.nome FROM utilizadores_has_categorias
+  INNER JOIN categorias ON utilizadores_has_categorias.ref_categorias = categorias.id_categorias GROUP BY categorias.nome ORDER BY weight desc";
+
+if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+
+    mysqli_stmt_execute($stmt); // Execute the prepared statement
+
+    mysqli_stmt_bind_result($stmt, $peso, $nome); // Bind results
+
+    if (mysqli_stmt_fetch($stmt)) { // Fetch values
+        $categoria_mais_famosa = $nome;
+    }
+    mysqli_stmt_close($stmt); // Close statement
+}
+mysqli_close($link); // Close connection
+
 ?>
 <head>
 
@@ -95,8 +139,10 @@ mysqli_close($link); // Close connection
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Geral</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    <!-- TODO GENERATE REPORT
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
+                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a><
+                    -->
                 </div>
 
                 <!-- Content Row -->
@@ -146,17 +192,10 @@ mysqli_close($link); // Close connection
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Desafios do mês completados</div>
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Categoria mais Popular</div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
-                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">75%</div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="progress progress-sm mr-2">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                         style="width: 75%" aria-valuenow="75" aria-valuemin="0"
-                                                         aria-valuemax="100"></div>
-                                                </div>
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $categoria_mais_famosa ?></div>
                                             </div>
                                         </div>
                                     </div>
@@ -177,7 +216,7 @@ mysqli_close($link); // Close connection
                                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                             Evento com mais participações
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Plantar Lousada</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?=  $evento_participantes_max ?></div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -197,7 +236,7 @@ mysqli_close($link); // Close connection
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Contas criadas (exemplo)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Contas Criadas ao Longo do Tempo</h6>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -265,6 +304,39 @@ mysqli_close($link); // Close connection
 <script src="vendor/chart.js/Chart.min.js"></script>
 
 <!-- Page level custom scripts -->
+<?php
+    //dados para o gráfico de contas
+    $datas = array();
+    for($i = 1; $i<=12; $i++){
+        $link = new_db_connection(); // Create a new DB connection
+
+        $stmt = mysqli_stmt_init($link);
+
+        $query = "SELECT COUNT(data_entrada) as entradas from utilizadores WHERE data_entrada LIKE ?";
+
+        if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+            mysqli_stmt_bind_param($stmt,'s', $data); // Bind variables by type to each parameter
+            if($i < 10)
+                $data = "2019-0".$i."%";
+            else
+                $data = "2019-".$i."%";
+            mysqli_stmt_execute($stmt); // Execute the prepared statement
+
+            mysqli_stmt_bind_result($stmt, $numero); // Bind results
+
+            if (mysqli_stmt_fetch($stmt)) { // Fetch values
+               array_push($datas, $numero);
+            }
+            mysqli_stmt_close($stmt); // Close statement
+        }
+        mysqli_close($link); // Close connection
+    }
+
+?>
+            <script>
+                var datas = <?php echo json_encode($datas); ?>;
+                //console.log(datas);
+            </script>
 <script src="js/demo/chart-area-demo.js"></script>
 <script src="js/demo/chart-pie-demo.js"></script>
 
