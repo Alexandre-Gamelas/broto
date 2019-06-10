@@ -82,7 +82,7 @@
                                         <h6 class='m-0 font-weight-bold text-success'><?= $nome ?></h6>
                                     </div>
                                     <div class='card-body'>
-                                        <form class='form row justify-content-center' id='form_evento' method='post' action='scripts\altera_user.php'>
+                                        <form class='form row justify-content-center align-items-center' id='form_evento' method='post' action='scripts\altera_user.php'>
                                             <input readonly class='col-8 form-control inputRegistar mt-4' type='text' name='id' placeholder='id' value='<?= $id ?>'>
                                             <input autofocus class='col-8 form-control inputRegistar mt-4' type='text' name='nome' placeholder='Nome' value='<?= $nome ?>'>
                                             <input class='col-8 form-control inputRegistar mt-4' type='text' name='mail' placeholder='Email' value='<?= $mail ?>'>
@@ -142,7 +142,14 @@
 
                                             <input class='col-8 form-control inputRegistar mt-4' type='text' name='nascimento' placeholder='Data Nascimento' value='<?= $data_nascimento ?>'>
                                             <input class='col-8 form-control inputRegistar mt-4' type='text' name='registo' placeholder='Data do Registo' value='<?= $data_registo ?>'>
-                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='fotografia' placeholder='Fotografia' value='<?= $fotografia ?>'>
+                                            <a class='col-8 form-control inputRegistar mt-4' data-toggle="modal" data-target="#fotografiaModal">
+                                                <?php
+                                                    if ($fotografia != null)
+                                                        echo $fotografia;
+                                                    else
+                                                        echo "Fotografia";
+                                                ?>
+                                            </a>
                                             <input class='col-8 form-control inputRegistar mt-4' type='text' name='blocked' placeholder='Blocked' value='<?= $blocked ?>'>
                                             <button class='col-5 inputRegistar mt-4 p-2' type='submit'>Gravar</button>
                                         </form>
@@ -203,6 +210,20 @@
     </div>
 </div>
 
+<!-- Fotografia Modal-->
+<div class="modal fade" id="fotografiaModal" tabindex="-1" role="dialog" aria-labelledby="modalFotos"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <form class="row justify-content-center pb-5" action="scripts/uploadFoto.php?id=<?= $registo ?>" enctype="multipart/form-data" method="post">
+                    <input style="cursor: pointer!important;" class="col-8 p-3 pb-5 form-control inputRegistar mt-4" type="file" placeholder="File" name="fileToUpload" id="fileToUpload">
+                    <input class="col-8 form-control inputRegistar mt-4" type="submit" value="Upload" name="submit">
+                </form>
+        </div>
+    </div>
+</div>
+
 <?php
 
 if(isset($_GET['msg'])) {
@@ -213,6 +234,12 @@ if(isset($_GET['msg'])) {
             break;
         case "updateNao":
             echo "<script>alert('Update falhado!')</script>";
+            break;
+        case "fotoNao":
+            echo "<script>alert('Foto falhada!')</script>";
+            break;
+        case "fotoSim":
+            echo "<script>alert('Foto submetida!')</script>";
             break;
     }
 }
