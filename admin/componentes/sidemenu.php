@@ -3,7 +3,7 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+                <i class="fas fa-tools"></i>
             </div>
             <div class="sidebar-brand-text mx-3">Página Administrador</div>
         </a>
@@ -35,9 +35,10 @@ Base de Dados
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="tables.php">Utilizador</a>
+                    <a class="collapse-item" href="tabela_utilizadores.php">Utilizador</a>
                     <a class="collapse-item" href="tables2.php">Desafios</a>
                     <a class="collapse-item" href="tables3.php">Eventos</a>
+                    <a class="collapse-item" href="tables_cong.php">Extras</a>
                 </div>
             </div>
         </li>

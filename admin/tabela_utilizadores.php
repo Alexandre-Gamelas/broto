@@ -72,93 +72,47 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nome</th>
-                                    <th>Data de nascimento</th>
+                                    <th>Data de Nascimento</th>
                                     <th>Papel </th>
                                     <th>Nacionalidade</th>
                                     <th>Bloquear</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <tr>
-                                    <td>01</td>
-                                    <td>Pedro Almeida</td>
-                                    <td>11-05-1998</td>
-                                    <td> <button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>Voluntário</td>
-                                    <td>Portugal</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#blockModal"><i class="fas fa-lock "></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>02</td>
-                                    <td>António Silva</td>
-                                    <td>22-04-1989</td>
-                                    <td> <button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>Colaborador</td>
-                                    <td>Moçambique</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#blockModal"><i class="fas fa-lock "></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>03</td>
-                                    <td>Sara Pereira</td>
-                                    <td>22-04-1995</td>
-                                    <td> <button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>Voluntário</td>
-                                    <td>Portugal</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#blockModal"><i class="fas fa-lock "></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>04</td>
-                                    <td>António Silva</td>
-                                    <td>22-04-1989</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>Colaborador</td>
-                                    <td>Portugal</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#blockModal"><i class="fas fa-lock "></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>05</td>
-                                    <td>António Silva</td>
-                                    <td>22-04-1989</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>Colaborador</td>
-                                    <td>Portugal</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#blockModal"><i class="fas fa-lock "></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>06</td>
-                                    <td>António Silva</td>
-                                    <td>22-04-1989</td>
-                                    <td><button class="btn-success mr-1 data-toggle="modal" data-target="#editModal""><i class="fas fa-edit "></i></button>Voluntário</td>
-                                    <td>Portugal</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#blockModal"><i class="fas fa-lock "></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>07</td>
-                                    <td>António Silva</td>
-                                    <td>22-04-1989</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>Colaborador</td>
-                                    <td>Moçambique</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#blockModal"><i class="fas fa-lock "></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>08</td>
-                                    <td>António Silva</td>
-                                    <td>22-04-1989</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>Colaborador</td>
-                                    <td>Moçambique</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#blockModal"><i class="fas fa-lock "></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>09</td>
-                                    <td>António Silva</td>
-                                    <td>22-04-1989</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>Colaborador</td>
-                                    <td>Moçambique</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#blockModal"><i class="fas fa-lock "></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>António Silva</td>
-                                    <td>22-04-1989</td>
-                                    <td><button class="btn-success mr-1" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit "></i></button>Colaborador</td>
-                                    <td>Moçambique</td>
-                                    <td><button class="btn-success" data-toggle="modal" data-target="#blockModal"><i class="fas fa-lock "></i></button></td>
-                                </tr>
+                                <?php
+                                include_once "connections/connection.php";
+                                $link = new_db_connection(); // Create a new DB connection
+
+                                $stmt = mysqli_stmt_init($link);
+
+                                $query = "SELECT id_utilizadores, utilizadores.nome, data_nascimento, papeis.nome, nacionalidades.nome FROM utilizadores
+                                    INNER JOIN papeis ON utilizadores.ref_papeis = papeis.id_papeis
+                                    INNER JOIN nacionalidades ON utilizadores.ref_nacionalidades = nacionalidades.id_nacionalidades";
+
+                                if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+
+                                    mysqli_stmt_execute($stmt); // Execute the prepared statement
+
+                                    mysqli_stmt_bind_result($stmt, $id, $nome, $data, $papel, $nacionalidade); // Bind results
+
+                                    while (mysqli_stmt_fetch($stmt)) { // Fetch values
+                                        ?>
+                                        <tr>
+                                            <th><?= $id ?></th>
+                                            <th><?= $nome ?></th>
+                                            <th><?= $data ?></th>
+                                            <th><?= $papel ?></th>
+                                            <th><?= $nacionalidade ?></th>
+                                            <th>TESTE</th>
+                                        </tr>
+
+                                        <?php
+                                    }
+                                    mysqli_stmt_close($stmt); // Close statement
+                                }
+                                mysqli_close($link); // Close connection
+
+                                ?>
                                 </tbody>
                             </table>
                         </div>
