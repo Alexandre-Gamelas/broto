@@ -60,22 +60,14 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Data de nascimento</th>
-                                    <th>Papel</th>
-                                    <th>Nacionalidade</th>
-                                    <th>Editar</th>
+                                    <th>Utilizador</th>
+                                    <th>Evento</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Data de Nascimento</th>
-                                    <th>Papel </th>
-                                    <th>Nacionalidade</th>
-                                    <th>Editar</th>
+                                    <th>Utilizador</th>
+                                    <th>Evento</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
@@ -85,25 +77,21 @@
 
                                 $stmt = mysqli_stmt_init($link);
 
-                                $query = "SELECT id_utilizadores, utilizadores.nome, data_nascimento, papeis.nome, nacionalidades.nome FROM utilizadores
-                                    INNER JOIN papeis ON utilizadores.ref_papeis = papeis.id_papeis
-                                    INNER JOIN nacionalidades ON utilizadores.ref_nacionalidades = nacionalidades.id_nacionalidades";
+                                $query = "SELECT utilizadores_has_eventos.ref_utilizadores, utilizadores_has_eventos.ref_eventos, utilizadores.nome, eventos.nome FROM utilizadores_has_eventos
+                                        INNER JOIN eventos ON utilizadores_has_eventos.ref_eventos = id_eventos
+                                        INNER JOIN utilizadores ON utilizadores_has_eventos.ref_utilizadores = utilizadores.id_utilizadores";
 
                                 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
                                     mysqli_stmt_execute($stmt); // Execute the prepared statement
 
-                                    mysqli_stmt_bind_result($stmt, $id, $nome, $data, $papel, $nacionalidade); // Bind results
+                                    mysqli_stmt_bind_result($stmt, $id_user, $id_evento, $user, $evento); // Bind results
 
                                     while (mysqli_stmt_fetch($stmt)) { // Fetch values
                                         ?>
                                         <tr>
-                                            <th><?= $id ?></th>
-                                            <th><?= $nome ?></th>
-                                            <th><?= $data ?></th>
-                                            <th><?= $papel ?></th>
-                                            <th><?= $nacionalidade ?></th>
-                                            <td><a href='tabela_edit_utilizadores.php?id=<?=$id?>'><button class='btn-success mr-1' type='button'><i class='fas fa-edit '></i></button></a></td>
+                                            <th><a href="tabela_edit_utilizadores.php?id=<?= $id_user?>"><?= $user ?></a></th>
+                                            <th><a href="table_det3.php?id=<?= $id_evento?>"><?= $evento ?></a></th>
                                         </tr>
                                         <?php
                                     }
@@ -172,11 +160,11 @@
             </div>
             <div class="modal-body">Selecione o papel novo</div>
 
-                <select class="m-3" name="papel">
-<option>Voluntário</option>
-<option>Colaborador</option>
-<option>Admin</option>
-                </select>
+            <select class="m-3" name="papel">
+                <option>Voluntário</option>
+                <option>Colaborador</option>
+                <option>Admin</option>
+            </select>
 
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>

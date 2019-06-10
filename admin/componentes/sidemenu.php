@@ -39,6 +39,7 @@ Base de Dados
                     <a class="collapse-item" href="tables2.php">Desafios</a>
                     <a class="collapse-item" href="tables3.php">Eventos</a>
                     <a class="collapse-item" href="tables_categorias.php">Categorias</a>
+                    <a class="collapse-item" href="tabela_users_events.php">Utilizadores e Eventos</a>
                     <a class="collapse-item" href="tables_cong.php">Extras</a>
                 </div>
             </div>
