@@ -87,11 +87,9 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     $foto = $target_file;
     $id = $_GET['id'];
     if (mysqli_stmt_execute($stmt)) {
-        if (mysqli_stmt_fetch($stmt)) {
 
-        } else {
-            echo "<script>alert('hallo')</script>";
-        }
+    } else {
+        echo "<script>alert('error')</script>";
     }
 }
 

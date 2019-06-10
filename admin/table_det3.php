@@ -74,11 +74,10 @@
                                     if (mysqli_stmt_execute($stmt)) {
                                         mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $super, $ref_categorias, $ref_acessibilidade, $fotografia);
                                         while (mysqli_stmt_fetch($stmt)) {
-
                                             ?>
                                                    <div class='card shadow mb-4'>
                                                                     <div class='card-header py-3'>
-                                                                        <h6 class='m-0 font-weight-bold text-success'>Detalhes do Evento: <?=$id_eventos?></h6>
+                                                                        <h6 class='m-0 font-weight-bold text-success'>Detalhes do Evento: <i class="font-italic"><?=$nome?></i></h6>
                                                                     </div>
                                                     <div class='card-body'>                                            
                                                          <form class='form row justify-content-center' id='form_evento' method='post' action='scripts\altera_evento.php'>
@@ -91,8 +90,59 @@
                                                             <input class='col-8 form-control inputRegistar mt-4' type='text' name='longitude' placeholder='longitude' value='<?= $longitude ?>'>
                                                             <input class='col-8 form-control inputRegistar mt-4' type='text' name='participantes' placeholder='participantes' value='<?= $participantes ?>'>
                                                             <input class='col-8 form-control inputRegistar mt-4' type='text' name='alcance' placeholder='alcance' value='<?= $alcance ?>'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_categorias' placeholder='ref_categorias' value='<?= $ref_categorias ?>'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_acessibilidade' placeholder='ref_acessibilidade' value='<?= $ref_acessibilidade ?>'>
+
+                                                             <select type="text" title="categorias" class="col-8 form-control inputRegistar mt-4"  name="categorias" >
+                                                                 <?php
+                                                                     $stmt = mysqli_stmt_init($link);
+
+                                                                     $query = "SELECT id_categorias, nome FROM categorias";
+    
+                                                                     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+
+                                                                         mysqli_stmt_execute($stmt); // Execute the prepared statement
+
+                                                                         mysqli_stmt_bind_result($stmt, $id, $cate); // Bind results
+
+                                                                         while (mysqli_stmt_fetch($stmt)) { // Fetch values
+
+
+                                                                             if($id == $ref_categorias)
+                                                                                 echo "<option selected value='$id'>$cate</option>";
+                                                                             else
+                                                                                 echo "<option value='$id'>$cate</option>";
+
+                                                                         }
+                                                                         mysqli_stmt_close($stmt); // Close statement
+                                                                     }
+                                                                 ?>
+                                                             </select>
+
+                                                             <select type="text" title="acessibilidade" class="col-8 form-control inputRegistar mt-4"  name="acessibilidade" >
+                                                                 <?php
+                                                                 $stmt = mysqli_stmt_init($link);
+
+                                                                 $query = "SELECT id_acessibilidade, descricao FROM acessibilidade";
+
+                                                                 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+
+                                                                     mysqli_stmt_execute($stmt); // Execute the prepared statement
+
+                                                                     mysqli_stmt_bind_result($stmt, $id, $desc); // Bind results
+
+                                                                     while (mysqli_stmt_fetch($stmt)) { // Fetch values
+
+
+                                                                         if($id == $ref_acessibilidade)
+                                                                             echo "<option selected value='$id'>$desc</option>";
+                                                                         else
+                                                                             echo "<option value='$id'>$desc</option>";
+
+                                                                     }
+                                                                     mysqli_stmt_close($stmt); // Close statement
+                                                                 }
+                                                                 ?>
+                                                             </select>
+
                                                             <input class='col-8 form-control inputRegistar mt-4' type='text' name='super' placeholder='super' value='<?= $super ?>'>
                                                              <a class='col-8 form-control inputRegistar mt-4' data-toggle="modal" data-target="#fotografiaModal">
                                                                  <?php

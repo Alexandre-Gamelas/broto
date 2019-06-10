@@ -16,8 +16,8 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     $participantes = $_POST["participantes"];
     $alcance = $_POST["alcance"];
     $super = $_POST["super"];
-    $ref_categorias = $_POST["ref_categorias"];
-    $ref_acessibilidade = $_POST["ref_acessibilidade"];
+    $ref_categorias = $_POST["categorias"];
+    $ref_acessibilidade = $_POST["acessibilidade"];
     $fotografia = $_POST["fotografia"];
     $id_eventos = $_POST["id_eventos"];
     if (mysqli_stmt_execute($stmt)) {
