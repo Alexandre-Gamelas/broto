@@ -83,74 +83,107 @@
                                     </div>
                                     <div class='card-body'>
                                         <form class='form row justify-content-center align-items-center' id='form_evento' method='post' action='scripts\altera_user.php'>
-                                            <input readonly class='col-8 form-control inputRegistar mt-4' type='text' name='id' placeholder='id' value='<?= $id ?>'>
-                                            <input autofocus class='col-8 form-control inputRegistar mt-4' type='text' name='nome' placeholder='Nome' value='<?= $nome ?>'>
-                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='mail' placeholder='Email' value='<?= $mail ?>'>
 
-                                            <select type="text" title="nacionalidades" class="col-8 form-control inputRegistar mt-4"  name="nacionalidade" >
-                                                <?php
-                                                $stmt = mysqli_stmt_init($link);
+                                            <div class="form-group col-8 mt-2">
+                                                <label for="">ID</label>
+                                                <input readonly class='form-control inputRegistar' type='text' name='id' placeholder='id' value='<?= $id ?>'>
+                                            </div>
 
-                                                $query = "SELECT id_nacionalidades, nome FROM nacionalidades";
+                                            <div class="form-group col-8 mt-2">
+                                                <label for="">Nome</label>
+                                                <input autofocus class='form-control inputRegistar' type='text' name='nome' placeholder='Nome' value='<?= $nome ?>'>
+                                            </div>
 
-                                                if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+                                            <div class="form-group col-8 mt-2">
+                                                <label for="">Email</label>
+                                                <input class='form-control inputRegistar' type='text' name='mail' placeholder='Email' value='<?= $mail ?>'>
+                                            </div>
 
-                                                    mysqli_stmt_execute($stmt); // Execute the prepared statement
+                                            <div class="form-group col-8 mt-2">
+                                                <label for="">Nacionalidade</label>
+                                                <select type="text" title="nacionalidades" class="form-control inputRegistar"  name="nacionalidade" >
+                                                    <?php
+                                                    $stmt = mysqli_stmt_init($link);
 
-                                                    mysqli_stmt_bind_result($stmt, $id, $nac); // Bind results
+                                                    $query = "SELECT id_nacionalidades, nome FROM nacionalidades";
 
-                                                    while (mysqli_stmt_fetch($stmt)) { // Fetch values
+                                                    if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+
+                                                        mysqli_stmt_execute($stmt); // Execute the prepared statement
+
+                                                        mysqli_stmt_bind_result($stmt, $id, $nac); // Bind results
+
+                                                        while (mysqli_stmt_fetch($stmt)) { // Fetch values
 
 
-                                                        if($nac == $nacionalidade)
-                                                            echo "<option selected value='$id'>$nac</option>";
-                                                        else
-                                                            echo "<option value='$id'>$nac</option>";
+                                                            if($nac == $nacionalidade)
+                                                                echo "<option selected value='$id'>$nac</option>";
+                                                            else
+                                                                echo "<option value='$id'>$nac</option>";
 
+                                                        }
+                                                        mysqli_stmt_close($stmt); // Close statement
                                                     }
-                                                    mysqli_stmt_close($stmt); // Close statement
-                                                }
-                                                ?>
-                                            </select>
+                                                    ?>
+                                                </select>
+                                            </div>
 
-                                            <select type="text" title="papeis" class="col-8 form-control inputRegistar mt-4"  name="papel" >
-                                                <?php
-                                                $stmt = mysqli_stmt_init($link);
+                                            <div class="form-group col-8 mt-2">
+                                                <label for="">Perfil</label>
+                                                <select type="text" title="papeis" class="form-control inputRegistar"  name="papel" >
+                                                    <?php
+                                                    $stmt = mysqli_stmt_init($link);
 
-                                                $query = "SELECT id_papeis, nome FROM papeis";
+                                                    $query = "SELECT id_papeis, nome FROM papeis";
 
-                                                if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+                                                    if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
-                                                    mysqli_stmt_execute($stmt); // Execute the prepared statement
+                                                        mysqli_stmt_execute($stmt); // Execute the prepared statement
 
-                                                    mysqli_stmt_bind_result($stmt, $id, $papel_select); // Bind results
+                                                        mysqli_stmt_bind_result($stmt, $id, $papel_select); // Bind results
 
-                                                    while (mysqli_stmt_fetch($stmt)) { // Fetch values
+                                                        while (mysqli_stmt_fetch($stmt)) { // Fetch values
 
 
-                                                        if($papel_select == $papel)
-                                                            echo "<option selected value='$id'>$papel_select</option>";
-                                                        else
-                                                            echo "<option value='$id'>$papel_select</option>";
+                                                            if($papel_select == $papel)
+                                                                echo "<option selected value='$id'>$papel_select</option>";
+                                                            else
+                                                                echo "<option value='$id'>$papel_select</option>";
 
+                                                        }
+                                                        mysqli_stmt_close($stmt); // Close statement
                                                     }
-                                                    mysqli_stmt_close($stmt); // Close statement
-                                                }
-                                                ?>
-                                            </select>
+                                                    ?>
+                                                </select>
+                                            </div>
 
+                                            <div class="form-group col-8 mt-2">
+                                                <label for="">Data de Nascimento</label>
+                                                <input class='form-control inputRegistar' type='text' name='nascimento' placeholder='Data Nascimento' value='<?= $data_nascimento ?>'>
+                                            </div>
 
-                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='nascimento' placeholder='Data Nascimento' value='<?= $data_nascimento ?>'>
-                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='registo' placeholder='Data do Registo' value='<?= $data_registo ?>'>
-                                            <a class='col-8 form-control inputRegistar mt-4' data-toggle="modal" data-target="#fotografiaModal">
-                                                <?php
+                                            <div class="form-group col-8 mt-2">
+                                                <label for="">Data de Registo</label>
+                                                <input class='form-control inputRegistar' type='text' name='registo' placeholder='Data do Registo' value='<?= $data_registo ?>'>
+                                            </div>
+
+                                            <div class="form-group col-8 mt-2">
+                                                <label for="">Fotografia</label>
+                                                <a class='form-control inputRegistar' data-toggle="modal" data-target="#fotografiaModal">
+                                                    <?php
                                                     if ($fotografia != null)
                                                         echo $fotografia;
                                                     else
                                                         echo "Fotografia";
-                                                ?>
-                                            </a>
-                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='blocked' placeholder='Blocked' value='<?= $blocked ?>'>
+                                                    ?>
+                                                </a>
+                                            </div>
+
+                                            <div class="form-group col-8 mt-2">
+                                                <label for="">Sanção</label>
+                                                <input class='form-control inputRegistar' type='text' name='blocked' placeholder='Blocked' value='<?= $blocked ?>'>
+                                            </div>
+
                                             <button class='col-5 inputRegistar mt-4 p-2' type='submit'>Gravar</button>
                                         </form>
                                     </div>
