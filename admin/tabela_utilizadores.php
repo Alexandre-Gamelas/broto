@@ -75,7 +75,7 @@
                                     <th>Data de Nascimento</th>
                                     <th>Papel </th>
                                     <th>Nacionalidade</th>
-                                    <th>Bloquear</th>
+                                    <th>Editar</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
