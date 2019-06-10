@@ -26,14 +26,7 @@
 
 <body id="page-top">
 
-<?php
 
-
-
-
-
-
-?>
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -161,7 +154,6 @@
                         } else {
                             echo "Error: " . mysqli_stmt_error($stmt);
                         }
-                        mysqli_stmt_close($stmt);
                     } else {
                         echo "Error: " . mysqli_error($link);
                     }
@@ -177,13 +169,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2019</span>
-                </div>
-            </div>
-        </footer>
+        <?php include_once "componentes/footer.php"; ?>
         <!-- End of Footer -->
 
     </div>
@@ -216,6 +202,21 @@
         </div>
     </div>
 </div>
+
+<?php
+
+if(isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
+    switch ($msg) {
+        case "updateSim":
+            echo "<script>alert('Update efetuado com sucesso!')</script>";
+            break;
+        case "updateNao":
+            echo "<script>alert('Update falhado!')</script>";
+            break;
+    }
+}
+?>
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>

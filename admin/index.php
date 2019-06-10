@@ -173,8 +173,8 @@ mysqli_close($link); // Close connection
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Contas criadas recentemente
-                                            (mês)
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Contas criadas recentemente
                                         </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $num_contas_recentes ?></div>
                                     </div>
