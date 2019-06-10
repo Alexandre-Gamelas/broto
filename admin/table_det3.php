@@ -75,31 +75,39 @@
                                         mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $super, $ref_categorias, $ref_acessibilidade, $fotografia);
                                         while (mysqli_stmt_fetch($stmt)) {
 
-                                            echo "   
+                                            ?>
                                                    <div class='card shadow mb-4'>
                                                                     <div class='card-header py-3'>
-                                                                        <h6 class='m-0 font-weight-bold text-success'>Detalhes do Evento: ".htmlspecialchars($id_eventos)."</h6>
+                                                                        <h6 class='m-0 font-weight-bold text-success'>Detalhes do Evento: <?=$id_eventos?></h6>
                                                                     </div>
                                                     <div class='card-body'>                                            
                                                          <form class='form row justify-content-center' id='form_evento' method='post' action='scripts\altera_evento.php'>
-                                                         <input readonly class='col-8 form-control inputRegistar mt-4' type='text' name='id_eventos' placeholder='id_eventos' value='".htmlspecialchars($id_eventos)."'>
-                                                            <input autofocus class='col-8 form-control inputRegistar mt-4' type='text' name='nome' placeholder='nome' value='".htmlspecialchars($nome)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='descricao' placeholder='descricao' value='".htmlspecialchars($descricao)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='data_inicio' placeholder='data_inicio' value='".htmlspecialchars($data_inicio)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='data_fim' placeholder='data_fim' value='".htmlspecialchars($data_fim)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='latitude' placeholder='latitude' value='".htmlspecialchars($latitude)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='longitude' placeholder='longitude' value='".htmlspecialchars($longitude)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='participantes' placeholder='participantes' value='".htmlspecialchars($participantes)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='alcance' placeholder='alcance' value='".htmlspecialchars($alcance)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_categorias' placeholder='ref_categorias' value='".htmlspecialchars($ref_categorias)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_acessibilidade' placeholder='ref_acessibilidade' value='".htmlspecialchars($ref_acessibilidade)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='super' placeholder='super' value='".htmlspecialchars($super)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='fotografia' placeholder='fotografia' value='".htmlspecialchars($fotografia)."'>
+                                                         <input readonly class='col-8 form-control inputRegistar mt-4' type='text' name='id_eventos' placeholder='id_eventos' value='<?= $id_eventos ?>'>
+                                                            <input autofocus class='col-8 form-control inputRegistar mt-4' type='text' name='nome' placeholder='nome' value='<?= $nome ?>'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='descricao' placeholder='descricao' value='<?= $descricao ?>"'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='data_inicio' placeholder='data_inicio' value='<?= $data_inicio ?>'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='data_fim' placeholder='data_fim' value='<?= $data_fim ?>'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='latitude' placeholder='latitude' value='<?= $latitude ?>'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='longitude' placeholder='longitude' value='<?= $longitude ?>'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='participantes' placeholder='participantes' value='<?= $participantes ?>'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='alcance' placeholder='alcance' value='<?= $alcance ?>'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_categorias' placeholder='ref_categorias' value='<?= $ref_categorias ?>'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_acessibilidade' placeholder='ref_acessibilidade' value='<?= $ref_acessibilidade ?>'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='super' placeholder='super' value='<?= $super ?>'>
+                                                             <a class='col-8 form-control inputRegistar mt-4' data-toggle="modal" data-target="#fotografiaModal">
+                                                                 <?php
+                                                                 if ($fotografia != null)
+                                                                     echo $fotografia;
+                                                                 else
+                                                                     echo "Fotografia";
+                                                                 ?>
+                                                             </a>
                                                             <button class='col-5 inputRegistar mt-4 p-2' type='submit'>Gravar</button>
                                                         </form> 
                                                 </div>
                                             </div>
-                                            ";
+
+                                        <?php
                                         }
                                     } else {
                                         echo "Error: " . mysqli_stmt_error($stmt);
@@ -202,6 +210,41 @@
         </div>
     </div>
 </div>
+
+<!-- Fotografia Modal-->
+<div class="modal fade" id="fotografiaModal" tabindex="-1" role="dialog" aria-labelledby="modalFotos"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <form class="row justify-content-center pb-5" action="scripts/uploadFoto.php?id=<?= $registo ?>&tipo=evento" enctype="multipart/form-data" method="post">
+                    <input style="cursor: pointer!important;" class="col-8 p-3 pb-5 form-control inputRegistar mt-4" type="file" placeholder="File" name="fileToUpload" id="fileToUpload">
+                    <input class="col-8 form-control inputRegistar mt-4" type="submit" value="Upload" name="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <?php
+
+    if(isset($_GET['msg'])) {
+        $msg = $_GET['msg'];
+        switch ($msg) {
+            case "updateSim":
+                echo "<script>alert('Update efetuado com sucesso!')</script>";
+                break;
+            case "updateNao":
+                echo "<script>alert('Update falhado!')</script>";
+                break;
+            case "fotoNao":
+                echo "<script>alert('Foto falhada!')</script>";
+                break;
+            case "fotoSim":
+                echo "<script>alert('Foto submetida!')</script>";
+                break;
+        }
+    }
+    ?>
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>

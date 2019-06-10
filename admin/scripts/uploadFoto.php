@@ -2,7 +2,17 @@
 session_start();
 
 //aqui escolhem a pasta para onde vai o ficheiro
-$target_dir = "../img/fotosUser/";
+if (isset($_GET['tipo'])){
+    $tipo = $_GET['tipo'];
+    switch ($tipo){
+        case "user":
+            $target_dir = "../img/fotosUser/";
+            break;
+        case "evento":
+            $target_dir = "../img/fotosEvento/";
+            break;
+    }
+}
 //aqui fazem a concatenação do diretorio com o nome do ficheiro
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
@@ -60,7 +70,17 @@ if ($uploadOk == 0) {
 include_once "../connections/connection.php";
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "UPDATE utilizadores SET fotografia = ? WHERE id_utilizadores LIKE ?";
+
+if (isset($_GET['tipo'])){
+    switch ($tipo){
+        case "user":
+            $query = "UPDATE utilizadores SET fotografia = ? WHERE id_utilizadores LIKE ?";
+            break;
+        case "evento":
+            $query = "UPDATE eventos SET fotografia = ? WHERE eventos.id_eventos LIKE ?";
+            break;
+    }
+}
 
 if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, 'ss', $foto, $id);
@@ -75,4 +95,14 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     }
 }
 
-header("Location: ../tabela_edit_utilizadores.php?id=".$_GET['id']."&msg=fotoSim");
+if (isset($_GET['tipo'])){
+    switch ($tipo){
+        case "user":
+            header("Location: ../tabela_edit_utilizadores.php?id=".$_GET['id']."&msg=fotoSim");
+            break;
+        case "evento":
+            header("Location: ../table_det3.php?id=".$_GET['id']."&msg=fotoSim");
+            break;
+    }
+}
+

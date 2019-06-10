@@ -216,7 +216,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <form class="row justify-content-center pb-5" action="scripts/uploadFoto.php?id=<?= $registo ?>" enctype="multipart/form-data" method="post">
+                <form class="row justify-content-center pb-5" action="scripts/uploadFoto.php?id=<?= $registo ?>&tipo=user" enctype="multipart/form-data" method="post">
                     <input style="cursor: pointer!important;" class="col-8 p-3 pb-5 form-control inputRegistar mt-4" type="file" placeholder="File" name="fileToUpload" id="fileToUpload">
                     <input class="col-8 form-control inputRegistar mt-4" type="submit" value="Upload" name="submit">
                 </form>
