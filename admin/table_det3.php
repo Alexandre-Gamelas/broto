@@ -81,22 +81,60 @@
                                                                     </div>
                                                     <div class='card-body'>                                            
                                                          <form class='form row justify-content-center' id='form_evento' method='post' action='scripts\altera_evento.php'>
-                                                         <input readonly class='col-8 form-control inputRegistar mt-4' type='text' name='id_eventos' placeholder='id_eventos' value='<?= $id_eventos ?>'>
-                                                            <input autofocus class='col-8 form-control inputRegistar mt-4' type='text' name='nome' placeholder='nome' value='<?= $nome ?>'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='descricao' placeholder='descricao' value='<?= $descricao ?>"'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='data_inicio' placeholder='data_inicio' value='<?= $data_inicio ?>'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='data_fim' placeholder='data_fim' value='<?= $data_fim ?>'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='latitude' placeholder='latitude' value='<?= $latitude ?>'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='longitude' placeholder='longitude' value='<?= $longitude ?>'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='participantes' placeholder='participantes' value='<?= $participantes ?>'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='alcance' placeholder='alcance' value='<?= $alcance ?>'>
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">ID</label>
+                                                                 <input readonly class='form-control inputRegistar' type='text' name='id_eventos' placeholder='id_eventos' value='<?= $id_eventos ?>'>
+                                                             </div>
 
-                                                             <select type="text" title="categorias" class="col-8 form-control inputRegistar mt-4"  name="categorias" >
-                                                                 <?php
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Nome</label>
+                                                                 <input autofocus class='form-control inputRegistar' type='text' name='nome' placeholder='nome' value='<?= $nome ?>'>
+                                                             </div>
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Descrição</label>
+                                                                 <input class='form-control inputRegistar' type='text' name='descricao' placeholder='descricao' value='<?= $descricao ?>"'>
+                                                             </div>
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Data de Início</label>
+                                                                 <input class='form-control inputRegistar' type='text' name='data_inicio' placeholder='data_inicio' value='<?= $data_inicio ?>'>
+                                                             </div>
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Data de Fim</label>
+                                                                 <input class='form-control inputRegistar' type='text' name='data_fim' placeholder='data_fim' value='<?= $data_fim ?>'>
+                                                             </div>
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Latitude</label>
+                                                                 <input class='form-control inputRegistar' type='text' name='latitude' placeholder='latitude' value='<?= $latitude ?>'>
+                                                             </div>
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Longitude</label>
+                                                                 <input class='form-control inputRegistar' type='text' name='latitude' placeholder='latitude' value='<?= $longitude ?>'>
+                                                             </div>
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Participantes</label>
+                                                                 <input class='form-control inputRegistar' type='text' name='latitude' placeholder='latitude' value='<?= $participantes ?>'>
+                                                             </div>
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Alcance</label>
+                                                                 <input class='form-control inputRegistar' type='text' name='latitude' placeholder='latitude' value='<?= $alcance ?>'>
+                                                             </div>
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Categoria</label>
+
+                                                                 <select type="text" title="categorias" class="form-control inputRegistar"  name="categorias" >
+                                                                     <?php
                                                                      $stmt = mysqli_stmt_init($link);
 
                                                                      $query = "SELECT id_categorias, nome FROM categorias";
-    
+
                                                                      if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
                                                                          mysqli_stmt_execute($stmt); // Execute the prepared statement
@@ -114,44 +152,54 @@
                                                                          }
                                                                          mysqli_stmt_close($stmt); // Close statement
                                                                      }
-                                                                 ?>
-                                                             </select>
+                                                                     ?>
+                                                                 </select>
+                                                             </div>
 
-                                                             <select type="text" title="acessibilidade" class="col-8 form-control inputRegistar mt-4"  name="acessibilidade" >
-                                                                 <?php
-                                                                 $stmt = mysqli_stmt_init($link);
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Acessibilidade</label>
 
-                                                                 $query = "SELECT id_acessibilidade, descricao FROM acessibilidade";
+                                                                 <select type="text" title="acessibilidade" class=" form-control inputRegistar "  name="acessibilidade" >
+                                                                     <?php
+                                                                     $stmt = mysqli_stmt_init($link);
 
-                                                                 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+                                                                     $query = "SELECT id_acessibilidade, descricao FROM acessibilidade";
 
-                                                                     mysqli_stmt_execute($stmt); // Execute the prepared statement
+                                                                     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
-                                                                     mysqli_stmt_bind_result($stmt, $id, $desc); // Bind results
+                                                                         mysqli_stmt_execute($stmt); // Execute the prepared statement
 
-                                                                     while (mysqli_stmt_fetch($stmt)) { // Fetch values
+                                                                         mysqli_stmt_bind_result($stmt, $id, $desc); // Bind results
+
+                                                                         while (mysqli_stmt_fetch($stmt)) { // Fetch values
 
 
-                                                                         if($id == $ref_acessibilidade)
-                                                                             echo "<option selected value='$id'>$desc</option>";
-                                                                         else
-                                                                             echo "<option value='$id'>$desc</option>";
+                                                                             if($id == $ref_acessibilidade)
+                                                                                 echo "<option selected value='$id'>$desc</option>";
+                                                                             else
+                                                                                 echo "<option value='$id'>$desc</option>";
 
+                                                                         }
+                                                                         mysqli_stmt_close($stmt); // Close statement
                                                                      }
-                                                                     mysqli_stmt_close($stmt); // Close statement
-                                                                 }
-                                                                 ?>
-                                                             </select>
+                                                                     ?>
+                                                                 </select>
+                                                             </div>
 
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='super' placeholder='super' value='<?= $super ?>'>
-                                                             <a class='col-8 form-control inputRegistar mt-4' data-toggle="modal" data-target="#fotografiaModal">
-                                                                 <?php
-                                                                 if ($fotografia != null)
-                                                                     echo $fotografia;
-                                                                 else
-                                                                     echo "Fotografia";
-                                                                 ?>
-                                                             </a>
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Fotografia</label>
+                                                                 <a class='form-control inputRegistar' data-toggle="modal" data-target="#fotografiaModal">
+                                                                     <?php
+                                                                     if ($fotografia != null)
+                                                                         echo $fotografia;
+                                                                     else
+                                                                         echo "Fotografia";
+                                                                     ?>
+                                                                 </a>
+                                                             </div>
+
+
+
                                                             <button class='col-5 inputRegistar mt-4 p-2' type='submit'>Gravar</button>
                                                         </form> 
                                                 </div>
