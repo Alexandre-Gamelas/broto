@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Broto - Admin</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,15 +25,6 @@
 </head>
 
 <body id="page-top">
-
-<?php
-
-
-
-
-
-
-?>
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -62,41 +53,60 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-success">Tabela de Eventos <?php if (isset($_GET['msg'])) {echo " - ".$_GET['msg']."";}?></h6>
+                        <h6 class="m-0 font-weight-bold text-success">Tabela de Utilizadores</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>ID Evento</th>
-                                    <th>Nome</th>
-                                    <th>Data de início </th>
-                                    <th>Data de fim</th>
-                                    <th>Descrição</th>
-                                    <th>Alcance</th>
-                                    <th>Participantes</th>
-                                    <th>Acessibilidade</th>
+                                    <th>Utilizador</th>
                                     <th>Categoria</th>
-                                    <th>Editar</th>
+                                    <th>Tipo</th>
+                                    <th>Peso</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>ID Evento</th>
-                                    <th>Nome</th>
-                                    <th>Data de início </th>
-                                    <th>Data de fim</th>
-                                    <th>Descrição</th>
-                                    <th>Alcance</th>
-                                    <th>Participantes</th>
-                                    <th>Acessibilidade</th>
+                                    <th>Utilizador</th>
                                     <th>Categoria</th>
-                                    <th>Editar</th>
+                                    <th>Tipo</th>
+                                    <th>Peso</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <?php include "componentes/eventos_table.php"?>
+                                <?php
+                                include_once "connections/connection.php";
+                                $link = new_db_connection(); // Create a new DB connection
+
+                                $stmt = mysqli_stmt_init($link);
+
+                                $query = "SELECT utilizadores_has_categorias.ref_utilizadores, utilizadores_has_categorias.ref_categorias, utilizadores_has_categorias.peso, utilizadores.nome, categorias.nome, tipos_categorias.nome_tipo FROM utilizadores_has_categorias
+                                            INNER JOIN categorias  ON utilizadores_has_categorias.ref_categorias = id_categorias
+                                            INNER JOIN utilizadores ON utilizadores_has_categorias.ref_utilizadores = utilizadores.id_utilizadores
+                                            INNER JOIN tipos_categorias ON categorias.ref_tipos_categorias = id_tipos";
+
+                                if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+
+                                    mysqli_stmt_execute($stmt); // Execute the prepared statement
+
+                                    mysqli_stmt_bind_result($stmt, $id_user, $id_categoria, $peso, $user, $categoria, $tipo); // Bind results
+
+                                    while (mysqli_stmt_fetch($stmt)) { // Fetch values
+                                        ?>
+                                        <tr>
+                                            <th><a href="tabela_edit_utilizadores.php?id=<?= $id_user?>"><?= $user ?></a></th>
+                                            <th><?= $categoria ?></th>
+                                            <th><?= $tipo ?></th>
+                                            <th><?= $peso ?></th>
+                                        </tr>
+                                        <?php
+                                    }
+                                    mysqli_stmt_close($stmt); // Close statement
+                                }
+                                mysqli_close($link); // Close connection
+
+                                ?>
                                 </tbody>
                             </table>
                         </div>
@@ -110,7 +120,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <?php include_once "componentes/footer.php"; ?>
+        <?php include_once "componentes/footer.php"?>
         <!-- End of Footer -->
 
     </div>
@@ -155,9 +165,13 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Introduza a nova informação</div>
+            <div class="modal-body">Selecione o papel novo</div>
 
-                <input class="m-5" type="text" >
+            <select class="m-3" name="papel">
+                <option>Voluntário</option>
+                <option>Colaborador</option>
+                <option>Admin</option>
+            </select>
 
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -167,21 +181,21 @@
     </div>
 </div>
 
-<!-- Delete modal-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!-- Block modal-->
+<div class="modal fade" id="blockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabe3">Apagar</h5>
+                <h5 class="modal-title" id="exampleModalLabe3">Bloquear</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Tem a certeza que pretende apagar este desafio</div>
+            <div class="modal-body">Tem a certeza que pretende bloquear este utilizador</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-success" href="#" data-dismiss="modal">Apagar</a>
+                <a class="btn btn-success" href="#" data-dismiss="modal">Bloquear</a>
             </div>
         </div>
     </div>
