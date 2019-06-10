@@ -65,7 +65,7 @@
                                     <th>Data de nascimento</th>
                                     <th>Papel</th>
                                     <th>Nacionalidade</th>
-                                    <th>Bloquear</th>
+                                    <th>Editar</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -103,9 +103,8 @@
                                             <th><?= $data ?></th>
                                             <th><?= $papel ?></th>
                                             <th><?= $nacionalidade ?></th>
-                                            <th>TESTE</th>
+                                            <td><a href='tabela_edit_utilizadores.php?id=<?=$id?>'><button class='btn-success mr-1' type='button'><i class='fas fa-edit '></i></button></a></td>
                                         </tr>
-
                                         <?php
                                     }
                                     mysqli_stmt_close($stmt); // Close statement
