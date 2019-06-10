@@ -22,29 +22,18 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-
-    <script>
-        function transfere_nac(indice, texto) {
-            document.getElementById("nac_id_alterar").value = indice;
-            document.getElementById("nac_nome_alterar").value = texto;
-        }
-
-        function transfere_cp(indice, texto) {
-            document.getElementById("cp_id_alterar").value = indice;
-            document.getElementById("cp_nome_alterar").value = texto;
-        }
-
-        function transfere_acc(indice, texto) {
-            document.getElementById("acc_id_alterar").value = indice;
-            document.getElementById("acc_nome_alterar").value = texto;
-        }
-    </script>
-
 </head>
 
 <body id="page-top">
 
+<?php
 
+
+
+
+
+
+?>
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -67,63 +56,54 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Tabelas de Congruência</h1>
+                <h1 class="h3 mb-2 text-gray-800">EDITAR CATEGORIA</h1>
 
 
                 <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-success">Tabela de Nacionalidades <?php if ((isset($_GET['msg'])) && ($_GET['id']=='1')) {echo " - ".$_GET['msg']."";}?></h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <select id="lista_paises" onchange="transfere_nac(this.value, this.options[this.selectedIndex].text);">
-                                <?php include "componentes/lista_nacional.php";?>
-                            </select>
-                            <form id="form_nacional" method="post" action="scripts\altera_nacional.php">
-                                <input readonly type="text" id="nac_id_alterar" name="id_nacionalidades">
-                                <input type="text" id="nac_nome_alterar" name="nome">
-                                <button class="btn-success mr-1" type="submit"><i class="fas fa-edit "></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-success">Tabela de Códigos Postais <?php if ((isset($_GET['msg'])) && ($_GET['id']==2)) {echo " - ".$_GET['msg']."";}?></h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <select id="lista_cp" onchange="transfere_cp(this.value, this.options[this.selectedIndex].text);">
-                                <?php include "componentes/lista_cp.php";?>
-                            </select>
-                            <form id="form_nacional" method="post" action="scripts\altera_cp.php">
-                                <input readonly type="text" id="cp_id_alterar" name="id_postais">
-                                <input type="text" id="cp_nome_alterar" name="postal">
-                                <button class="btn-success mr-1" type="submit"><i class="fas fa-edit "></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                        <?php
+                            require_once "connections/connection.php";
 
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-success">Tabela de Acessibilidade <?php if ((isset($_GET['msg'])) && ($_GET['id']==3)) {echo " - ".$_GET['msg']."";}?></h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <select id="lista_cp" onchange="transfere_acc(this.value, this.options[this.selectedIndex].text);">
-                                <?php include "componentes/lista_acc.php";?>
-                            </select>
-                            <form id="form_nacional" method="post" action="scripts\altera_acc.php">
-                                <input readonly type="text" id="acc_id_alterar" name="id_acessibilidade">
-                                <input type="text" id="acc_nome_alterar" name="descricao">
-                                <button class="btn-success mr-1" type="submit"><i class="fas fa-edit "></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                            if (isset($_GET['id'])) {
+                                $registo = $_GET['id'];
+                                $link = new_db_connection();
+                                $stmt = mysqli_stmt_init($link);
+                                $query = "SELECT * FROM categorias WHERE id_categorias = ?";
+                                if (mysqli_stmt_prepare($stmt, $query)) {
+                                    mysqli_stmt_bind_param($stmt, 'i', $registo);
+                                    if (mysqli_stmt_execute($stmt)) {
+                                        mysqli_stmt_bind_result($stmt, $id_categorias, $nome, $ref_tipos_categorias, $descricao, $imagem);
+                                        while (mysqli_stmt_fetch($stmt)) {
+
+                                            echo "   
+                                                   <div class='card shadow mb-4'>
+                                                                    <div class='card-header py-3'>
+                                                                        <h6 class='m-0 font-weight-bold text-success'>Detalhes da Categoria: ".htmlspecialchars($id_categorias)."</h6>
+                                                                    </div>
+                                                    <div class='card-body'>                                            
+                                                         <form class='form row justify-content-center' id='form_evento' method='post' action='scripts\altera_categoria.php'>
+                                                         <input readonly class='col-8 form-control inputRegistar mt-4' type='text' name='id_categorias' placeholder='id_eventos' value='".htmlspecialchars($id_categorias)."'>
+                                                            <input autofocus class='col-8 form-control inputRegistar mt-4' type='text' name='nome' placeholder='nome' value='".htmlspecialchars($nome)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='descricao' placeholder='descricao' value='".htmlspecialchars($descricao)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_tipos_categorias' placeholder='data_inicio' value='".htmlspecialchars($ref_tipos_categorias)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='imagem' placeholder='data_fim' value='".htmlspecialchars($imagem)."'>
+                                                            <button class='col-5 inputRegistar mt-4 p-2' type='submit'>Gravar</button>
+                                                        </form> 
+                                                </div>
+                                            </div>
+                                            ";
+                                        }
+                                    } else {
+                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                    }
+                                    mysqli_stmt_close($stmt);
+                                } else {
+                                    echo "Error: " . mysqli_error($link);
+                                }
+                            } else {
+                                header("location:../index.php");
+                            } ?>
+
 
             </div>
             <!-- /.container-fluid -->
@@ -132,7 +112,13 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-       <?php include_once "componentes/footer.php" ?>
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2019</span>
+                </div>
+            </div>
+        </footer>
         <!-- End of Footer -->
 
     </div>
@@ -178,14 +164,12 @@
                 </button>
             </div>
             <div class="modal-body">Introduza a nova informação</div>
-            <form class="form row justify-content-center" id="form_nacional" method="post" action="scripts\altera_nacional.php">
-                <input readonly class="m-5" type="text" id='id_nacionalidades' name="id_nacionalidades" >
-                <input class="m-5" type="text" name="nome" >
-                <button class="btn btn-primary" type="submit">Gravar</button>
-                </form>
+
+                <input class="m-5" type="text" >
 
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-success" href="#" data-dismiss="modal">Confirmar</a>
             </div>
         </div>
     </div>

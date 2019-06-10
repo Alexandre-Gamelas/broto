@@ -1,6 +1,7 @@
 <?php
+
+if (isset($_POST["id_acessibilidade"]) && ($_POST["id_acessibilidade"]!="")) {
 require_once "../connections/connection.php";
-var_dump($_POST);
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 $query = "UPDATE acessibilidade SET descricao = ? WHERE id_acessibilidade = ?";
@@ -19,3 +20,6 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     echo mysqli_stmt_error($stmt);
 }
 mysqli_close($link);
+} else {
+    header("location: ../tables_cong.php?id=3&msg=Sem dados para atualizar");
+}
