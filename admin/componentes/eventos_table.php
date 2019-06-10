@@ -13,7 +13,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     /* execute the prepared statement */
     if (mysqli_stmt_execute($stmt)){
         /* bind result variables */
-        mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $super, $ref_categorias, $ref_acessibilidade);
+        mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $super, $ref_categorias, $ref_acessibilidade, $fotografia);
 
         /* fetch values */
         while (mysqli_stmt_fetch($stmt)) {

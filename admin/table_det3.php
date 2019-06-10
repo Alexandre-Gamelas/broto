@@ -72,7 +72,7 @@
                                 if (mysqli_stmt_prepare($stmt, $query)) {
                                     mysqli_stmt_bind_param($stmt, 'i', $registo);
                                     if (mysqli_stmt_execute($stmt)) {
-                                        mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $super, $ref_categorias, $ref_acessibilidade);
+                                        mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $super, $ref_categorias, $ref_acessibilidade, $fotografia);
                                         while (mysqli_stmt_fetch($stmt)) {
 
                                             echo "   
@@ -80,7 +80,7 @@
                                                                     <div class='card-header py-3'>
                                                                         <h6 class='m-0 font-weight-bold text-success'>Detalhes do Evento: ".htmlspecialchars($id_eventos)."</h6>
                                                                     </div>
-                                                    <div class='card-body'>                                             
+                                                    <div class='card-body'>                                            
                                                          <form class='form row justify-content-center' id='form_evento' method='post' action='scripts\altera_evento.php'>
                                                          <input readonly class='col-8 form-control inputRegistar mt-4' type='text' name='id_eventos' placeholder='id_eventos' value='".htmlspecialchars($id_eventos)."'>
                                                             <input autofocus class='col-8 form-control inputRegistar mt-4' type='text' name='nome' placeholder='nome' value='".htmlspecialchars($nome)."'>
@@ -94,6 +94,7 @@
                                                             <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_categorias' placeholder='ref_categorias' value='".htmlspecialchars($ref_categorias)."'>
                                                             <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_acessibilidade' placeholder='ref_acessibilidade' value='".htmlspecialchars($ref_acessibilidade)."'>
                                                             <input class='col-8 form-control inputRegistar mt-4' type='text' name='super' placeholder='super' value='".htmlspecialchars($super)."'>
+                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='fotografia' placeholder='fotografia' value='".htmlspecialchars($fotografia)."'>
                                                             <button class='col-5 inputRegistar mt-4 p-2' type='submit'>Gravar</button>
                                                         </form> 
                                                 </div>
