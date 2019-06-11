@@ -101,7 +101,31 @@
 
                                                              <div class="form-group col-8 mt-2">
                                                                  <label for="">Tipo de Categoria</label>
-                                                                 <input class='form-control inputRegistar' type='text' name='ref_tipos_categorias' placeholder='data_inicio' value='<?= $tipo ?>'>
+                                                                 <select type="text" title="papeis" class="form-control inputRegistar"  name="ref_tipos_categorias" >
+                                                                     <?php
+                                                                     $stmt = mysqli_stmt_init($link);
+
+                                                                     $query = "SELECT id_tipos, nome_tipo FROM tipos_categorias";
+
+                                                                     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+
+                                                                         mysqli_stmt_execute($stmt); // Execute the prepared statement
+
+                                                                         mysqli_stmt_bind_result($stmt, $id, $tipo_select); // Bind results
+
+                                                                         while (mysqli_stmt_fetch($stmt)) { // Fetch values
+
+
+                                                                             if($tipo_select == $tipo)
+                                                                                 echo "<option selected value='$id'>$tipo_select</option>";
+                                                                             else
+                                                                                 echo "<option value='$id'>$tipo_select</option>";
+
+                                                                         }
+                                                                         mysqli_stmt_close($stmt); // Close statement
+                                                                     }
+                                                                     ?>
+                                                                 </select>
                                                              </div>
 
 
