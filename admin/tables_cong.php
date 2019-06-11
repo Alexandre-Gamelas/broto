@@ -75,24 +75,6 @@
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-success">Tabela de Códigos Postais <?php if ((isset($_GET['msg'])) && ($_GET['id']==2)) {echo " - ".$_GET['msg']."";}?></h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <select id="lista_cp" onchange="transfere_cp(this.value, this.options[this.selectedIndex].text);">
-                                <?php include "componentes/lista_cp.php";?>
-                            </select>
-                            <form id="form_nacional" method="post" action="scripts\altera_cp.php">
-                                <input readonly type="text" id="cp_id_alterar" name="id_postais">
-                                <input type="text" id="cp_nome_alterar" name="postal">
-                                <button class="btn-success mr-1" type="submit"><i class="fas fa-edit "></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-success">Tabela de Acessibilidade <?php if ((isset($_GET['msg'])) && ($_GET['id']==3)) {echo " - ".$_GET['msg']."";}?></h6>
                     </div>
                     <div class="card-body">
