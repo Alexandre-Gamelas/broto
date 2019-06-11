@@ -80,7 +80,7 @@
                                                                         <h6 class='m-0 font-weight-bold text-success'>Detalhes do Evento: <i class="font-italic"><?=$nome?></i></h6>
                                                                     </div>
                                                     <div class='card-body'>                                            
-                                                         <form class='form row justify-content-center' id='form_evento' method='post' action='scripts\altera_evento.php'>
+                                                         <form class='form row justify-content-center' id='form_evento' method='post' action='scripts\altera_evento.php?id=<?=$id_eventos?>'>
                                                              <div class="form-group col-8 mt-2">
                                                                  <label for="">ID</label>
                                                                  <input readonly class='form-control inputRegistar' type='text' name='id_eventos' placeholder='id_eventos' value='<?= $id_eventos ?>'>
@@ -113,17 +113,17 @@
 
                                                              <div class="form-group col-8 mt-2">
                                                                  <label for="">Longitude</label>
-                                                                 <input class='form-control inputRegistar' type='text' name='latitude' placeholder='latitude' value='<?= $longitude ?>'>
+                                                                 <input class='form-control inputRegistar' type='text' name='longitude' placeholder='longitude' value='<?= $longitude ?>'>
                                                              </div>
 
                                                              <div class="form-group col-8 mt-2">
                                                                  <label for="">Participantes</label>
-                                                                 <input class='form-control inputRegistar' type='text' name='latitude' placeholder='latitude' value='<?= $participantes ?>'>
+                                                                 <input class='form-control inputRegistar' type='text' name='participantes' placeholder='participantes' value='<?= $participantes ?>'>
                                                              </div>
 
                                                              <div class="form-group col-8 mt-2">
                                                                  <label for="">Alcance</label>
-                                                                 <input class='form-control inputRegistar' type='text' name='latitude' placeholder='latitude' value='<?= $alcance ?>'>
+                                                                 <input class='form-control inputRegistar' type='text' name='alcance' placeholder='alcance' value='<?= $alcance ?>'>
                                                              </div>
 
                                                              <div class="form-group col-8 mt-2">
@@ -224,13 +224,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2019</span>
-                </div>
-            </div>
-        </footer>
+        <?php include_once "componentes/footer.php" ?>
         <!-- End of Footer -->
 
     </div>
