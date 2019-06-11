@@ -33,7 +33,7 @@ $link = new_db_connection(); // Create a new DB connection
 
 $stmt = mysqli_stmt_init($link);
 
-$query = "SELECT COUNT(utilizadores.id_utilizadores) FROM utilizadores WHERE utilizadores.data_entrada LIKE ?";
+$query = "SELECT COUNT(utilizadores.id_utilizadores) FROM utilizadores WHERE utilizadores.data_registo LIKE ?";
 
 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
@@ -312,7 +312,7 @@ mysqli_close($link); // Close connection
 
         $stmt = mysqli_stmt_init($link);
 
-        $query = "SELECT COUNT(data_entrada) as entradas from utilizadores WHERE data_entrada LIKE ?";
+        $query = "SELECT COUNT(data_registo) as entradas from utilizadores WHERE data_registo LIKE ?";
 
         if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
             mysqli_stmt_bind_param($stmt,'s', $data); // Bind variables by type to each parameter

@@ -61,7 +61,7 @@
                     $registo = $_GET['id'];
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
-                    $query = "SELECT id_utilizadores, utilizadores.nome, utilizadores.email, utilizadores.data_nascimento, utilizadores.data_entrada, utilizadores.fotografia, utilizadores.is_blocked, nacionalidades.nome, papeis.nome FROM utilizadores
+                    $query = "SELECT id_utilizadores, utilizadores.nome, utilizadores.email, utilizadores.data_nascimento, utilizadores.data_registo, utilizadores.fotografia, utilizadores.is_blocked, nacionalidades.nome, papeis.nome FROM utilizadores
                                 INNER JOIN nacionalidades ON utilizadores.ref_nacionalidades = id_nacionalidades
                                 INNER JOIN papeis ON utilizadores.ref_papeis = id_papeis 
                                 WHERE id_utilizadores = ?";

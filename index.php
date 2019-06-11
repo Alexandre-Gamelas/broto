@@ -7,6 +7,7 @@
             <h1 class="text-danger">Teste PWA</h1>
             <p class="font-italic">Build simples para verificar se conseguimos instalar uma pwa logo a partir do inicio do projeto</p>
             <button id="notification">BRANDAO</button>
+            <button><a href="admin/index.php">ADMIN</a></button>
         </article>
     </section>
 <?php include_once "components/firebase.php" ?>
