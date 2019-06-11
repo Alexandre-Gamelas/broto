@@ -11,6 +11,9 @@ if (isset($_GET['tipo'])){
         case "evento":
             $target_dir = "../img/fotosEvento/";
             break;
+        case "categoria":
+            $target_dir = "../img/fotosCategoria/";
+            break;
     }
 }
 //aqui fazem a concatenação do diretorio com o nome do ficheiro
@@ -100,6 +103,9 @@ if (isset($_GET['tipo'])){
             break;
         case "evento":
             header("Location: ../table_det3.php?id=".$_GET['id']."&msg=fotoSim");
+            break;
+        case "categoria":
+            header("Location: ../table_det4.php?id=".$_GET['id']."&msg=fotoSim");
             break;
     }
 }

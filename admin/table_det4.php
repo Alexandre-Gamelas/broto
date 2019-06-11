@@ -68,30 +68,61 @@
                                 $registo = $_GET['id'];
                                 $link = new_db_connection();
                                 $stmt = mysqli_stmt_init($link);
-                                $query = "SELECT * FROM categorias WHERE id_categorias = ?";
+                                $query = "SELECT categorias.*, tipos_categorias.nome_tipo FROM categorias
+                                      INNER JOIN tipos_categorias ON categorias.ref_tipos_categorias = id_tipos
+                                      WHERE id_categorias = ?";
                                 if (mysqli_stmt_prepare($stmt, $query)) {
                                     mysqli_stmt_bind_param($stmt, 'i', $registo);
                                     if (mysqli_stmt_execute($stmt)) {
-                                        mysqli_stmt_bind_result($stmt, $id_categorias, $nome, $ref_tipos_categorias, $descricao, $imagem);
+                                        mysqli_stmt_bind_result($stmt, $id_categorias, $nome, $ref_tipos_categorias, $descricao, $imagem, $tipo);
                                         while (mysqli_stmt_fetch($stmt)) {
 
-                                            echo "   
-                                                   <div class='card shadow mb-4'>
+                                       ?>
+                                            <div class='card shadow mb-4'>
                                                                     <div class='card-header py-3'>
-                                                                        <h6 class='m-0 font-weight-bold text-success'>Detalhes da Categoria: ".htmlspecialchars($id_categorias)."</h6>
+                                                                        <h6 class='m-0 font-weight-bold text-success'>Detalhes da Categoria: <?=$nome?></h6>
                                                                     </div>
-                                                    <div class='card-body'>                                            
+                                                    <div class='card-body'>
                                                          <form class='form row justify-content-center' id='form_evento' method='post' action='scripts\altera_categoria.php'>
-                                                         <input readonly class='col-8 form-control inputRegistar mt-4' type='text' name='id_categorias' placeholder='id_eventos' value='".htmlspecialchars($id_categorias)."'>
-                                                            <input autofocus class='col-8 form-control inputRegistar mt-4' type='text' name='nome' placeholder='nome' value='".htmlspecialchars($nome)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='descricao' placeholder='descricao' value='".htmlspecialchars($descricao)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='ref_tipos_categorias' placeholder='data_inicio' value='".htmlspecialchars($ref_tipos_categorias)."'>
-                                                            <input class='col-8 form-control inputRegistar mt-4' type='text' name='imagem' placeholder='data_fim' value='".htmlspecialchars($imagem)."'>
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">ID</label>
+                                                                 <input readonly class='form-control inputRegistar' type='text' name='id_categorias' placeholder='id_eventos' value='<?=$id_categorias?>'>
+                                                             </div>
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Nome</label>
+                                                                 <input autofocus class='form-control inputRegistar' type='text' name='nome' placeholder='nome' value='<?=$nome?>'>
+                                                             </div>
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Descricao</label>
+                                                                 <input class='form-control inputRegistar' type='text' name='descricao' placeholder='descricao' value='<?= $descricao ?>'>
+                                                             </div>
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Tipo de Categoria</label>
+                                                                 <input class='form-control inputRegistar' type='text' name='ref_tipos_categorias' placeholder='data_inicio' value='<?= $tipo ?>'>
+                                                             </div>
+
+
+
+                                                             <div class="form-group col-8 mt-2">
+                                                                 <label for="">Fotografia</label>
+                                                                 <a class='form-control inputRegistar' data-toggle="modal" data-target="#fotografiaModal">
+                                                                     <?php
+                                                                     if ($imagem != null)
+                                                                         echo $imagem;
+                                                                     else
+                                                                         echo "Fotografia";
+                                                                     ?>
+                                                                 </a>
+                                                             </div>
+
                                                             <button class='col-5 inputRegistar mt-4 p-2' type='submit'>Gravar</button>
-                                                        </form> 
+                                                        </form>
                                                 </div>
                                             </div>
-                                            ";
+                                    <?php
                                         }
                                     } else {
                                         echo "Error: " . mysqli_stmt_error($stmt);
@@ -112,13 +143,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2019</span>
-                </div>
-            </div>
-        </footer>
+        <?php include_once "componentes/footer.php" ?>
         <!-- End of Footer -->
 
     </div>
@@ -194,6 +219,21 @@
         </div>
     </div>
 </div>
+
+<!-- Fotografia Modal-->
+    <div class="modal fade" id="fotografiaModal" tabindex="-1" role="dialog" aria-labelledby="modalFotos"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <form class="row justify-content-center pb-5" action="scripts/uploadFoto.php?id=<?= $registo ?>&tipo=categoria" enctype="multipart/form-data" method="post">
+                        <input style="cursor: pointer!important;" class="col-8 p-3 pb-5 form-control inputRegistar mt-4" type="file" placeholder="File" name="fileToUpload" id="fileToUpload">
+                        <input class="col-8 form-control inputRegistar mt-4" type="submit" value="Upload" name="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
