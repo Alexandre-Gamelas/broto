@@ -75,6 +75,25 @@
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-success">Tabela de Tipos de Categorias <?php if ((isset($_GET['msg'])) && ($_GET['id']==2)) {echo " - ".$_GET['msg']."";}?></h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <select id="lista_cp" onchange="transfere_tipo(this.value, this.options[this.selectedIndex].text);">
+                                <?php include "componentes/lista_tipo.php";?>
+                            </select>
+                            <form id="form_nacional" method="post" action="scripts\altera_tipo.php">
+                                <input readonly type="text" id="tipo_id_alterar" name="id_tipos">
+                                <input type="text" id="tipo_nome_alterar" name="nome_tipo">
+                                <button class="btn-success mr-1" type="submit"><i class="fas fa-edit "></i></button>
+                                <a href="insert_tipos.php"><button class="btn-success mr-1" type="button"><i class="far fa-plus-square "></i></button></a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-success">Tabela de Acessibilidade <?php if ((isset($_GET['msg'])) && ($_GET['id']==3)) {echo " - ".$_GET['msg']."";}?></h6>
                     </div>
                     <div class="card-body">
@@ -142,9 +161,9 @@
         document.getElementById("nac_nome_alterar").value = texto;
     }
 
-    function transfere_cp(indice, texto) {
-        document.getElementById("cp_id_alterar").value = indice;
-        document.getElementById("cp_nome_alterar").value = texto;
+    function transfere_tipo(indice, texto) {
+        document.getElementById("tipo_id_alterar").value = indice;
+        document.getElementById("tipo_nome_alterar").value = texto;
     }
 
     function transfere_acc(indice, texto) {

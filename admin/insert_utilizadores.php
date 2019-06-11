@@ -81,7 +81,7 @@
                             <div class="form-group col-8 mt-2">
                                 <label for="">ID</label>
                                 <input readonly class='form-control inputRegistar' type='text' name='id'
-                                       placeholder='Gerado Automáticamente' value=''>
+                                       placeholder='Gerado Automaticamente' value=''>
                             </div>
 
                             <div class="form-group col-8 mt-2">
