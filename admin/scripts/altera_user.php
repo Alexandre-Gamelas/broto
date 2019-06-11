@@ -39,10 +39,18 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
         $block="0";
     }
 
-   if( mysqli_stmt_execute($stmt)) // Execute the prepared statement
-       header("Location: ../tabela_edit_utilizadores.php?id=$id&msg=updateSim");
+   if( mysqli_stmt_execute($stmt)){ // Execute the prepared statement
+        if($id = $_SESSION["id_user"]){
+            $_SESSION["nome"]=$nome;
+            $_SESSION["papel"]=$papel;
+            if($block=="1"){
+                $_SESSION=array();
+                session_destroy();
+                header("location: ../login.php?msg=0");
+            }
+        }
+       header("Location: ../tabela_edit_utilizadores.php?id=$id&msg=updateSim");}
    else
-
        header("Location: ../tabela_edit_utilizadores.php?id=$id&msg=updateNao");
     mysqli_stmt_close($stmt); // Close statement
 }
