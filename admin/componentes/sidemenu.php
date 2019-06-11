@@ -36,7 +36,7 @@ Base de Dados
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="tabela_utilizadores.php">Utilizador</a>
-                    <a class="collapse-item" href="tables2.php">Desafios</a>
+
                     <a class="collapse-item" href="tables3.php">Eventos</a>
                     <a class="collapse-item" href="tables_categorias.php">Categorias</a>
                     <a class="collapse-item" href="tabela_users_events.php">Utilizadores e Eventos</a>
