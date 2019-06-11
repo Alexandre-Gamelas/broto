@@ -270,7 +270,7 @@ mysqli_close($link); // Close connection
     <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Logout Modal-->
+
 
 
 <!-- Bootstrap core JavaScript-->
