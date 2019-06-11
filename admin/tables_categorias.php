@@ -62,7 +62,7 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-success">Tabela de Categorias <?php if (isset($_GET['msg'])) {echo " - ".$_GET['msg']."";}?></h6>
+                        <h6 class="m-0 font-weight-bold text-success">Tabela de Categorias  <a href="insert_categorias.php" class="far fa-plus-square text-success text-decoration-none"></a> <?php if (isset($_GET['msg'])) {echo " - ".$_GET['msg']."";} ?></h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
