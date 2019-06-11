@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start();?>
+<?php ?>
 <head>
 
     <meta charset="utf-8">
@@ -23,22 +23,6 @@
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 
-    <script>
-        function transfere_nac(indice, texto) {
-            document.getElementById("nac_id_alterar").value = indice;
-            document.getElementById("nac_nome_alterar").value = texto;
-        }
-
-        function transfere_cp(indice, texto) {
-            document.getElementById("cp_id_alterar").value = indice;
-            document.getElementById("cp_nome_alterar").value = texto;
-        }
-
-        function transfere_acc(indice, texto) {
-            document.getElementById("acc_id_alterar").value = indice;
-            document.getElementById("acc_nome_alterar").value = texto;
-        }
-    </script>
 
 </head>
 
@@ -60,7 +44,7 @@
         <div id="content">
 
             <!-- Topbar -->
-            <?php include_once "componentes/navbar.php"?>
+            <?php include_once "componentes/navbar.php"; ?>
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
@@ -150,25 +134,7 @@
 
 
 
-<!-- Delete modal-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabe3">Apagar</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Tem a certeza que pretende apagar este desafio</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-success" href="#" data-dismiss="modal">Apagar</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
@@ -186,6 +152,24 @@
 
 <!-- Page level custom scripts -->
 <script src="js/demo/datatables-demo.js"></script>
+
+
+<script>
+    function transfere_nac(indice, texto) {
+        document.getElementById("nac_id_alterar").value = indice;
+        document.getElementById("nac_nome_alterar").value = texto;
+    }
+
+    function transfere_cp(indice, texto) {
+        document.getElementById("cp_id_alterar").value = indice;
+        document.getElementById("cp_nome_alterar").value = texto;
+    }
+
+    function transfere_acc(indice, texto) {
+        document.getElementById("acc_id_alterar").value = indice;
+        document.getElementById("acc_nome_alterar").value = texto;
+    }
+</script>
 
 </body>
 
