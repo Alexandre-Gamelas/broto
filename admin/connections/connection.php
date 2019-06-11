@@ -5,8 +5,8 @@ function new_db_connection()
 {
     // Variables for the database connection
     $hostname = 'labmm.clients.ua.pt'; //MUDAR HOST
-    $username = "deca_18L4_21_dbo";
-    $password = "9Qu0wg";
+    $username = "deca_18L4_21_web";
+    $password = "Y85MyN";
     $dbname = "deca_18l4_21";//MUDAR BD
 
 

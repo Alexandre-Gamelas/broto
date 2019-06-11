@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+<?php session_start()?>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,13 +38,14 @@
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Bem-vindo de volta!</h1>
+
                   </div>
                     <?php
                     if (isset($_GET["msg"])) {
                         $msg_show = true;
                         switch ($_GET["msg"]) {
                             case 0:
-                                $message = "ocorreu um erro no registo";
+                                $message = "Sessão expirada ou não iniciada";
                                 $class = "alert-warning";
                                 break;
                             case 1:

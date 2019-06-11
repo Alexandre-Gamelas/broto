@@ -1,9 +1,15 @@
 <?php
    # 9/6 - introduzi session_start visto que todos os pedidos eram direcionados para a login.php sem isso
-    session_start();
-    if(!isset($_SESSION["nome"])||$_SESSION["papel"]!=1){
-    header("location: login.php");
-}?>
+session_start();
+include_once "scripts/check_log.php";
+
+
+        if($_SESSION["fotografia"] != null || (strpos($_SESSION["fotografia"], '.png') !== false) || $_SESSION["fotografia"] !=""){
+            $fotografia = $_SESSION["fotografia"];
+        } else {
+            $fotografia = 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png';
+        }
+?>
 
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -58,7 +64,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$_SESSION["nome"]?></span>
-                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                            <img class="img-profile rounded-circle" src="<?=$fotografia?>">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -80,3 +86,23 @@ Logout
                 </ul>
 
             </nav>
+
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="scripts/logout.php">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
