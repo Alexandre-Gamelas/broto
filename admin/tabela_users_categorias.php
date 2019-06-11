@@ -63,7 +63,7 @@
                                     <th>Utilizador</th>
                                     <th>Categoria</th>
                                     <th>Tipo</th>
-                                    <th>Peso</th>
+                                    <th>Número de Participações</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -71,7 +71,7 @@
                                     <th>Utilizador</th>
                                     <th>Categoria</th>
                                     <th>Tipo</th>
-                                    <th>Peso</th>
+                                    <th>Número de Participações</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>

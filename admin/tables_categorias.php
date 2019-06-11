@@ -62,7 +62,7 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-success">Tabela de Eventos <?php if (isset($_GET['msg'])) {echo " - ".$_GET['msg']."";}?></h6>
+                        <h6 class="m-0 font-weight-bold text-success">Tabela de Categorias <?php if (isset($_GET['msg'])) {echo " - ".$_GET['msg']."";}?></h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -102,13 +102,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2019</span>
-                </div>
-            </div>
-        </footer>
+       <?php include_once "componentes/footer.php" ?>
         <!-- End of Footer -->
 
     </div>
