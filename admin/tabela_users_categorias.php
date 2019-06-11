@@ -95,8 +95,8 @@
                                     while (mysqli_stmt_fetch($stmt)) { // Fetch values
                                         ?>
                                         <tr>
-                                            <th><a href="tabela_edit_utilizadores.php?id=<?= $id_user?>"><?= $user ?></a></th>
-                                            <th><a href="table_det4.php?id=<?=$id_categoria?>"><?= $categoria ?></a></th>
+                                            <th><a class="text-gray-600 text-decoration-none" href="tabela_edit_utilizadores.php?id=<?= $id_user?>"><?= $user ?></a></th>
+                                            <th><a class="text-gray-600 text-decoration-none" href="table_det4.php?id=<?=$id_categoria?>"><?= $categoria ?></a></th>
                                             <th><?= $tipo ?></th>
                                             <th><?= $peso ?></th>
                                         </tr>

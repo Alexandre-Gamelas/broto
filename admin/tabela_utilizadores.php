@@ -53,7 +53,7 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-success">Tabela de Utilizadores <a href="insert_utilizadores.php" class="far fa-plus-square text-success"></a></h6>
+                        <h6 class="m-0 font-weight-bold text-success">Tabela de Utilizadores <a href="insert_utilizadores.php" class="far fa-plus-square text-success text-decoration-none"></a></h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
