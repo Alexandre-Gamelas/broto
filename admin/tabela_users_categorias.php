@@ -96,7 +96,7 @@
                                         ?>
                                         <tr>
                                             <th><a href="tabela_edit_utilizadores.php?id=<?= $id_user?>"><?= $user ?></a></th>
-                                            <th><?= $categoria ?></th>
+                                            <th><a href="table_det4.php?id=<?=$id_categoria?>"><?= $categoria ?></a></th>
                                             <th><?= $tipo ?></th>
                                             <th><?= $peso ?></th>
                                         </tr>

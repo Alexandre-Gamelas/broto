@@ -256,6 +256,21 @@ if(isset($_GET['msg'])) {
         case "fotoSim":
             echo "<script>alert('Foto submetida!')</script>";
             break;
+        case "1":
+            echo "<script>alert('A fotografia que tentou submeter não é uma fotografia!')</script>";
+            break;
+        case "2":
+            echo "<script>alert('A fotografia que tentou submeter já existe!')</script>";
+            break;
+        case "3":
+            echo "<script>alert('A fotografia que tentou submeter é demasiado grande!')</script>";
+            break;
+        case "4":
+            echo "<script>alert('O formato da fotografia que tentou submeter não é suportado!')</script>";
+            break;
+        case "5":
+            echo "<script>alert('Por favor tente novamente!')</script>";
+            break;
     }
 }
 ?>
