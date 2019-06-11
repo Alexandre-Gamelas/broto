@@ -77,17 +77,22 @@ $link = new_db_connection(); // Create a new DB connection
 
 $stmt = mysqli_stmt_init($link);
 
-$query = "SELECT SUM(utilizadores_has_categorias.peso) AS weight , categorias.nome FROM utilizadores_has_categorias
-  INNER JOIN categorias ON utilizadores_has_categorias.ref_categorias = categorias.id_categorias GROUP BY categorias.nome ORDER BY weight desc";
+$query = "SELECT SUM(utilizadores_has_categorias.peso) AS weight , categorias.nome, tipos_categorias.nome_tipo FROM utilizadores_has_categorias
+INNER JOIN categorias ON utilizadores_has_categorias.ref_categorias = categorias.id_categorias
+INNER JOIN tipos_categorias ON categorias.ref_tipos_categorias = id_tipos
+GROUP BY categorias.nome
+ORDER BY weight desc
+";
 
 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
     mysqli_stmt_execute($stmt); // Execute the prepared statement
 
-    mysqli_stmt_bind_result($stmt, $peso, $nome); // Bind results
+    mysqli_stmt_bind_result($stmt, $peso, $nome, $tipo); // Bind results
 
     if (mysqli_stmt_fetch($stmt)) { // Fetch values
         $categoria_mais_famosa = $nome;
+        $tipo_categoria_mais_famosa = $tipo;
     }
     mysqli_stmt_close($stmt); // Close statement
 }
@@ -195,7 +200,7 @@ mysqli_close($link); // Close connection
                                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Categoria mais Popular</div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
-                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $categoria_mais_famosa ?></div>
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?=$tipo_categoria_mais_famosa.", ".$categoria_mais_famosa ?></div>
                                             </div>
                                         </div>
                                     </div>
@@ -300,9 +305,9 @@ mysqli_close($link); // Close connection
         if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
             mysqli_stmt_bind_param($stmt,'s', $data); // Bind variables by type to each parameter
             if($i < 10)
-                $data = "2019-0".$i."%";
+                $data =   $data = date("Y-")."0".$i."%";
             else
-                $data = "2019-".$i."%";
+                $data = date("Y-").$i."%";
             mysqli_stmt_execute($stmt); // Execute the prepared statement
 
             mysqli_stmt_bind_result($stmt, $numero); // Bind results

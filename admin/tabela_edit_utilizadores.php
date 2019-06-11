@@ -24,7 +24,7 @@
     <style>
         .img-user{
             height: 100px!important;
-            width: auto!important;
+            width: 100px!important;
             border-radius: 50%;
             display: inline;
             margin-left: 20px;
