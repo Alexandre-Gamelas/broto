@@ -21,7 +21,15 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+    <style>
+        .img-user{
+            height: 100px!important;
+            width: auto!important;
+            border-radius: 50%;
+            display: inline;
+            margin-left: 20px;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -79,7 +87,8 @@
 
                                 <div class='card shadow mb-4'>
                                     <div class='card-header py-3'>
-                                        <h6 class='m-0 font-weight-bold text-success'><?= $nome ?></h6>
+                                        <h6 class='m-0 font-weight-bold text-success'><?= $nome ?> <img src="<?=$fotografia ?>" alt="" class="img-user"></h6>
+
                                     </div>
                                     <div class='card-body'>
                                         <form class='form row justify-content-center align-items-center' id='form_evento' method='post' action='scripts\altera_user.php'>
