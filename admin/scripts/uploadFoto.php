@@ -112,6 +112,9 @@ if ($uploadOk == 0) {
         if (isset($_GET['tipo'])){
             switch ($tipo){
                 case "user":
+                    if ($id==$_SESSION["id_user"]){
+                        $_SESSION["fotografia"]=$foto;
+                    }
                     header("Location: ../tabela_edit_utilizadores.php?id=".$_GET['id']."&msg=fotoSim");
                     break;
                 case "evento":
