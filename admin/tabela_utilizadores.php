@@ -96,7 +96,7 @@
                                     mysqli_stmt_bind_result($stmt, $id, $nome, $data, $papel, $nacionalidade); // Bind results
 
                                     while (mysqli_stmt_fetch($stmt)) { // Fetch values
-                                        ?>
+                                    ?>
                                         <tr>
                                             <th><?= $id ?></th>
                                             <th><?= $nome ?></th>
