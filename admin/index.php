@@ -205,7 +205,7 @@ mysqli_close($link); // Close connection
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        <i class="fas fa-fire fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -224,7 +224,7 @@ mysqli_close($link); // Close connection
                                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?=  $evento_participantes_max ?></div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        <i class="fas fa-bullhorn fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
