@@ -111,58 +111,14 @@
                                             <div class="form-group col-8 mt-2">
                                                 <label for="">Nacionalidade</label>
                                                 <select type="text" title="nacionalidades" class="form-control inputRegistar"  name="nacionalidade" >
-                                                    <?php
-                                                    $stmt = mysqli_stmt_init($link);
-
-                                                    $query = "SELECT id_nacionalidades, nome FROM nacionalidades";
-
-                                                    if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
-
-                                                        mysqli_stmt_execute($stmt); // Execute the prepared statement
-
-                                                        mysqli_stmt_bind_result($stmt, $id, $nac); // Bind results
-
-                                                        while (mysqli_stmt_fetch($stmt)) { // Fetch values
-
-
-                                                            if($nac == $nacionalidade)
-                                                                echo "<option selected value='$id'>$nac</option>";
-                                                            else
-                                                                echo "<option value='$id'>$nac</option>";
-
-                                                        }
-                                                        mysqli_stmt_close($stmt); // Close statement
-                                                    }
-                                                    ?>
+                                                    <?php include_once "componentes/lista_nacional.php" ?>
                                                 </select>
                                             </div>
 
                                             <div class="form-group col-8 mt-2">
                                                 <label for="">Perfil</label>
                                                 <select type="text" title="papeis" class="form-control inputRegistar"  name="papel" >
-                                                    <?php
-                                                    $stmt = mysqli_stmt_init($link);
-
-                                                    $query = "SELECT id_papeis, nome FROM papeis";
-
-                                                    if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
-
-                                                        mysqli_stmt_execute($stmt); // Execute the prepared statement
-
-                                                        mysqli_stmt_bind_result($stmt, $id, $papel_select); // Bind results
-
-                                                        while (mysqli_stmt_fetch($stmt)) { // Fetch values
-
-
-                                                            if($papel_select == $papel)
-                                                                echo "<option selected value='$id'>$papel_select</option>";
-                                                            else
-                                                                echo "<option value='$id'>$papel_select</option>";
-
-                                                        }
-                                                        mysqli_stmt_close($stmt); // Close statement
-                                                    }
-                                                    ?>
+                                                    <?php include_once "componentes/lista_papeis.php" ?>
                                                 </select>
                                             </div>
 

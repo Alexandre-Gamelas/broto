@@ -15,7 +15,10 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         /* fetch values */
 
         while (mysqli_stmt_fetch($stmt)) {
-            echo "<option value=$id_acessibilidade>$descricao</option>";
+            if(isset($ref_acessibilidade) && $id_acessibilidade == $ref_acessibilidade)
+                echo "<option selected value=$id_acessibilidade>$descricao</option>";
+            else
+                echo "<option value=$id_acessibilidade>$descricao</option>";
         }
         echo "</select>";
     } else {

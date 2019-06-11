@@ -159,29 +159,7 @@
                                                                  <label for="">Acessibilidade</label>
 
                                                                  <select type="text" title="acessibilidade" class=" form-control inputRegistar "  name="acessibilidade" >
-                                                                     <?php
-                                                                     $stmt = mysqli_stmt_init($link);
-
-                                                                     $query = "SELECT id_acessibilidade, descricao FROM acessibilidade";
-
-                                                                     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
-
-                                                                         mysqli_stmt_execute($stmt); // Execute the prepared statement
-
-                                                                         mysqli_stmt_bind_result($stmt, $id, $desc); // Bind results
-
-                                                                         while (mysqli_stmt_fetch($stmt)) { // Fetch values
-
-
-                                                                             if($id == $ref_acessibilidade)
-                                                                                 echo "<option selected value='$id'>$desc</option>";
-                                                                             else
-                                                                                 echo "<option value='$id'>$desc</option>";
-
-                                                                         }
-                                                                     }
-                                                                     ?>
-                                                                 </select>
+                                                                  <?php include_once "componentes/lista_acc.php"; ?>
                                                              </div>
 
                                                              <div class="form-group col-8 mt-2">
