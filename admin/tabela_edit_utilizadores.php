@@ -180,8 +180,17 @@
                                             </div>
 
                                             <div class="form-group col-8 mt-2">
-                                                <label for="">Sanção</label>
-                                                <input class='form-control inputRegistar' type='text' name='blocked' placeholder='Blocked' value='<?= $blocked ?>'>
+                                                <label>Estado</label>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <?php if($blocked==1){
+                                                            echo'<input type="checkbox" name="block" checked>Bloqueado';
+                                                        }else{
+                                                            echo '<input type="checkbox" name="block">Bloqueado';
+                                                        }?>
+
+                                                    </label>
+                                                </div>
                                             </div>
 
                                             <button class='col-5 inputRegistar mt-4 p-2' type='submit'>Gravar</button>
