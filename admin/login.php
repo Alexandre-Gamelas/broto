@@ -45,7 +45,7 @@
                         $msg_show = true;
                         switch ($_GET["msg"]) {
                             case 0:
-                                $message = "ocorreu um erro no registo";
+                                $message = "Sessão expirada ou não iniciada";
                                 $class = "alert-warning";
                                 break;
                             case 1:

@@ -1,6 +1,8 @@
 <?php
    # 9/6 - introduzi session_start visto que todos os pedidos eram direcionados para a login.php sem isso
-    include_once "scripts/check_log.php";
+session_start();
+include_once "scripts/check_log.php";
+
 
         if($_SESSION["fotografia"] != null || (strpos($_SESSION["fotografia"], '.png') !== false) || $_SESSION["fotografia"] !=""){
             $fotografia = $_SESSION["fotografia"];
