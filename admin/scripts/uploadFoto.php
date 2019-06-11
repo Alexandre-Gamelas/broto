@@ -87,7 +87,7 @@ if (isset($_GET['tipo'])){
 
 if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, 'ss', $foto, $id);
-    $foto = $target_file;
+    $foto = substr($target_file, 3);
     $id = $_GET['id'];
     if (mysqli_stmt_execute($stmt)) {
 
@@ -95,6 +95,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         echo "<script>alert('error')</script>";
     }
 }
+
 
 if (isset($_GET['tipo'])){
     switch ($tipo){
