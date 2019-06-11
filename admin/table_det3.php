@@ -150,7 +150,6 @@
                                                                                  echo "<option value='$id'>$cate</option>";
 
                                                                          }
-                                                                         mysqli_stmt_close($stmt); // Close statement
                                                                      }
                                                                      ?>
                                                                  </select>
@@ -180,7 +179,6 @@
                                                                                  echo "<option value='$id'>$desc</option>";
 
                                                                          }
-                                                                         mysqli_stmt_close($stmt); // Close statement
                                                                      }
                                                                      ?>
                                                                  </select>

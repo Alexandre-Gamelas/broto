@@ -82,6 +82,9 @@ if (isset($_GET['tipo'])){
         case "evento":
             $query = "UPDATE eventos SET fotografia = ? WHERE eventos.id_eventos LIKE ?";
             break;
+        case "categoria":
+            $query = "UPDATE categorias SET imagem = ? WHERE categorias.id_categorias LIKE ?";
+            break;
     }
 }
 
