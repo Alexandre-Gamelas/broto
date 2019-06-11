@@ -305,9 +305,9 @@ mysqli_close($link); // Close connection
         if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
             mysqli_stmt_bind_param($stmt,'s', $data); // Bind variables by type to each parameter
             if($i < 10)
-                $data = "2019-0".$i."%";
+                $data =   $data = date("Y-")."0".$i."%";
             else
-                $data = "2019-".$i."%";
+                $data = date("Y-").$i."%";
             mysqli_stmt_execute($stmt); // Execute the prepared statement
 
             mysqli_stmt_bind_result($stmt, $numero); // Bind results
