@@ -49,8 +49,8 @@
                                 $class = "alert-warning";
                                 break;
                             case 1:
-                                $message = "registo efectuado com sucesso";
-                                $class = "alert-success";
+                                $message = "Esta conta está bloqueada";
+                                $class = "alert-danger";
                                 break;
                             case 2:
                                 $message = "ocorreu um erro no login";
