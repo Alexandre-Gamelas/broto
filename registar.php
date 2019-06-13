@@ -7,7 +7,7 @@
 <!-- bem vindo -->
 <section class="row">
     <article class="col-12 text-center" style="z-index: 200000">
-        <p class="titulo-1-broto cinzento-escuro">Regista-te!</p>
+        <p class="titulo-1-broto cinzento-escuro mb-0">Regista-te!</p>
     </article>
 </section>
 
@@ -17,7 +17,7 @@
     <input required type="text" name="password" placeholder="Email" class="col-8 mt-3 form-control button-2-broto">
     <input required type="text" name="email" placeholder="Password" class="col-8 mt-3 form-control button-2-broto">
     <input required type="text" name="password" placeholder="Verificar a Password" class="col-8 mt-3 form-control button-2-broto">
-    <button class="col-6 button-1-broto gradient-broto text-white mt-3">REGISTAR</button>
+    <button class="col-6 button-1-broto gradient-broto text-white mt-4">REGISTAR</button>
 </form>
 
 <?php include_once "components/firebase.php" ?>
