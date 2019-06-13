@@ -12,9 +12,9 @@
 </section>
 
 <!-- form login -->
-<form action="scripts/login.php" class="row justify-content-center text-center">
+<form action="scripts/script_login.php" class="row justify-content-center text-center" method="post">
     <input required type="text" name="email" placeholder="Email" class="col-8 mt-3 form-control button-2-broto">
-    <input required type="text" name="password" placeholder="Password" class="col-8 mt-3 form-control button-2-broto">
+    <input required type="password" name="password" placeholder="Password" class="col-8 mt-3 form-control button-2-broto">
     <button class="col-6 button-1-broto gradient-broto text-white mt-5">Entrar</button>
 </form>
 

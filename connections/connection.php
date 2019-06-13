@@ -1,7 +1,26 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alexa
- * Date: 27/05/2019
- * Time: 16:14
- */
+ini_set('display_errors', true);
+error_reporting(E_ALL);
+function new_db_connection()
+{
+    // Variables for the database connection
+    $hostname = 'labmm.clients.ua.pt'; //MUDAR HOST
+    $username = "deca_18L4_21_web";
+    $password = "Y85MyN";
+    $dbname = "deca_18l4_21";//MUDAR BD
+
+
+// Makes the connection
+    $local_link = mysqli_connect($hostname, $username, $password, $dbname);
+
+// If it fails to connect then die and show errors
+    if (!$local_link) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+// Define charset to avoid special chars errors
+    mysqli_set_charset($local_link, "utf8");
+
+    // Return the link
+    return $local_link;
+}

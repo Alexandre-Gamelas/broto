@@ -12,11 +12,11 @@
 </section>
 
 <!-- Form --->
-<form action="scripts/registar.php" class="row justify-content-center text-center">
-    <input required type="text" name="email" placeholder="Nome" class="col-8 mt-3 form-control button-2-broto">
-    <input required type="text" name="password" placeholder="Email" class="col-8 mt-3 form-control button-2-broto">
-    <input required type="text" name="email" placeholder="Password" class="col-8 mt-3 form-control button-2-broto">
-    <input required type="text" name="password" placeholder="Verificar a Password" class="col-8 mt-3 form-control button-2-broto">
+<form action="scripts/script_registar.php" class="row justify-content-center text-center" method="post">
+    <input required type="text" name="nome" placeholder="Nome" class="col-8 mt-3 form-control button-2-broto">
+    <input required type="text" name="email" placeholder="Email" class="col-8 mt-3 form-control button-2-broto">
+    <input required type="password" name="password" placeholder="Password" class="col-8 mt-3 form-control button-2-broto">
+    <input required type="password" placeholder="Verificar a Password" class="col-8 mt-3 form-control button-2-broto">
     <button class="col-6 button-1-broto gradient-broto text-white mt-4">REGISTAR</button>
 </form>
 
