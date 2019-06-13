@@ -4,7 +4,7 @@
 <body>
 <!-- HEADER -->
 <section class="row">
-    <article class="col-12 position-relative h-15">
+    <article class="col-12 position-relative h-15 header1">
         <img src="assets/img/frontend/login_img.jpg" alt="" class="img-fluid">
         <div class="gradient-broto position-absolute"></div>
         <img src="assets/img/frontend/wave_logo.png" alt="" class="wave-logo">
