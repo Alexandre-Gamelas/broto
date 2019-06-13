@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php include_once "components/head.php" ?>
-<body>
+<body class="animated fadeInRight faster">
 <!-- HEADER -->
 <section class="row">
     <article class="col-12 position-relative h-15 header1">
@@ -12,8 +12,8 @@
 </section>
 
 <!-- bem vindo -->
-<section class="row">
-    <article class="col-12 text-center mt-5">
+<section class="row mt-4 mb-4">
+    <article class="col-12 text-center" style="z-index: 200000">
         <p class="titulo-1-broto cinzento-escuro">Faz o teu login!</p>
     </article>
 </section>
