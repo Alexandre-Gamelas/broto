@@ -1,13 +1,73 @@
+/************GERAIS****************/
 *{
     font-family: 'Lato', sans-serif !important;
 
 }
 
-
-.height-100{
-    height: 100vh;
+.cem-broto{
+    width: 100%;
+    height: 100%;
 }
 
+a:link{
+    text-decoration: none;
+
+}
+
+a:hover{
+    text-decoration: none;
+
+}
+
+a:active{
+    text-decoration: none;
+
+}
+
+a:visited{
+    text-decoration: none;
+}
+/******** grandientes ************/
+.gradient-broto{
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background : -webkit-linear-gradient(0deg, rgba(31, 171, 137, 1) 0%, rgba(157, 243, 196, 1) 98.5%);
+    background : -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(31, 171, 137, 1) ),color-stop(0.985,rgba(157, 243, 196, 1) ));
+    background : -o-linear-gradient(0deg, rgba(31, 171, 137, 1) 0%, rgba(157, 243, 196, 1) 98.5%);
+    background : -ms-linear-gradient(0deg, rgba(31, 171, 137, 1) 0%, rgba(157, 243, 196, 1) 98.5%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#1FAB89', endColorstr='#9DF3C4' ,GradientType=0)";
+    background : linear-gradient(90deg, rgba(31, 171, 137, 1) 0%, rgba(157, 243, 196, 1) 98.5%);
+    opacity : 0.6;
+    filter: alpha(opacity=70) progid:DXImageTransform.Microsoft.Alpha(opacity=70) progid:DXImageTransform.Microsoft.gradient(startColorstr='#1FAB89',endColorstr='#9DF3C4' , GradientType=1);
+
+}
+
+.gradiente-preto{
+    background-color: black;
+    opacity: 0.5;
+}
+
+/********CORES**********/
 .cinzento-escuro{
     color: #808184;
+}
+
+/************FORMATOS DE TEXTO************/
+.titulo-1-broto{
+    font-weight: 800;
+    font-size: 6vmin;
+}
+
+.button-1-broto{
+    border: transparent 0;
+    padding: 2.5vmin;
+    border-radius: 20px;
+    font-weight: 700;
+
+    -webkit-box-shadow: 4px 7px 10px 0 rgba(125,125,125,1);
+    -moz-box-shadow: 4px 7px 10px 0 rgba(125,125,125,1);
+    box-shadow: 4px 7px 10px 0 rgba(125,125,125,1);
 }

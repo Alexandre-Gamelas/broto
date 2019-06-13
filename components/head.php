@@ -21,5 +21,7 @@
     <link rel="icon" href="./assets/img/bioliving.png">
     <link rel="stylesheet" href="css/estilos.css">
     <script src="js/main.js"></script>
+
+    <!-- comented out para nao termos stresses de cache em dev -- <script src="js/pwa.js"></script> -->
     <title>Broto</title>
 </head>
