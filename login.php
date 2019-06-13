@@ -1,16 +1,9 @@
 <!doctype html>
 <html lang="en">
 <?php include_once "components/head.php" ?>
-<body class="animated fadeInRight faster">
+<body>
 <!-- HEADER -->
-<section class="row">
-    <article class="col-12 position-relative h-15 header1">
-        <img src="assets/img/frontend/login_img.jpg" alt="" class="img-fluid">
-        <div class="gradient-broto position-absolute"></div>
-        <img src="assets/img/frontend/wave_logo.png" alt="" class="wave-logo">
-    </article>
-</section>
-
+<?php $logo=true; include_once "components/header_top.php"; ?>
 <!-- bem vindo -->
 <section class="row mt-4 mb-4">
     <article class="col-12 text-center" style="z-index: 200000">
