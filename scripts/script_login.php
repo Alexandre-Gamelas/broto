@@ -21,6 +21,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
                         $_SESSION['user']["id_user"]=$id_user;
                         $_SESSION['user']["papel"]=$papel;
                         $_SESSION['user']["fotografia"]=$foto;
+                        $_SESSION['user']['email'] = $_POST["email"];
                         $way="../menu.php";
                     }else{
                         $way="../login.php?msg=2";

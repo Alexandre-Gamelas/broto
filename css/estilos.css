@@ -73,6 +73,11 @@ input::placeholder{
     font-size: 6vmin;
 }
 
+.titulo-2-broto{
+    font-weight: 800;
+    font-size: 4.5vmin;
+}
+
 .button-1-broto{
     border: transparent 0;
     padding: 2.5vmin;
@@ -109,4 +114,78 @@ input::placeholder{
 
     width: 100%;
     height: auto;
+}
+
+.profile-pic-broto{
+    border: 0 transparent solid;
+    border-radius: 50%;
+
+    height: 65px;
+    width: 65px;
+}
+/*********** SIDE MENU **********/
+.side-menu{
+    width: 75vw;
+    height: 100vh;
+    position: absolute;
+    left: 100vw;
+    transform: translate(-100%, 0); /******* POSICIONO TODO PARA A DIREITA, COMO O POSICIONAMENTO É FEITO PELO CANTO SUPERIOR ESQUERDO, DEPOIS FAÇO UM TRANSLATE PARA ESQUERDA = À LARGURA DA COISA *********/
+    top:0;
+
+    z-index: 100;
+    border-bottom: 1px solid transparent;
+    border-bottom-left-radius: 30px;
+
+    background : -moz-linear-gradient(0% 50% 0deg,rgba(98, 210, 162, 1) 0%,rgba(102, 212, 164, 1) 26.13%,rgba(114, 219, 171, 1) 51.43%,rgba(133, 230, 182, 1) 76.3%,rgba(157, 243, 196, 1) 98.5%);
+    background : -webkit-linear-gradient(0deg, rgba(98, 210, 162, 1) 0%, rgba(102, 212, 164, 1) 26.13%, rgba(114, 219, 171, 1) 51.43%, rgba(133, 230, 182, 1) 76.3%, rgba(157, 243, 196, 1) 98.5%);
+    background : -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(98, 210, 162, 1) ),color-stop(0.2613,rgba(102, 212, 164, 1) ),color-stop(0.5143,rgba(114, 219, 171, 1) ),color-stop(0.763,rgba(133, 230, 182, 1) ),color-stop(0.985,rgba(157, 243, 196, 1) ));
+    background : -o-linear-gradient(0deg, rgba(98, 210, 162, 1) 0%, rgba(102, 212, 164, 1) 26.13%, rgba(114, 219, 171, 1) 51.43%, rgba(133, 230, 182, 1) 76.3%, rgba(157, 243, 196, 1) 98.5%);
+    background : -ms-linear-gradient(0deg, rgba(98, 210, 162, 1) 0%, rgba(102, 212, 164, 1) 26.13%, rgba(114, 219, 171, 1) 51.43%, rgba(133, 230, 182, 1) 76.3%, rgba(157, 243, 196, 1) 98.5%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#62D2A2', endColorstr='#9DF3C4' ,GradientType=0)";
+    background : linear-gradient(90deg, rgba(98, 210, 162, 1) 0%, rgba(102, 212, 164, 1) 26.13%, rgba(114, 219, 171, 1) 51.43%, rgba(133, 230, 182, 1) 76.3%, rgba(157, 243, 196, 1) 98.5%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#62D2A2',endColorstr='#9DF3C4' , GradientType=1);
+}
+
+.seta-sair-broto{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.white-1{
+     width: 85px;
+     height: 85px;
+
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+
+     background-color: white;
+     opacity: 0.6;
+
+     border: 0 transparent solid;
+     border-radius: 50%;
+     z-index: -100000;
+ }
+
+.white-2{
+    width: 105px;
+    height: 105px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+    opacity: 0.5;
+
+    border: 0 transparent solid;
+    border-radius: 50%;
+    z-index: -100000;
+}
+
+.spacing-broto{
+    letter-spacing: 5px;
 }
