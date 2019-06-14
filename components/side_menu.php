@@ -22,7 +22,6 @@
     <!-- nav -->
 
     <article class="col-10 text-white titulo-2-broto pt-4 pl-4 mt-4" style="border-top: 2px solid white ">
-
         <?php
 
         $menu = array(
@@ -48,7 +47,6 @@
 
 <script>
     let menuState = false;
-    console.log("ola jarbasia");
     $("#side-menu").css("width", 0);
     $("#side-menu > *").css("opacity", 0);
 
