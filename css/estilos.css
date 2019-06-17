@@ -189,6 +189,16 @@ input::placeholder{
 .spacing-broto{
     letter-spacing: 5px;
 }
+
+#blur{
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    opacity: 0.8;
+    position: absolute;
+}
 /***********MENU BOT*************/
 #menu-bot{
     background-color: #EFEFEF;

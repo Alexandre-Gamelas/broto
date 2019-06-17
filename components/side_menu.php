@@ -1,6 +1,9 @@
-<section id="side-menu" class="row justify-content-center m-0 side-menu align-content-start">
+<!-- BLUR -->
+<div id="blur" style="z-index: 9999"></div>
+
+<section id="side-menu" class="row justify-content-center m-0 side-menu align-content-start" style="z-index: 10000">
     <!-- SETA DE SAIDA-->
-    <a href="#" class="seta-sair-broto fas fa-arrow-right text-white"></a>
+    <a id="menu-close" class="seta-sair-broto fas fa-arrow-right text-white"></a>
 
     <!-- foto -->
     <article class="col-6 text-center profile-pic-broto" style="margin-top: 3rem">
@@ -46,11 +49,12 @@
 </section>
 
 <script>
+    $("#blur").hide();
     let menuState = false;
     $("#side-menu").css("width", 0);
     $("#side-menu > *").css("opacity", 0);
 
-    $("#menu").click(function () {
+    $("#menu, #menu-close").click(function () {
         if (!menuState) {
             menuState = true;
             $("#side-menu").animate({
@@ -61,7 +65,7 @@
                 opacity: '1'
             }, 1000);
 
-
+            $("#blur").show();
         } else {
             menuState = false;
             $("#side-menu").animate({
@@ -71,6 +75,8 @@
             $("#side-menu > *").animate({
                 opacity: '0'
             }, 200);
+            $("#blur").hide();
+
         }
     })
 </script>
