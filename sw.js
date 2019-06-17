@@ -1,4 +1,4 @@
-const cacheName = 'id2019';
+const cacheName = 'Broto';
 const staticAssets = [
      './',
     './index.php',

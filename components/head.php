@@ -22,6 +22,6 @@
     <link rel="stylesheet" href="css/estilos.css">
     <script src="js/main.js"></script>
 
-    <!--<script src="js/pwa.js"></script>-->
+    <script src="js/pwa.js"></script>
     <title>Broto</title>
 </head>

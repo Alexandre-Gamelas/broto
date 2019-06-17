@@ -189,3 +189,9 @@ input::placeholder{
 .spacing-broto{
     letter-spacing: 5px;
 }
+/***********MENU BOT*************/
+#menu-bot{
+    background-color: #EFEFEF;
+    height: 10vh;
+    width: 100vw;
+}
