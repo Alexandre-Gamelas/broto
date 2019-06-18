@@ -28,18 +28,18 @@
         <?php
 
         $menu = array(
-            "Perfil",
-            "Game Hub",
-            "Mapa",
-            "Loja",
-            "Admin",
-            "Logout"
+            "Perfil" => "perfil.php",
+            "Game Hub" => "hub.php",
+            "Mapa" => "mapa.php",
+            "Loja" => "loja.php",
+            "Admin" => "admin.php",
+            "Logout" => "scripts/script_logout.php"
         );
 
-        foreach ($menu as $link) {
+        foreach ($menu as $nome => $link) {
             ?>
 
-            <p class="mb-4"><a href="#" class="text-white"><?= $link ?></a></p>
+            <p class="mb-4"><a href="<?=$link?>" class="text-white"><?= $nome?></a></p>
 
             <?php
         }
@@ -50,13 +50,15 @@
 
 <script>
     $("#blur").hide();
+    $("#blur").css("opacity", 0);
+
     let menuState = false;
     $("#side-menu").css("width", 0);
     $("#side-menu > *").css("opacity", 0);
 
-    $("#menu, #menu-close").click(function () {
+    $("#menu, #menu-close, #blur").click(function () {
         if (!menuState) {
-            menuState = true;
+
             $("#side-menu").animate({
                 width: '75vw'
             }, 400);
@@ -65,9 +67,15 @@
                 opacity: '1'
             }, 1000);
 
-            $("#blur").show();
+            $("#blur").show(function () {
+                $(this).animate({
+                    opacity: "0.6"
+                }, 1000, function () {
+                    menuState = true;
+                });
+            });
+
         } else {
-            menuState = false;
             $("#side-menu").animate({
                 width: '0'
             }, 400);
@@ -75,8 +83,14 @@
             $("#side-menu > *").animate({
                 opacity: '0'
             }, 200);
-            $("#blur").hide();
 
+            $("#blur").animate({
+                opacity: "0"
+            }, 1000, function () {
+                $(this).hide(function () {
+                    menuState = false;
+                })
+            });
         }
     })
 </script>
