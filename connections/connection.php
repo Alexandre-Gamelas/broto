@@ -4,10 +4,10 @@ error_reporting(E_ALL);
 function new_db_connection()
 {
     // Variables for the database connection
-    $hostname = 'remotemysql.com'; //MUDAR HOST
-    $username = "WBxY2aZsan";
-    $password = "umj3pUOhOj";
-    $dbname = "WBxY2aZsan";//MUDAR BD
+    $hostname = 'labmm.clients.ua.pt'; //MUDAR HOST
+    $username = "deca_18L4_21_web";
+    $password = "Y85MyN";
+    $dbname = "deca_18l4_21";//MUDAR BD
 
 
 // Makes the connection
