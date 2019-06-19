@@ -38,6 +38,15 @@ a:visited{
 input::placeholder{
     text-align: center;
 }
+
+#pagina{
+    background : -o-linear-gradient(0deg, rgba(157, 243, 196, 1) 0%, rgba(31, 171, 137, 1) 100%);
+    background : -ms-linear-gradient(0deg, rgba(157, 243, 196, 1) 0%, rgba(31, 171, 137, 1) 100%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#9DF3C4', endColorstr='#1FAB89' ,GradientType=0)";
+    background : linear-gradient(90deg, rgba(157, 243, 196, 1) 0%, rgba(31, 171, 137, 1) 100%);
+    border-radius : 5px 5px 5px 5px;
+}
+
 /******** grandientes ************/
 .gradient-broto{
     z-index: 1000;
@@ -115,9 +124,24 @@ input::placeholder{
     height: auto;
 }
 
+.wave-perfil{
+    z-index: 1000;
+    position: absolute;
+    left: 0;
+    top: 73.7%;
+    padding: 0;
+    margin: 0;
+
+    width: 100%;
+    height: auto;
+    transform: scale(-1, -1);
+
+
+}
+
 .wave-nav{
     position: absolute;
-    top: -21vh;
+    top: 0;
     left: 0;
 
     padding: 0;
@@ -134,11 +158,23 @@ input::placeholder{
     height: 65px;
     width: 65px;
 }
+
+.profile-pic-broto-2{
+    border: 0 transparent solid;
+    border-radius: 50%;
+
+    height: 65px;
+    width: 65px;
+
+    position: absolute;
+    left: 18vw;
+    top: 65%;
+}
 /*********** SIDE MENU **********/
 .side-menu{
     width: 75vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     left: 100vw;
     transform: translate(-100%, 0); /******* POSICIONO TODO PARA A DIREITA, COMO O POSICIONAMENTO É FEITO PELO CANTO SUPERIOR ESQUERDO, DEPOIS FAÇO UM TRANSLATE PARA ESQUERDA = À LARGURA DA COISA *********/
     top:0;
@@ -161,6 +197,19 @@ input::placeholder{
     position: absolute;
     top: 10px;
     right: 10px;
+}
+
+.main-profile-pic{
+    height: 65px;
+    width: 65px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 0 transparent solid;
+    border-radius: 50%;
 }
 
 .white-1{
@@ -208,7 +257,9 @@ input::placeholder{
     margin: 0;
     background-color: white;
     opacity: 0.8;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 /***********MENU BOT*************/
 #menu-bot{
