@@ -3,7 +3,7 @@
 
 <section id="side-menu" class="row justify-content-center m-0 side-menu align-content-start" style="z-index: 10000">
     <!-- SETA DE SAIDA-->
-    <a id="menu-close" class="seta-sair-broto fas fa-arrow-right text-white"></a>
+    <i id="menu-close" class="seta-sair-broto fas fa-arrow-right text-white"></i>
 
     <!-- foto -->
     <article class="col-6 text-center profile-pic-broto" style="margin-top: 3rem">
