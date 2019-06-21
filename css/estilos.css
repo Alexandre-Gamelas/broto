@@ -1,8 +1,4 @@
 /************GERAIS****************/
-*{
-
-}
-
 body{
     font-family: 'Lato', sans-serif !important;
     overflow-x: hidden!important;
@@ -37,6 +33,10 @@ a:visited{
 }
 
 input::placeholder{
+    text-align: center;
+}
+
+textarea::placeholder{
     text-align: center;
 }
 

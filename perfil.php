@@ -7,18 +7,12 @@ include_once "components/head.php";
 <body>
 <?php include_once "components/header_perfil.php" ?>
 
-<section  class="row align-items-center align-content-center pt-1">
-    <article id="pagina" class="col-4 p-1">
-        <p class="text-right text-white mb-0 pr-1" style="font-size: 4vmin">Meu Perfil</p>
-    </article>
-</section>
-
-<section class="row justify-content-center mt-4">
-    <article class="col-10">
-        <p><?= $_SESSION['user']['nome']?> <i class="ml-2 fas fa-pencil-alt"></i></p>
+<section class="row justify-content-center mt-4 align-items-center">
+    <article class="col-10" >
+        <h4 class="cinzento-escuro font-weight-bold"><?= $_SESSION['user']['nome']?> <a class="cinzento-escuro ml-2 fas fa-pencil-alt" href="editar_perfil.php?id=<?= $_SESSION['user']['id_user']?>"></a></h4>
         <hr class="img-fluid">
-        <p>Portugal</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam aspernatur corporis dignissimos earum eveniet expedita, explicabo magni minus nam nihil non nulla pariatur, placeat quasi quo reprehenderit repudiandae soluta? Eius est, qui. Commodi debitis dolor quis quo, sequi veniam voluptas voluptate! A accusamus architecto corporis, cum delectus error laborum minima molestiae mollitia odit placeat, qui repellendus sequi similique totam? Ad adipisci blanditiis corporis eum excepturi fugit incidunt iusto magni minima nisi possimus, provident quisquam repellendus, sapiente sit soluta totam veritatis! Aperiam obcaecati odio quis voluptatum! Assumenda, deleniti deserunt est expedita impedit laborum maiores non officiis quos unde ut, voluptates.</p>
+        <h5 class="cinzento-escuro">Portugal</h5>
+        <p class="cinzento-escuro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam aspernatur corporis dignissimos earum eveniet expedita</p>
     </article>
 </section>
 
