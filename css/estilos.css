@@ -1,9 +1,10 @@
 /************GERAIS****************/
 *{
-    font-family: 'Lato', sans-serif !important;
+
 }
 
 body{
+    font-family: 'Lato', sans-serif !important;
     overflow-x: hidden!important;
 }
 
@@ -193,7 +194,7 @@ input::placeholder{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#62D2A2',endColorstr='#9DF3C4' , GradientType=1);
 }
 
-.seta-sair-broto{
+.seta-sair-broto {
     position: absolute;
     top: 10px;
     right: 10px;
