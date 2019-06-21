@@ -22,7 +22,6 @@ if($_GET['id'] != $_SESSION['user']['id_user'])
     <input required type="email" name="email" value="<?=$_SESSION['user']['email']?>" placeholder="E-mail" class="col-8 mt-3 form-control button-2-broto text-center cinzento-escuro">
     <input required type="text" name="data" placeholder="Data de Nascimento" class="col-8 mt-3 form-control button-2-broto text-center cinzento-escuro">
     <input type="text" name="fotografia"value="<?= $_SESSION['user']['fotografia'] ?>" placeholder="Fotografia" class="col-8 mt-3 form-control button-2-broto text-center cinzento-escuro">
-
     <textarea class="button-2-broto form-control col-8 mt-3" placeholder="Biografia" name="bio" id="bio" cols="30" rows="5"></textarea>
 
     <button class="col-6 button-1-broto gradient-broto text-white mt-5 mb-5">Alterar</button>

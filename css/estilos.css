@@ -264,7 +264,8 @@ textarea::placeholder{
 }
 /***********MENU BOT*************/
 #menu-bot{
-    background-color: #EFEFEF;
-    height: 10vh;
+    background-image: url("../assets/img/frontend/curvanav.svg");
+    background-size: cover;
+    height: 13vh;
     width: 100vw;
 }
