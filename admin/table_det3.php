@@ -98,12 +98,12 @@
 
                                                              <div class="form-group col-8 mt-2">
                                                                  <label for="">Data de Início</label>
-                                                                 <input class='form-control inputRegistar' type='text' name='data_inicio' placeholder='data_inicio' value='<?= $data_inicio ?>'>
+                                                                 <input class='form-control inputRegistar' type='text' name='data_inicio' placeholder='data inicio' pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" title="Enter a date in this format YYYY-MM-DD" value='<?= $data_inicio ?>'>
                                                              </div>
 
                                                              <div class="form-group col-8 mt-2">
                                                                  <label for="">Data de Fim</label>
-                                                                 <input class='form-control inputRegistar' type='text' name='data_fim' placeholder='data_fim' value='<?= $data_fim ?>'>
+                                                                 <input class='form-control inputRegistar' type='text' name='data_fim' placeholder='data fim' pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" title="Enter a date in this format YYYY-MM-DD" value='<?= $data_fim ?>'>
                                                              </div>
 
                                                              <div class="form-group col-8 mt-2">
