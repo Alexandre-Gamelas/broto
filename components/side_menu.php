@@ -29,12 +29,12 @@
 
         $menu = array(
             "Perfil" => "perfil.php",
-            "Game Hub" => "hub.php",
             "Mapa" => "mapa.php",
-            "Loja" => "loja.php",
-            "Admin" => "admin.php",
             "Logout" => "scripts/script_logout.php"
         );
+
+        if($_SESSION['user']['papel']==1)
+            $menu["Administrador"] = "admin/index.php";
 
         foreach ($menu as $nome => $link) {
             ?>
