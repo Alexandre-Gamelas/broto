@@ -11,7 +11,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         $mail=$_POST["email"];
         $password=$_POST["password"];
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $id_user,$nome, $password_crypt, $papel, $foto, $block);
+        mysqli_stmt_bind_result($stmt, $id_user,$nome, $password_crypt, $papel, $foto, $block );
         if(mysqli_stmt_fetch($stmt)){
             if($papel==2){
                 if($block==0){
@@ -22,6 +22,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
                         $_SESSION['user']["papel"]=$papel;
                         $_SESSION['user']["fotografia"]=$foto;
                         $_SESSION['user']['email'] = $_POST["email"];
+
                         $way="../menu.php";
                     }else{
                         $way="../login.php?msg=2";

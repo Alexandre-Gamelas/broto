@@ -5,6 +5,7 @@
 <?php
 session_start();
 include_once "components/head.php";
+
 if($_GET['id'] != $_SESSION['user']['id_user'])
     Header("Location: scripts/script_logout.php");
 ?>
@@ -17,7 +18,7 @@ if($_GET['id'] != $_SESSION['user']['id_user'])
     </article>
 </section>
 
-<form action="scripts/script_editarPerfil.php" class="row justify-content-center text-center mb-5 pb-5" method="post">
+<form action="scripts/script_editar.php" class="row justify-content-center text-center mb-5 pb-5" method="post">
     <input required type="text" name="nome" value="<?= $_SESSION['user']['nome']?>" placeholder="Nome" class="col-8 mt-3 form-control button-2-broto text-center cinzento-escuro">
     <input required type="email" name="email" value="<?=$_SESSION['user']['email']?>" placeholder="E-mail" class="col-8 mt-3 form-control button-2-broto text-center cinzento-escuro">
     <input required type="text" name="data" placeholder="Data de Nascimento" class="col-8 mt-3 form-control button-2-broto text-center cinzento-escuro">
@@ -38,6 +39,18 @@ if($_GET['id'] != $_SESSION['user']['id_user'])
 
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
+
+<?php
+if(isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
+    switch ($msg) {
+        case "updateSim":
+            echo "<script>alert('Update efetuado com sucesso!')</script>";
+            break;
+        case "updateNao":
+            echo "<script>alert('Update falhado!')</script>";
+            break;}}
+?>
 <?php include_once "components/firebase.php" ?>
 </body>
 </html>
