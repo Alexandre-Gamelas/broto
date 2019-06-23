@@ -269,3 +269,7 @@ textarea::placeholder{
     height: 13vh;
     width: 100vw;
 }
+/**********MAPA**************/
+#map{
+    height: 100vh;
+}
