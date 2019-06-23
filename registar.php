@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
-<?php include_once "components/head.php" ?>
+<?php
+session_start();
+if(isset($_SESSION['user']))
+    header("location: menu.php");
+include_once "components/head.php" ?>
 <body>
 <!-- HEADER -->
 <?php $logo=false; include_once "components/header_top.php"; ?>

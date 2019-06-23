@@ -3,7 +3,6 @@ session_start();
 if(isset($_SESSION['user']))
     header("location: menu.php");
 
-var_dump($_SESSION['user'])
 
 ?>
 <!doctype html>
@@ -20,6 +19,48 @@ var_dump($_SESSION['user'])
         <p class="titulo-1-broto cinzento-escuro">Bem vindo!</p>
     </article>
 </section>
+
+<?php
+if (isset($_GET["msg"])) {
+$msg_show = true;
+switch ($_GET["msg"]) {
+    case 0:
+        $message = "Sessão expirada ou não iniciada";
+        $class = "alert-warning";
+        break;
+    case 1:
+        $message = "Esta conta está bloqueada";
+        $class = "alert-danger";
+        break;
+    case 2:
+        $message = "ocorreu um erro no login";
+        $class = "alert-warning";
+        break;
+    case 3:
+        $message = "Registo efectuado com sucesso, faça login!";
+        $class = "alert-success";
+        break;
+    case 4:
+        $message="Esta conta não tem permissões de administrador";
+        $class="alert-danger";
+        break;
+    default:
+        $msg_show = false;
+        break;
+}
+
+ echo "<div class=\"alert $class alert-dismissible fade show mx-5\" role=\"alert\">
+" . $message . "
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>";
+                        if ($msg_show) {
+                            echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                        }
+                    }
+?>
+
 
 <!-- NAVEGAÇÃO --->
 <section class="row justify-content-center mt-5">
