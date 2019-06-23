@@ -4,7 +4,7 @@
     </article>
     <div class="col-2"></div>
     <article class="col-2">
-        <img src="assets/img/frontend/menu/mapa.png" alt="" class="img-fluid">
+        <a href="mapa.php"><img src="assets/img/frontend/menu/mapa.png" alt="" class="img-fluid"></a>
     </article>
     <div class="col-2"></div>
     <article id="menu" class="col-2">

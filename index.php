@@ -1,9 +1,19 @@
+<?php
+session_start();
+if(isset($_SESSION['user']))
+    header("location: menu.php");
+
+var_dump($_SESSION['user'])
+
+?>
 <!doctype html>
 <html lang="en">
 <?php include_once "components/head.php" ?>
 <body>
 <!-- HEADER -->
-<?php $logo = true; include_once "components/header_top.php"; ?>
+<?php $logo = true; include_once "components/header_top.php";
+?>
+
 <!-- bem vindo -->
 <section class="row">
     <article class="col-12 text-center mt-5">

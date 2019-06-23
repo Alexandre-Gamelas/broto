@@ -266,7 +266,7 @@ textarea::placeholder{
 #menu-bot{
     background-image: url("../assets/img/frontend/curvanav.svg");
     background-size: cover;
-    height: 13vh;
+    height: 14vh;
     width: 100vw;
 }
 /**********MAPA**************/
