@@ -5,13 +5,13 @@ require_once "../connections/connection.php";
 if(isset($_POST["email"]) && isset($_POST["password"])){
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
-    $query= "SELECT id_utilizadores, nome, password, ref_papeis, fotografia, is_blocked FROM utilizadores WHERE email LIKE ? ";
+    $query= "SELECT id_utilizadores, nome, password, ref_papeis, fotografia, is_blocked, data_nascimento FROM utilizadores WHERE email LIKE ? ";
     if(mysqli_stmt_prepare($stmt, $query)){
         mysqli_stmt_bind_param($stmt, 's', $mail);
         $mail=$_POST["email"];
         $password=$_POST["password"];
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $id_user,$nome, $password_crypt, $papel, $foto, $block );
+        mysqli_stmt_bind_result($stmt, $id_user,$nome, $password_crypt, $papel, $foto, $block, $nasc);
         if(mysqli_stmt_fetch($stmt)){
             if($papel==2){
                 if($block==0){
@@ -22,6 +22,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
                         $_SESSION['user']["papel"]=$papel;
                         $_SESSION['user']["fotografia"]=$foto;
                         $_SESSION['user']['email'] = $_POST["email"];
+                        $_SESSION['user']['data_nasc']=$nasc;
 
                         $way="../menu.php";
                     }else{
