@@ -24,6 +24,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
         $_SESSION['user']["nome"]=$nome;
         $_SESSION['user']['email'] = $email;
         $_SESSION['user']['bio'] = $bio;
+        $_SESSION['user']['data_nasc']=$data_nascimento;
         header("Location: ../editar_perfil.php?id=$id&msg=updateSim");
     }else{
         header("Location: ../editar_perfil.php?id=$id&msg=updateNao");
