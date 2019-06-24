@@ -20,6 +20,7 @@ include_once "components/head.php" ?>
     <input required type="text" name="email" placeholder="Email" class="col-8 mt-3 form-control button-2-broto">
     <input required type="password" name="password" placeholder="Password" class="col-8 mt-3 form-control button-2-broto">
     <button class="col-6 button-1-broto gradient-broto text-white mt-5">Entrar</button>
+    <a href="registar.php" class="col-8 pt-3">Ainda não tem conta? Registe-se aqui!</a>
 </form>
 
 
