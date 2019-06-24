@@ -8,23 +8,50 @@ $link = new_db_connection(); // Create a new DB connection
 $stmt = mysqli_stmt_init($link);
 
 $query = "UPDATE utilizadores
-SET nome = ?, email = ?, data_nascimento = ?, bio = ? WHERE id_utilizadores LIKE ?";
+SET nome = ?, email = ?, data_nascimento = ?, bio = ?, ref_nacionalidades = ? WHERE id_utilizadores LIKE ?";
 
 
 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
-    mysqli_stmt_bind_param($stmt, 'ssssi', $nome, $email, $data_nascimento, $bio, $id); // Bind variables by type to each parameter
+    mysqli_stmt_bind_param($stmt, 'ssssii', $nome, $email, $data_nascimento, $bio, $nac, $id); // Bind variables by type to each parameter
 
     $id = $_SESSION['user']['id_user'];
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $data_nascimento = $_POST["data"];
+    $nac = $_POST["nacionalidade"];
     $bio=$_POST["bio"];
     if(mysqli_stmt_execute($stmt)){
         $_SESSION['user']["nome"]=$nome;
         $_SESSION['user']['email'] = $email;
         $_SESSION['user']['bio'] = $bio;
         $_SESSION['user']['data_nasc']=$data_nascimento;
+        $_SESSION['user']['nac'] = $nac;
+    }else{
+        header("Location: ../editar_perfil.php?id=$id&msg=updateNao");
+    }
+    mysqli_stmt_close($stmt); // Close statement
+}else{
+    echo mysqli_stmt_error($stmt);
+}
+mysqli_close($link);
+
+$link = new_db_connection(); // Create a new DB connection
+
+$stmt = mysqli_stmt_init($link);
+
+$query = "SELECT nome FROM nacionalidades WHERE id_nacionalidades = ?";
+
+
+if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+
+    mysqli_stmt_bind_param($stmt, 'i', $idNac); // Bind variables by type to each parameter
+
+    $idNac = $_SESSION['user']['nac'];
+
+    mysqli_stmt_bind_result($stmt,  $nome);
+    if(mysqli_stmt_execute($stmt)){
+        $_SESSION['user']['nacionalidade'] = $nome;
         header("Location: ../editar_perfil.php?id=$id&msg=updateSim");
     }else{
         header("Location: ../editar_perfil.php?id=$id&msg=updateNao");
@@ -34,5 +61,6 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
     echo mysqli_stmt_error($stmt);
 }
 mysqli_close($link);
+
 
 

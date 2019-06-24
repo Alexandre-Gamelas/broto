@@ -13,8 +13,8 @@ include_once "components/head.php";
     <article class="col-10" >
         <h4 class="cinzento-escuro font-weight-bold"><?= $_SESSION['user']['nome']?> <a class="cinzento-escuro ml-2 fas fa-pencil-alt" href="editar_perfil.php?id=<?= $_SESSION['user']['id_user']?>"></a></h4>
         <hr class="img-fluid">
-        <h5 class="cinzento-escuro">Portugal</h5>
-        <p class="cinzento-escuro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam aspernatur corporis dignissimos earum eveniet expedita</p>
+        <h5 class="cinzento-escuro"><?= $_SESSION['user']['nacionalidade']?></h5>
+        <p class="cinzento-escuro"><?= $_SESSION['user']['bio'] ?></p>
     </article>
 </section>
 
