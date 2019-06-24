@@ -4,6 +4,9 @@
 
 <?php
 session_start();
+
+if(!isset($_SESSION['user']))
+    header("location: index.php?msg=0");
 include_once "components/head.php";
 
 if($_GET['id'] != $_SESSION['user']['id_user'])
