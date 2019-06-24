@@ -20,7 +20,7 @@ require_once "scripts/get_event.php";
 </section>
 
 <div id="carouselEvento" class="carousel slide mt-0 ml-4 mr-4 mb-5 pb-5" data-ride="carousel">
-    <ol class="carousel-indicators">
+    <ol class="carousel-indicators mb-5">
         <li data-target="#carouselEvento" data-slide-to="0" class="active"></li>
         <li data-target="#carouselEvento" data-slide-to="1"></li>
         <li data-target="#carouselEvento" data-slide-to="2"></li>

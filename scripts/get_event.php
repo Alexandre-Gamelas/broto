@@ -19,4 +19,4 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 $inicio = explode("-", $data_inicio);
 $dia = $inicio[2];
 $mes = $inicio[1];
-$mes = substr(date('F', mktime(0, 0, 0, $mes, 10)), 0, 3); // March
+$mes = substr(date('F', mktime(0, 0, 0, $mes, 10)), 0, 3); //para alem de ir sacar o mes tmb estou a limitar aos 3 primeiros chars
