@@ -13,7 +13,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id_user,$nome, $password_crypt, $papel, $foto, $block, $nasc, $bio);
         if(mysqli_stmt_fetch($stmt)){
-            if($papel==2){
+
                 if($block==0){
                     if(password_verify($password, $password_crypt)){
 
@@ -35,8 +35,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
                 }else{
                     $way="../login.php?msg=1";
                 }
-            }else{
-                $way="../login.php?msg=4";}
+
 
 
 

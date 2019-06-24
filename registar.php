@@ -14,7 +14,30 @@ include_once "components/head.php" ?>
         <p class="titulo-1-broto cinzento-escuro mb-0">Regista-te!</p>
     </article>
 </section>
+<?php
+if (isset($_GET["msg"])) {
+    $msg_show = true;
+    switch ($_GET["msg"]) {
+        case 0:
+            $message = "Erro no registo";
+            $class = "alert-warning";
+            break;
+        default:
+            $msg_show = false;
+            break;
+    }
 
+    echo "<div class=\"alert $class alert-dismissible fade show mx-5 mt-2\" role=\"alert\">
+" . $message . "
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>";
+    if ($msg_show) {
+        echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+    }
+}
+?>
 <!-- Form --->
 <form action="scripts/script_registar.php" class="row justify-content-center text-center" method="post">
     <input required type="text" name="nome" placeholder="Nome" class="col-8 mt-3 form-control button-2-broto">
