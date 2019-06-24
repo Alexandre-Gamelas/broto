@@ -4,8 +4,8 @@ session_start();
 include_once "scripts/check_log.php";
 
 
-        if($_SESSION["fotografia"] != null || (strpos($_SESSION["fotografia"], '.png') !== false) || $_SESSION["fotografia"] !=""){
-            $fotografia = $_SESSION["fotografia"];
+        if($_SESSION['user']['fotografia'] != null || (strpos($_SESSION['user']['fotografia'], '.png') !== false) || $_SESSION['user']['fotografia'] !=""){
+            $fotografia = $_SESSION['user']['fotografia'];
         } else {
             $fotografia = 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png';
         }
@@ -52,7 +52,7 @@ include_once "scripts/check_log.php";
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$_SESSION["nome"]?></span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$_SESSION['user']['nome']?></span>
                             <img class="img-profile rounded-circle" src="<?=$fotografia?>">
                         </a>
                         <!-- Dropdown - User Information -->

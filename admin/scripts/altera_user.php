@@ -41,8 +41,8 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
    if( mysqli_stmt_execute($stmt)){ // Execute the prepared statement
         if($id = $_SESSION["id_user"]){
-            $_SESSION["nome"]=$nome;
-            $_SESSION["papel"]=$papel;
+            $_SESSION['user']['nome']=$nome;
+            $_SESSION['user']['papel']=$papel;
             if($block=="1"){
                 $_SESSION=array();
                 session_destroy();

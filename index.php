@@ -31,8 +31,8 @@ switch ($_GET["msg"]) {
         $class = "alert-danger";
         break;
     case 2:
-        $message = "ocorreu um erro no login";
-        $class = "alert-warning";
+        $message = "Logout efetuado com sucesso!";
+        $class = "alert-success";
         break;
     case 3:
         $message = "Registo efectuado com sucesso, faça login!";
