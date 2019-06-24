@@ -15,3 +15,8 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         }
     }
 }
+
+$inicio = explode("-", $data_inicio);
+$dia = $inicio[2];
+$mes = $inicio[1];
+$mes = substr(date('F', mktime(0, 0, 0, $mes, 10)), 0, 3); // March

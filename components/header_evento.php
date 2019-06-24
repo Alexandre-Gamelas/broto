@@ -7,7 +7,13 @@
 
     <article class="col-10 m-4 position-absolute" style="z-index: 1001">
         <h3 class="text-white font-weight-bold mb-3"><?= $nome?></h3>
-        <p class="text-white mb-1"> <?= $descricao ?></p>
         <p class="text-white"><i class="fas fa-map-marker-alt"></i> Associação Bioliving</p>
     </article>
+
+    <div id="data" class="text-center text-white" style="z-index: 1001">
+        <div class="pos-center">
+            <h5 class="mb-0 text-uppercase font-weight-bold"><?= $mes ?></h5>
+            <p class="mb-0"><?= $dia ?></p>
+        </div>
+    </div>
 </section>

@@ -14,7 +14,7 @@ require_once "scripts/get_event.php";
 
 <section class="row justify-content-center background-evento mt-4 ml-4 mr-4 mb-0">
     <article class="col-12 text-center mt-2">
-        <h3 class="text-white text-uppercase"><i class="fas fa-external-link-alt"></i>inscreve-te</h3>
+        <h3 class="text-white text-uppercase"><i class="fas fa-external-link-alt mr-2"></i>inscreve-te</h3>
         <p class="text-white"><?= $descricao ?></p>
     </article>
 </section>

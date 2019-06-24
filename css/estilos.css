@@ -48,6 +48,13 @@ textarea::placeholder{
     border-radius : 5px 5px 5px 5px;
 }
 
+.pos-center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /******** grandientes ************/
 .gradient-broto{
     z-index: 1000;
@@ -293,4 +300,23 @@ textarea::placeholder{
     border-bottom: 1px solid transparent;
     border-radius: 0 0 19px 19px;
 
+}
+
+#data{
+    width: 65px;
+    height: 65px;
+    border: 0 solid transparent;
+    border-radius: 50%;
+
+    background : -moz-linear-gradient(0% 50% 0deg,rgba(31, 171, 137, 1) 0%,rgba(157, 243, 196, 1) 98.5%);
+    background : -webkit-linear-gradient(0deg, rgba(31, 171, 137, 1) 0%, rgba(157, 243, 196, 1) 98.5%);
+    background : -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(31, 171, 137, 1) ),color-stop(0.985,rgba(157, 243, 196, 1) ));
+    background : -o-linear-gradient(0deg, rgba(31, 171, 137, 1) 0%, rgba(157, 243, 196, 1) 98.5%);
+    background : -ms-linear-gradient(0deg, rgba(31, 171, 137, 1) 0%, rgba(157, 243, 196, 1) 98.5%);
+    background : linear-gradient(90deg, rgba(31, 171, 137, 1) 0%, rgba(157, 243, 196, 1) 98.5%);
+
+    position: absolute;
+    top: 12%;
+    left: 77%;
+    color: white;
 }
