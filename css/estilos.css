@@ -286,7 +286,7 @@ textarea::placeholder{
 
     border: 1px solid transparent;
     border-radius: 19px 19px 0 0;
-    min-height: 35vh;
+    min-height: 30vh;
 }
 
 .carouselEvento{

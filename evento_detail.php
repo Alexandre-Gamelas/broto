@@ -5,6 +5,8 @@ session_start();
 include_once "components/head.php";
 if(isset($_GET['id']))
     $id_evento = $_GET['id'];
+else
+    header("Location: mapa.php");
 require_once "scripts/get_event.php";
 ?>
 <body>
