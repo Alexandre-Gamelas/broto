@@ -1,6 +1,5 @@
 <script>
     $("#side-menu").hide();
-    let menuState = false;
 </script>
 <!-- BLUR -->
 <div id="blur" style="z-index: 9999"></div>
@@ -53,7 +52,9 @@
 </section>
 
 <script>
+    $("#blur").hide();
     $("#blur").css("opacity", 0);
+    let menuState = false;
     $("#side-menu").css("width", 0);
     $("#side-menu > *").css("opacity", 0);
 

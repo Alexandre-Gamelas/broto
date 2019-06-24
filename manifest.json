@@ -20,7 +20,7 @@
   "start_url": "index.php",
   "display": "standalone",
   "background_color": "#FFFFFF",
-  "theme_color": "#FFFFFF",
+  "theme_color": "#808184",
   "prefer_related_applications": false,
   "gcm_sender_id": "103953800507"
 }
