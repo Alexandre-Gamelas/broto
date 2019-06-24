@@ -1,7 +1,9 @@
 const cacheName = 'Broto';
 const staticAssets = [
-     './',
     './index.php',
+    './css',
+    './assets',
+    './js'
 ];
 
 self.addEventListener('install', async e =>{
