@@ -20,6 +20,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             else
                 echo "<option value='$id_nacionalidades'>$nome</option>";
         }
+
     } else {
         echo "Error: " . mysqli_stmt_error($stmt);
     }
