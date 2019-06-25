@@ -27,7 +27,7 @@
 
     <!-- nav -->
 
-    <article class="col-10 text-white titulo-2-broto pt-4 pl-4 mt-4" style="border-top: 2px solid white ">
+    <article id="listaMenu" class="col-10 text-white titulo-2-broto pt-4 pl-4 mt-4" style="border-top: 2px solid white ">
         <?php
 
         $menu = array(
@@ -53,12 +53,13 @@
         }
         ?>
 
-        <form method="post" action="search.php" class="form-inline md-form form-sm text-white mt-5">
-            <input class=" mr-0 w-75 search p-0 text-white" type="text" placeholder="Procure pessoas!" name="search"
-                   aria-label="Search" >
-            <button type="submit" class="fas fa-search ml-3 text-white" aria-hidden="true" style="background: none;border: none;padding: 0;;cursor: pointer;outline: inherit;"></button>
-        </form>
+
     </article>
+    <form method="post" action="search.php" class="form-inline md-form form-sm text-white mt-5">
+        <input id="searchBar" class=" mr-0 w-75 search p-0 text-white" type="text" placeholder="Procure pessoas!" name="search"
+               aria-label="Search" >
+        <button type="submit" class="fas fa-search ml-3 text-white" aria-hidden="true" style="background: none;border: none;padding: 0;;cursor: pointer;outline: inherit;"></button>
+    </form>
 
 </section>
 
@@ -105,5 +106,5 @@
                 })
             });
         }
-    })
+    });
 </script>

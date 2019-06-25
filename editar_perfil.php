@@ -14,7 +14,8 @@ if($_GET['id'] != $_SESSION['user']['id_user'])
 $user_id = $_GET['id'];
 ?>
 <?php include_once "components/header_perfil.php" ?>
-<a data-toggle="modal" data-target="#fotografiaModal"x><i class="far fa-edit edit-foto fa-2x text-white"></i></a>
+<!-- ICON EDITAR FOTO -->
+<a data-toggle="modal" data-target="#fotografiaModal"x><i class="far fa-edit edit-foto fa-2x text-success"></i></a>
 
 <section class="row justify-content-center mt-4 align-items-center">
     <article class="col-10" >
@@ -32,7 +33,7 @@ $user_id = $_GET['id'];
         <?php include_once "components/lista_nacional.php" ?>
     </select>
 
-    <input type="text" name="fotografia" value="<?= $_SESSION['user']['fotografia'] ?>" placeholder="Fotografia" class="col-8 mt-3 form-control button-2-broto text-center cinzento-escuro">
+    <input type="text" disabled name="fotografia" value="<?= $_SESSION['user']['fotografia'] ?>" placeholder="Fotografia" class="col-8 mt-3 form-control button-2-broto text-center cinzento-escuro">
     <textarea class="button-2-broto form-control col-8 mt-3" placeholder="Biografia" name="bio" id="bio" cols="30" rows="5"><?=$_SESSION['user']['bio']?></textarea>
 
     <button class="col-6 button-1-broto gradient-broto text-white mt-5 mb-5">Alterar</button>
