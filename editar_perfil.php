@@ -11,8 +11,10 @@ include_once "components/head.php";
 
 if($_GET['id'] != $_SESSION['user']['id_user'])
     Header("Location: scripts/script_logout.php");
+$user_id = $_GET['id'];
 ?>
 <?php include_once "components/header_perfil.php" ?>
+<a data-toggle="modal" data-target="#fotografiaModal"x><i class="far fa-edit edit-foto fa-2x text-white"></i></a>
 
 <section class="row justify-content-center mt-4 align-items-center">
     <article class="col-10" >
@@ -37,13 +39,20 @@ if($_GET['id'] != $_SESSION['user']['id_user'])
 </form>
 
 
-
-
-
-
-
-
-
+<!-- Fotografia Modal-->
+<div class="modal fade" id="fotografiaModal" tabindex="-1" role="dialog" aria-labelledby="modalFotos"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <form class="row justify-content-center pb-5" action="scripts/uploadFoto.php?id=<?= $user_id ?>&tipo=user" enctype="multipart/form-data" method="post">
+                    <input style="cursor: pointer!important;" class="col-8 p-3 pb-5 form-control inputRegistar mt-4" type="file" placeholder="File" name="fileToUpload" id="fileToUpload">
+                    <input class="col-8 form-control button-2-broto mt-4" type="submit" value="Upload" name="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
