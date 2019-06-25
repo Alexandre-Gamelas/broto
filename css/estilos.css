@@ -79,7 +79,19 @@ textarea::placeholder{
     top: 50%;
     transform: translate(-50%, -50%);
 }
-
+.mw-25{
+    max-width: 50%;
+}
+.search_carta{
+    border: 1px solid lightgrey;
+    border-radius: 50px;
+}
+.text-cinzento{
+    color: #808184 !important; ;
+}
+.curva{
+    border-radius: 100%;
+}
 /******** grandientes ************/
 .gradient-broto{
     z-index: 1000;
