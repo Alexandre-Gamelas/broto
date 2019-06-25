@@ -92,6 +92,9 @@ textarea::placeholder{
 .curva{
     border-radius: 100%;
 }
+.text-b2{
+    color: #808184 !important;
+}
 /******** grandientes ************/
 .gradient-broto{
     z-index: 1000;
