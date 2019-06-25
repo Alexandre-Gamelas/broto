@@ -67,6 +67,12 @@ textarea::placeholder{
     border-radius : 5px 5px 5px 5px;
 }
 
+.paginaCarousel{
+    position: absolute;
+    z-index: 1001;
+    top: 5%;
+}
+
 .pos-center{
     position: absolute;
     left: 50%;
@@ -318,7 +324,6 @@ textarea::placeholder{
 .carouselEvento{
     border-bottom: 1px solid transparent;
     border-radius: 0 0 19px 19px;
-
 }
 
 #data{
@@ -344,4 +349,9 @@ textarea::placeholder{
     border-radius: 50%;
     height: 10px;
     width: 10px;
+}
+/*******PERFIL*******/
+.carouselPerfil{
+    border-bottom: 1px solid transparent;
+    border-radius: 19px;
 }
