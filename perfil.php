@@ -48,15 +48,28 @@ include_once "components/head.php";
     </a>
 </div>
 
+<!-- QR CODE BUTTON -->
 <section class="row justify-content-center mb-5 pb-5 ">
-    <article class="col-8 text-center">
-        <i class="far fa-calendar-plus fa-9x text-white bg-success p-5" style="border-radius:19px"></i>
+    <article data-toggle="modal" data-target="#qrModal" class="col-8 text-center">
+        <a id="qrcode" class="far fa-calendar-plus fa-9x text-white bg-success p-5" style="border-radius:19px"></a>
     </article>
 </section>
 
+<!-- MODAL SCANNER -->
+<section id='janelaQr' class="row justify-content-center align-items-center animated d-none fadeOutDown" style="z-index: 10001">
+    <article id='videoQr' class="col-12 position-relative p-0">
+        <i id="qrClose" class="text-danger mb-1 fas fa-times" data-dismiss="modal"></i>
+        <video class="img-fluid" id="preview"></video>
+    </article>
+</section>
 
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
 <?php include_once "components/firebase.php" ?>
 </body>
+
+<!-- SCRIPT QRCODE -->
+<script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" ></script>
+<script type="text/javascript" src="js/qrcode.min.js"></script>
+<script type="text/javascript" src="js/myScanner.js"></script>
 </html>
