@@ -26,7 +26,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
         $_SESSION['user']['email'] = $email;
         $_SESSION['user']['bio'] = $bio;
         $_SESSION['user']['data_nasc']=$data_nascimento;
-        $_SESSION['user']['nac'] = $nac;
+
     }else{
         header("Location: ../editar_perfil.php?id=$id&msg=updateNao");
     }
@@ -36,23 +36,27 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 }
 mysqli_close($link);
 
+
+
 $link = new_db_connection(); // Create a new DB connection
 
 $stmt = mysqli_stmt_init($link);
 
-$query = "SELECT nome FROM nacionalidades WHERE id_nacionalidades = ?";
+$query = "SELECT nacionalidades.nome FROM nacionalidades WHERE nacionalidades.id_nacionalidades = ?";
 
 
 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
     mysqli_stmt_bind_param($stmt, 'i', $idNac); // Bind variables by type to each parameter
 
-    $idNac = $_SESSION['user']['nac'];
+    $idNac = $_POST['nacionalidade'];
 
-    mysqli_stmt_bind_result($stmt,  $nome);
     if(mysqli_stmt_execute($stmt)){
-        $_SESSION['user']['nacionalidade'] = $nome;
-        header("Location: ../editar_perfil.php?id=$id&msg=updateSim");
+        mysqli_stmt_bind_result($stmt,  $nomeNac);
+        if(mysqli_stmt_fetch($stmt)){
+            $_SESSION['user']['nacionalidade'] = $nomeNac;
+            header("Location: ../editar_perfil.php?id=$id&msg=updateSim");
+        }
     }else{
         header("Location: ../editar_perfil.php?id=$id&msg=updateNao");
     }

@@ -3,7 +3,7 @@ require_once "connections/connection.php";
 
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "SELECT * FROM nacionalidades";
+$query = "SELECT id_nacionalidades, nome FROM nacionalidades";
 
 if (mysqli_stmt_prepare($stmt, $query)) {
 
@@ -16,11 +16,10 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
         while (mysqli_stmt_fetch($stmt)) {
             if(isset($_SESSION['user']['nacionalidade']) && $_SESSION['user']['nacionalidade'] == $nome)
-                echo "<option  selected value=$id_nacionalidades>$nome</option>";
+                echo "<option  selected value='$id_nacionalidades'>$nome</option>";
             else
-                echo "<option value=$id_nacionalidades>$nome</option>";
+                echo "<option value='$id_nacionalidades'>$nome</option>";
         }
-        echo "</select>";
     } else {
         echo "Error: " . mysqli_stmt_error($stmt);
     }

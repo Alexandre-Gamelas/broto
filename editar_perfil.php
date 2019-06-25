@@ -26,7 +26,7 @@ if($_GET['id'] != $_SESSION['user']['id_user'])
     <input required type="email" name="email" value="<?=$_SESSION['user']['email']?>" placeholder="E-mail" class="col-8 mt-3 form-control button-2-broto text-center cinzento-escuro">
     <input type="text" name="data" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" title="Enter a date in this format YYYY-MM-DD" value="<?=$_SESSION['user']['data_nasc']?>" placeholder="Data de Nascimento" class="col-8 mt-3 form-control button-2-broto text-center cinzento-escuro">
 
-    <select type="text" title="nacionalidades" class="mt-3 col-8 form-control button-2-broto cinzento-escuro text-center" name="nacionalidade">
+    <select type="text" title="nacionalidades" class="mt-3 col-8 p-2 button-2-broto cinzento-escuro" name="nacionalidade">
         <?php include_once "components/lista_nacional.php" ?>
     </select>
 
