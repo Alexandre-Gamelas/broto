@@ -379,15 +379,32 @@ textarea::placeholder{
 }
 
 #janelaQr{
-    position: absolute;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
     left: 0;
-    top: 80%;
-    width: 100vw;
-    height: 80vh;
+
+
     padding: 0;
     margin: 0;
 }
 
+#videoQr{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+
 #qrClose{
-    transform: translateX(50%);
+    transform: translateX(725%);
+    border: 0 transparent solid;
+    border-radius: 50%;
+}
+
+#blurModal{
+
 }

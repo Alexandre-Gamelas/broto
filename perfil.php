@@ -14,7 +14,7 @@ include_once "components/head.php";
         <h4 class="cinzento-escuro font-weight-bold"><?= $_SESSION['user']['nome']?> <a class="cinzento-escuro ml-2 fas fa-pencil-alt" href="editar_perfil.php?id=<?= $_SESSION['user']['id_user']?>"></a></h4>
         <hr class="img-fluid">
         <h5 class="cinzento-escuro"><?= $_SESSION['user']['nacionalidade']?></h5>
-        <p class="cinzento-escuro"><?= $_SESSION['user']['bio'] ?></p>
+        <p class="cinzento-escuro mt-3 mb-3"><?= $_SESSION['user']['bio'] ?></p>
     </article>
 </section>
 
@@ -56,12 +56,14 @@ include_once "components/head.php";
 </section>
 
 <!-- MODAL SCANNER -->
-<section id='janelaQr' class="row justify-content-center align-items-center animated d-none fadeOutDown" style="z-index: 10001">
-    <article id='videoQr' class="col-12 position-relative p-0">
-        <i id="qrClose" class="text-danger mb-1 fas fa-times" data-dismiss="modal"></i>
-        <video class="img-fluid" id="preview"></video>
-    </article>
-</section>
+
+    <section id='janelaQr' class="row justify-content-center align-items-center animated d-none" style="z-index: 10001">
+        <article id='videoQr' class="col-12 p-0">
+            <i id="qrClose" class="text-white mb-1 fas fa-times bg-success p-3" data-dismiss="modal"></i>
+            <video class="img-fluid" id="preview"></video>
+        </article>
+    </section>
+
 
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>

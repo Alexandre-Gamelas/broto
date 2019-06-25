@@ -6,10 +6,9 @@ let scanner = new Instascan.Scanner(
 );
 
 $('#qrcode').click(function () {
-    console.log("ola");
-    $('#janelaQr').removeClass('fadeOutDown');
+    $("section, div").not("#janelaQr, #janelaQr > *").css("filter", "blur(2px)");
+    $("#blurModal").removeClass("d-none");
     $('#janelaQr').removeClass('d-none');
-    $('#janelaQr').addClass('fadeInDown');
 
     scanner.addListener('scan', function(content) {
         alert('Scannou com sucesso! ' + content);
@@ -19,13 +18,13 @@ $('#qrcode').click(function () {
     {
         if(cameras.length > 1){
             if(IsSafari()){
-                scanner.start(cameras[0]); //1 para telemovel, 0 para computador
+                scanner.start(cameras[1]); //1 para telemovel, 0 para computador
             } else {
                 scanner.start(cameras[1]); //1 para telemovel, 0 para computador
 
             }
         } else if(cameras.length == 1){
-        scanner.start(cameras[0]);
+        scanner.start(cameras[1]);
     } else {
             console.error("Não existe câmera no dispositivo!");
         }
@@ -33,7 +32,9 @@ $('#qrcode').click(function () {
 });
 
 $('#qrClose').click(function () {
-    console.log("ola");
+    $("section, div").not("#janelaQr, #janelaQr > *").css("filter", "blur(0)");
+
+    $("#blurModal").addClass("d-none");
     animClose();
     setTimeout(function () {
         scanner.stop()
@@ -41,8 +42,6 @@ $('#qrClose').click(function () {
 });
 
 function animClose() {
-    $('#janelaQr').removeClass('fadeInDown');
-    $('#janelaQr').addClass('fadeOutDown');
     setTimeout(function () {
         $('#janelaQr').addClass('d-none');
     }, 400)
