@@ -370,3 +370,10 @@ textarea::placeholder{
     border-bottom: 1px solid transparent;
     border-radius: 19px;
 }
+
+.edit-foto{
+    position: absolute;
+    top: 30%;
+    left: 19%;
+    z-index: 10001;
+}
