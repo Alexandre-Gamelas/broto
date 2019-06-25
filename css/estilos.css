@@ -36,6 +36,25 @@ input::placeholder{
     text-align: center;
 }
 
+.search::placeholder{
+    text-align:left;
+    font-size: 4.5vmin;
+    color: white;
+
+
+}
+.search{
+    background: none;
+    border:none;
+    border-bottom: 2px solid white;
+
+}
+.search:focus{
+    background: none;
+    outline: none;
+
+
+}
 textarea::placeholder{
     text-align: center;
 }

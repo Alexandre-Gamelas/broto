@@ -38,7 +38,12 @@
 
         if($_SESSION['user']['papel']==1)
             $menu["Administrador"] = "admin/index.php";
+?>
 
+
+
+
+        <?php
         foreach ($menu as $nome => $link) {
             ?>
 
@@ -47,6 +52,12 @@
             <?php
         }
         ?>
+
+        <form method="post" action="scripts/script_search.php" class="form-inline md-form form-sm text-white mt-5">
+            <input class=" mr-0 w-75 search p-0" type="text" placeholder="Procure pessoas!"
+                   aria-label="Search" >
+            <button type="submit" class="fas fa-search ml-3 text-white" aria-hidden="true" style="background: none;border: none;padding: 0;;cursor: pointer;outline: inherit;"></button>
+        </form>
     </article>
 
 </section>
