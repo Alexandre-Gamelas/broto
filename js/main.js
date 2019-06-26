@@ -17,11 +17,13 @@ window.onload = function (ev) {
     //tapar o menu bot quando o keyboard aparece, solução um bocado improvisada, se houver tempo procurar algo melhor
     $("form > *").focus(function () {
         $("#menu-bot, #listaMenu > *").hide();
+        $("#searchBar").removeClass("mt-5");
         $("#menu-bot, #listaMenu > *").css("opacity", 0)
     });
 
     $("form > *").focusout(function () {
         $("#menu-bot, #listaMenu > *").show();
+        $("#searchBar").addClass("mt-5");
         $("#menu-bot, #listaMenu > *").animate({
             opacity: 1
         }, 600)

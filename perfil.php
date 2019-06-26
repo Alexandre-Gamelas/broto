@@ -9,7 +9,7 @@ include_once "components/head.php";
 <body>
 <?php include_once "components/header_perfil.php" ?>
 
-<section class="row justify-content-center mt-4 align-items-center">
+<section class="row justify-content-center mt-4 mb-5 align-items-center">
     <article class="col-10" >
         <h4 class="cinzento-escuro font-weight-bold"><?= $_SESSION['user']['nome']?> <a class="cinzento-escuro ml-2 fas fa-pencil-alt" href="editar_perfil.php?id=<?= $_SESSION['user']['id_user']?>"></a></h4>
         <hr class="img-fluid">
@@ -18,8 +18,8 @@ include_once "components/head.php";
     </article>
 </section>
 
-<div id="carouselPerfil" class="carousel slide mt-0 ml-4 mr-4 mb-4" data-ride="carousel">
-    <ol class="carousel-indicators mb-5">
+<div id="carouselPerfil" class="carousel slide mt-0 ml-4 mr-4 mb-5" data-ride="carousel">
+    <ol class="carousel-indicators mb-3">
         <li data-target="#carouselPerfil" data-slide-to="0" class="active"></li>
         <li data-target="#carouselPerfil" data-slide-to="1"></li>
         <li data-target="#carouselPerfil" data-slide-to="2"></li>
@@ -49,9 +49,9 @@ include_once "components/head.php";
 </div>
 
 <!-- QR CODE BUTTON -->
-<section class="row justify-content-center mb-5 pb-5 ">
+<section class="row justify-content-center mb-5 pb-5 mt-5 ">
     <article data-toggle="modal" data-target="#qrModal" class="col-8 text-center">
-        <a id="qrcode" class="far fa-calendar-plus fa-9x text-white bg-success p-5" style="border-radius:19px"></a>
+        <a id="qrcode" class="fas fa-qrcode fa-9x p-5" style="border-radius:50%; border: 10px solid rgba(31, 171, 137, 1); color: rgba(31, 171, 137, 1)"></a>
     </article>
 </section>
 
