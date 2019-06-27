@@ -384,7 +384,7 @@ textarea::placeholder{
     position: absolute;
     top: 30%;
     left: 19%;
-    z-index: 10001;
+    z-index: 1001;
 }
 
 #janelaQr{
@@ -414,6 +414,13 @@ textarea::placeholder{
     border-radius: 50%;
 }
 
-#blurModal{
-
+.nome-evento{
+    color: white;
+    font-weight: 600;
+    color: rgba(31, 171, 137, 1);
+    border: 1px solid lightgrey;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 19px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 19px;
 }
