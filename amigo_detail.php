@@ -29,7 +29,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
             <section class="row justify-content-center mt-4 align-items-center">
                 <article class="col-10">
-                    <h4 class="cinzento-escuro font-weight-bold"><?= $nome ?> </h4>
+                    <h4 class="cinzento-escuro font-weight-bold"><?= $nome ?> <a class="cinzento-escuro ml-2 fas fa-user-plus" href="scripts/script_add_amigo.php?id=<?= $id_user?>"></a></h4>
                     <hr class="img-fluid">
                     <h5 class="cinzento-escuro"><?= $nacionalidade ?></h5>
                     <p class="cinzento-escuro"><?= $bio ?></p>

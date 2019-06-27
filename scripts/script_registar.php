@@ -1,6 +1,6 @@
 <?php
 require_once "../connections/connection.php";
-var_dump($_POST);
+
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 $query = "INSERT INTO utilizadores (nome, email, password, ref_papeis) VALUES (?,?,?, 2)";
