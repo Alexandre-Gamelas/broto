@@ -155,7 +155,7 @@ textarea::placeholder{
 }
 
 .button-2-broto{
-    border: #808184 0.2px solid;
+    border: #808184 1px solid;
     padding: 5vmin;
     border-radius: 20px;
     font-weight: 300;
