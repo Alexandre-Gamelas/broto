@@ -23,6 +23,7 @@ if(mysqli_stmt_prepare($stmt, $query)){
             //evento não existe
             echo "<p>NÃO EXISTE</p>";
             echo mysqli_stmt_error($stmt);
+            header("Location: ../perfil.php?msg=eventoNao");
         }
     } else {
         echo mysqli_stmt_error($stmt);
@@ -48,6 +49,7 @@ if($existe){
             echo "<p>INSERIU</p>";
             $inseriu = true;
         } else {
+            header("Location: ../perfil.php?msg=eventoJa");
             echo mysqli_stmt_error($stmt);
         }
     } else {
@@ -71,7 +73,9 @@ if($inseriu){
         if(mysqli_stmt_execute($stmt)){
             echo "<p>INSERIU</p>";
             $inseriu = true;
+            header("Location: ../perfil.php?msg=checkinSim");
         } else {
+            header("Location: ../perfil.php?msg=checkinErro");
             echo mysqli_stmt_error($stmt);
         }
     } else {

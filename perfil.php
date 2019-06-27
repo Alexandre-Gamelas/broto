@@ -48,6 +48,46 @@ include_once "components/head.php";
     </a>
 </div>
 
+<?php
+//FEEDBACK CHECK IN
+if (isset($_GET["msg"])) {
+    $msg_show = true;
+    switch ($_GET["msg"]) {
+        case "eventoNao":
+            $message = "O evento em que tentou fazer Check In não existe.";
+            $class = "alert-danger";
+            break;
+        case "eventoJa":
+            $message = "Tentativa de Check in Duplicado!";
+            $class = "alert-warning";
+            break;
+        case "checkinErro":
+            $message = "Erro no check in, por favor tente novamente";
+            $class = "alert-warning";
+            break;
+        case "checkinSim":
+            $message = "Check in efetuado com sucesso!";
+            $class = "alert-success";
+            break;
+
+        default:
+            $msg_show = false;
+            break;
+    }
+
+    echo "<div class=\"alert $class alert-dismissible fade show mx-5\" role=\"alert\">
+" . $message . "
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>";
+    if ($msg_show) {
+        echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+    }
+}
+?>
+
+
 <!-- QR CODE BUTTON -->
 <section class="row justify-content-center mb-5 pb-5 mt-5 ">
     <article data-toggle="modal" data-target="#qrModal" class="col-8 text-center">
@@ -57,12 +97,12 @@ include_once "components/head.php";
 
 <!-- MODAL SCANNER -->
 
-    <section id='janelaQr' class="row justify-content-center align-items-center animated d-none" style="z-index: 10001">
-        <article id='videoQr' class="col-12 p-0">
-            <i id="qrClose" class="text-white mb-1 fas fa-times bg-success p-3" data-dismiss="modal"></i>
-            <video class="img-fluid" id="preview"></video>
-        </article>
-    </section>
+<section id='janelaQr' class="row justify-content-center align-items-center animated d-none" style="z-index: 10001">
+    <article id='videoQr' class="col-12 p-0">
+        <i id="qrClose" class="text-white mb-1 fas fa-times bg-success p-3" data-dismiss="modal"></i>
+        <video class="img-fluid" id="preview"></video>
+    </article>
+</section>
 
 
 <?php include_once "components/bot_menu.php" ?>
