@@ -4,8 +4,9 @@ $link2 = new_db_connection();
 $stmt2 = mysqli_stmt_init($link2);
 $query2 = "SELECT ref_eventos FROM utilizadores_has_eventos WHERE ref_utilizadores = ?";
 if (mysqli_stmt_prepare($stmt2, $query2)) {
-    mysqli_stmt_bind_param($stmt2, 'i', $id_User);
-    $id_User = $_SESSION['user']['id_user'];
+    mysqli_stmt_bind_param($stmt2, 'i', $id_user);
+    if(!isset($amigo))
+        $id_user = $_SESSION['user']['id_user'];
     if (mysqli_stmt_execute($stmt2)) {
         mysqli_stmt_bind_result($stmt2, $id_evento);
         $contador = 1;
