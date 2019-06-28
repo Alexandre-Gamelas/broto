@@ -14,10 +14,10 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 
     if (mysqli_stmt_execute($stmt)) {
-        header("location: ../amigo_detail.php?id=".$id_amigo);
+        header("location: ../amigo_detail.php?id=".$id_amigo."&msg=1");
     }else{
         echo mysqli_stmt_error($stmt);
-        //header("location: ../amigo_detail.php?msg=0");
+        header("location: ../amigo_detail.php?id=".$id_amigo."&msg=0");
     }
     mysqli_stmt_close($stmt);
 }

@@ -30,6 +30,33 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             <section class="row justify-content-center mt-4 align-items-center">
                 <article class="col-10">
                     <h4 class="cinzento-escuro font-weight-bold"><?= $nome ?> <a class="cinzento-escuro ml-2 fas fa-user-plus" href="scripts/script_add_amigo.php?id=<?= $id_user?>"></a></h4>
+                    <?php
+                    if (isset($_GET["msg"])) {
+                        $msg_show = true;
+                        switch ($_GET["msg"]) {
+                            case 0:
+                                $message = "Já segues esta pessoa";
+                                $class = "alert-warning";
+                                break;
+                            case 1:
+                                $message="Seguido com successo";
+                                $class="alert-success";
+                            default:
+                                $msg_show = false;
+                                break;
+                        }
+
+                        echo "<div class=\"alert $class alert-dismissible fade show my-3 \" role=\"alert\">
+" . $message . "
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>";
+                        if ($msg_show) {
+                            echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                        }
+                    }
+                    ?>
                     <hr class="img-fluid">
                     <h5 class="cinzento-escuro"><?= $nacionalidade ?></h5>
                     <p class="cinzento-escuro"><?= $bio ?></p>
