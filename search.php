@@ -39,25 +39,10 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
             <?php
         } else {
-            ?>
-            <a href="amigo_detail.php?id=<?= $id_user ?>">
-                <div class="row align-items-center search_carta m-3 ">
-
-                    <div class="w-25">
-                        <img src="<?= $foto ?>" class="mw-100 curva" alt="...">
-                    </div>
-                    <div class="w-75  pl-3">
-                        <h5 class="m-0 text-search"><?= $nome ?> &nbsp <i
-                                    class="fas fa-1x fa-user-circle text-gradient"></i></h5>
-
-                    </div>
-                </div>
-            </a>
-            <?php
-            while (mysqli_stmt_fetch($stmt)) {
+            if ($id_user != $_SESSION['user']['id_user']) {
                 ?>
                 <a href="amigo_detail.php?id=<?= $id_user ?>">
-                    <div class="row align-items-center search_carta m-3">
+                    <div class="row align-items-center search_carta m-3 ">
 
                         <div class="w-25">
                             <img src="<?= $foto ?>" class="mw-100 curva" alt="...">
@@ -69,11 +54,60 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                         </div>
                     </div>
                 </a>
-                <?php
+            <?php
+            } else {
+                ?>
+                <a href="perfil.php">
+                    <div class="row align-items-center search_carta m-3 ">
+
+                        <div class="w-25">
+                            <img src="<?= $foto ?>" class="mw-100 curva" alt="...">
+                        </div>
+                        <div class="w-75  pl-3">
+                            <h5 class="m-0 text-search"><?= $nome ?> - Tu &nbsp <i
+                                        class="fas fa-1x fa-user-circle text-gradient"></i></h5>
+
+                        </div>
+                    </div>
+                </a>
+            <?php
             }
 
-        }
+            while (mysqli_stmt_fetch($stmt)) {
+                if ($id_user == $_SESSION['user']['id_user']) {
+                    ?>
+                    <a href="perfil.php">
+                    <div class="row align-items-center search_carta m-3 ">
 
+                        <div class="w-25">
+                            <img src="<?= $foto ?>" class="mw-100 curva" alt="...">
+                        </div>
+                        <div class="w-75  pl-3">
+                            <h5 class="m-0 text-search"><?= $nome ?> - Tu &nbsp <i
+                                        class="fas fa-1x fa-user-circle text-gradient"></i></h5>
+
+                        </div>
+                    </div>
+                    </a><?php } else {
+                    ?>
+                    <a href="amigo_detail.php?id=<?= $id_user ?>">
+                        <div class="row align-items-center search_carta m-3">
+
+                            <div class="w-25">
+                                <img src="<?= $foto ?>" class="mw-100 curva" alt="...">
+                            </div>
+                            <div class="w-75  pl-3">
+                                <h5 class="m-0 text-search"><?= $nome ?> &nbsp <i
+                                            class="fas fa-1x fa-user-circle text-gradient"></i></h5>
+
+                            </div>
+                        </div>
+                    </a>
+                    <?php
+                }
+
+            }
+        }
         echo "</div>";
 
     } else {
@@ -107,7 +141,8 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 
             <?php
-        }else{?>
+        }else{
+            ?>
             <a href="evento_detail.php?id=<?= $id_evento ?>">
             <div class="row align-items-center search_carta m-3">
 
