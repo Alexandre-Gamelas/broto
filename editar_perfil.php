@@ -17,6 +17,53 @@ $user_id = $_GET['id'];
 <!-- ICON EDITAR FOTO -->
 <a data-toggle="modal" data-target="#fotografiaModal"x><i class="far fa-edit edit-foto fa-2x text-success"></i></a>
 
+
+<?PHP
+//FEEDBACK fotos
+if (isset($_GET["msg"])) {
+    $msg_show = true;
+    switch ($_GET["msg"]) {
+        case "1":
+            $message = "O ficheiro que tentou submeter não é uma imagem!";
+            $class = "alert-danger";
+            break;
+        case "2":
+            $message = "Esse ficheiro já existe na base de dados!";
+            $class = "alert-warning";
+            break;
+        case "3":
+            $message = "Pedimos desculpa, essa imagem é demasiado grande.";
+            $class = "alert-warning";
+            break;
+        case "4":
+            $message = "Apenas são permitidos ficheiros JPG, JPEG, PNG & GIF.";
+            $class = "alert-warning";
+            break;
+        case "5":
+            $message = "Desculpe, ocorreu um erro na submissão do ficheiro!";
+            $class = "alert-warning";
+            break;
+        case "6":
+            $message = "Foto submetida com sucesso!";
+            $class = "alert-success";
+            break;
+        default:
+            $msg_show = false;
+            break;
+    }
+
+    echo "<div class=\"alert $class alert-dismissible fade show mx-5 mt-4\" role=\"alert\">
+" . $message . "
+<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+</button>
+</div>";
+    if ($msg_show) {
+        echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+    }
+}
+?>
+
 <section class="row justify-content-center mt-4 align-items-center">
     <article class="col-10" >
         <h4 class="cinzento-escuro font-weight-bold"><?= $_SESSION['user']['nome']?></h4>
@@ -46,9 +93,9 @@ $user_id = $_GET['id'];
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <form class="row justify-content-center pb-5" action="scripts/uploadFoto.php?id=<?= $user_id ?>&tipo=user" enctype="multipart/form-data" method="post">
-                    <input style="cursor: pointer!important;" class="col-8 p-3 pb-5 form-control inputRegistar mt-4" type="file" placeholder="File" name="fileToUpload" id="fileToUpload">
-                    <input class="col-8 form-control button-2-broto mt-4" type="submit" value="Upload" name="submit">
+                <form class="row justify-content-center pb-5" action="admin/scripts/uploadFoto.php?id=<?= $user_id ?>&tipo=user&from=app" enctype="multipart/form-data" method="post">
+                    <input style="cursor: pointer!important;" class="col-8 p-3 pb-5 form-control button-2-broto mt-4" type="file" placeholder="File" name="fileToUpload" id="fileToUpload">
+                    <input class="col-8 form-control button-2-broto p-0 mt-4" type="submit" value="Upload" name="submit">
                 </form>
             </div>
         </div>

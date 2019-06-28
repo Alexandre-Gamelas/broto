@@ -36,7 +36,6 @@ if (isset($_POST["submit"])) {
         echo "File is not an image.";
         $uploadOk = 0;
         $message = 1;
-
 }
 // Check if file already exists
 if (file_exists($target_file)) {
@@ -64,7 +63,10 @@ if ($uploadOk == 0) {
     if (isset($_GET['tipo'])){
         switch ($tipo){
             case "user":
-                header("Location: ../tabela_edit_utilizadores.php?id=".$_GET['id']."&msg=$message");
+                if($_GET['from']=='app')
+                    header("Location: ../../editar_perfil.php?id=".$_GET['id']."&msg=$message");
+                else
+                    header("Location: ../tabela_edit_utilizadores.php?id=".$_GET['id']."&msg=$message");
                 break;
             case "evento":
                 header("Location: ../table_det3.php?id=".$_GET['id']."&msg=&msg=$message");
@@ -102,30 +104,34 @@ if ($uploadOk == 0) {
             $foto = substr($target_file, 3);
             $id = $_GET['id'];
             if (mysqli_stmt_execute($stmt)) {
+                if (isset($_GET['tipo'])){
+                    $message = 6;
+                    switch ($tipo){
+                        case "user":
+                            if ($id==$_SESSION["user"]["id_user"]){
+                                if($_GET['from'] == 'app')
+                                    $_SESSION['user']['fotografia'] = "admin/". $foto;
+                                else
+                                    $_SESSION['user']['fotografia']=$foto;
+                            }
+                            if($_GET['from']=='app')
+                                header("Location: ../../editar_perfil.php?id=".$_GET['id']."&msg=$message");
+                            else
+                                header("Location: ../tabela_edit_utilizadores.php?id=".$_GET['id']."&msg='fotoSim'");
+                            break;
+                        case "evento":
+                            header("Location: ../table_det3.php?id=".$_GET['id']."&msg=fotoSim");
+                            break;
+                        case "categoria":
+                            header("Location: ../table_det4.php?id=".$_GET['id']."&msg=fotoSim");
+                            break;
+                    }
+                }
 
             } else {
                 echo "<script>alert('error')</script>";
             }
         }
-
-
-        if (isset($_GET['tipo'])){
-            switch ($tipo){
-                case "user":
-                    if ($id==$_SESSION["id_user"]){
-                        $_SESSION['user']['fotografia']=$foto;
-                    }
-                    header("Location: ../tabela_edit_utilizadores.php?id=".$_GET['id']."&msg=fotoSim");
-                    break;
-                case "evento":
-                    header("Location: ../table_det3.php?id=".$_GET['id']."&msg=fotoSim");
-                    break;
-                case "categoria":
-                    header("Location: ../table_det4.php?id=".$_GET['id']."&msg=fotoSim");
-                    break;
-            }
-        }
-
 
     } else {
         echo "Sorry, there was an error uploading your file.";
@@ -133,7 +139,10 @@ if ($uploadOk == 0) {
         if (isset($_GET['tipo'])){
             switch ($tipo){
                 case "user":
-                    header("Location: ../tabela_edit_utilizadores.php?id=".$_GET['id']."&msg=$message");
+                    if($_GET['from']=='app')
+                        header("Location: ../../editar_perfil.php?id=".$_GET['id']."&msg=$message");
+                    else
+                        header("Location: ../tabela_edit_utilizadores.php?id=".$_GET['id']."&msg=$message");
                     break;
                 case "evento":
                     header("Location: ../table_det3.php?id=".$_GET['id']."&msg=&msg=$message");
@@ -146,5 +155,6 @@ if ($uploadOk == 0) {
     }
 }
 
+} else {
+    echo "no file";
 }
-
