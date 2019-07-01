@@ -1,0 +1,377 @@
+{
+  "data":[
+    {
+      "description":"Sabias que uma beata pode demorar até 12 anos a decompor-se? Por minuto, em Portugal, são atirados para o chão cerca de 7 mil beatas que vão contaminar solos, rios, oceanos e acabam a ser comidos por vários animais. No âmbito da semana do EcoAciona, em colaboração com a BioLiving, irá ser realizada uma recolha de beatas. O ponto de encontro será na Reitoria da UA, às 15h30. -----INSCRIÇÃO NECESSÁRIA----- Contamos contigo! Inscreve-te nas atividades em: https://goo.gl/forms/mPdD9jNi7Nk0tCi23 De 11 a 16 de março, EcoAciona connosco!",
+      "end_time":"2019-03-13T17:30:00+0000",
+      "name":"Recolha de beatas | EcoAciona",
+      "place":{
+        "name":"Praça Marquês de Pombal, 3810-133 Aveiro, Portugal"
+      },
+      "start_time":"2019-03-13T15:30:00+0000",
+      "id":"304275306955588"
+    },
+    {
+      "description":"No dia 10 de Março, a Associação BioLiving lança o desafio de se juntar a nós numa ação de plantação em Albergaria-a-Velha. Esta plantação, organizada com o apoio da Câmara Municipal de Albergaria-a-Velha e a Junta de Freguesia de Alquerubim, vai decorrer na Quinta D'Alque, em Alquerubim das 9h às 12h30. O ponto de encontro é aqui: https://maps.app.goo.gl/e8gKL As inscrições são gratuitas mas obrigatórias em: https://goo.gl/forms/TvyUopMaP21ac7W93 No fim da atividade faremos um convívio com lanche partilhado!",
+      "end_time":"2019-03-10T12:30:00+0000",
+      "name":"Plantação Albergaria-a-Velha",
+      "place":{
+        "name":"Alquerubim",
+        "location":{
+          "city":"Albergaria-a-Velha",
+          "country":"Portugal",
+          "latitude":40.623390964924,
+          "longitude":-8.5016684049009,
+          "street":"Alquerubim, 3850 Albergaria-a-Velha",
+          "zip":"3850-361"
+        },
+        "id":"1956401381088560"
+      },
+      "start_time":"2019-03-10T09:00:00+0000",
+      "id":"1371250739684742"
+    },
+    {
+      "description":"A Associação BioLiving associa-se ao DeCA - Departamento De Comunicação e Arte para mais uma ação de recolha de beatas no Campus da UA. Este evento é destinado aos alunos do 2° ano da licenciatura em Novas Tecnologias da Comunicação, mas todos são bem vindos! Sabias que as beatas são o item mais descartado do mundo? Sabias que os filtros dos cigarros têm plástico na sua constituição? Sabias que uma beata pode demorar até 12 anos a decompor-se? Por minuto, em Portugal, são atirados para o chão cerca de 7 mil beatas que vão contaminar solos, rios, oceanos e acabam a ser comidos por vários animais. Dia 27 de fevereiro junta-te a nós e vem recolher as beatas que encontrarmos no chão do Campus. O ponto de encontro é junto ao DeCA - Departamento de Comunicação e Arte da UA às 15h30. Inscrições em: https://goo.gl/forms/74VjHp5z1OcKoSnH3",
+      "end_time":"2019-02-27T16:30:00+0000",
+      "name":"Campus Sem Filtros #3",
+      "place":{
+        "name":"DeCA - Departamento De Comunicação e Arte",
+        "location":{
+          "city":"Aveiro",
+          "country":"Portugal",
+          "latitude":40.629031269078,
+          "located_in":"210336892317219",
+          "longitude":-8.6563720732445,
+          "street":"Campus de Santiago",
+          "zip":"3810-193"
+        },
+        "id":"377407172325042"
+      },
+      "start_time":"2019-02-27T15:30:00+0000",
+      "id":"2118569061788996"
+    },
+    {
+      "description":"No dia 24 de Fevereiro, a Associação BioLiving lança o desafio de se juntar a nós numa ação de plantação em Albergaria-a-Velha. Esta plantação, organizada com o apoio da Câmara Municipal de Albergaria-a-Velha, vai decorrer no Parque do Estuval, em Sobreiro das 9h às 12h30. As inscrições são gratuitas mas obrigatórias em: https://goo.gl/forms/EDyvbpxnDx2wi2zj1 No fim da atividade faremos um convívio com lanche partilhado!",
+      "end_time":"2019-02-24T12:30:00+0100",
+      "name":"Plantação Albergaria-a-Velha",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2019-02-24T09:00:00+0100",
+      "id":"1396313687176302"
+    },
+    {
+      "description":"No próximo sábado, dia 23 de Fevereiro, venha passar uma manhã diferente connosco! Vamos plantar e fazer controlo de espécies invasoras em Canelas. As inscrições são gratuitas mas obrigatórias em: https://goo.gl/forms/IagiNMBxafpChm2B3 O ponto de encontro é às 9h, em Canelas (https://goo.gl/7gkN2F) e terminamos por volta das 12h30. Traga as suas botas de campo e venha trabalhar connosco!",
+      "end_time":"2019-02-23T12:30:00+0100",
+      "name":"Voluntariado BioLiving",
+      "place":{
+        "name":"40°43'14.6\"N 8°32'23.0\"W"
+      },
+      "start_time":"2019-02-23T09:00:00+0100",
+      "id":"395318634615754"
+    },
+    {
+      "description":"Vamos continuar a Plantar Lousada! Este sábado (16 fevereiro) esperamos plantar mais de 500 árvores na Serra de Campelos, na zona das captações de água, onde estamos a construir uma floresta de conservação para o futuro. Inscrições obrigatórias neste formulário: https://goo.gl/forms/gu0we9YQIisQwWNP2 para assegurar seguro de acidentes pessoais e a tshirt de oferta. O almoço será um charrasco, com acompanhamento partilhado (trazer farnel partilhável). Voluntários da Universidade de Aveiro com transporte desde a reitoria, às 8h00. Voluntários da APRISOF/ Gondomar, com transporte às 8h15 junto ao centro de Saúde. Com a ajuda de todos, vamos tornar Lousada mais verde.",
+      "end_time":"2019-02-16T16:00:00+0000",
+      "name":"Plantar Lousada",
+      "place":{
+        "name":"Serra de Campelos - Lousada"
+      },
+      "start_time":"2019-02-16T09:00:00+0000",
+      "id":"765274977177509"
+    },
+    {
+      "description":"PALEONTOLOGIA. Dinossauros no Quintal Os fósseis são “um livro aberto para a compreensão da vida na Terra”. Nesta atividade serão explicados os processos de fossilização e a sua importância para o estudo e compreensão dos fenómenos geológicos e biológicos ao longo de milhões de anos… Serão ainda demonstradas algumas das atividades laboratoriais associadas ao tratamento e estudo de exemplares fósseis. Uma atividade diferente, para mentes realmente curiosas! Formador: Prof. Artur Sá (UTAD) Local: Casa das Videiras, Parque Urbano 25 Vagas Inscrições em http://www.cm-lousada.pt/pt/biolousada até 8 de Fevereiro ou até limite de vagas disponíveis",
+      "end_time":"2019-02-16T12:30:00+0100",
+      "name":"BioLousada - Paleontologia",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2019-02-16T09:30:00+0100",
+      "id":"283965228958536"
+    },
+    {
+      "description":"\"Concertos na Mata - Tonalidades de Inverno\" Regressaram os concertos na Mata de Vilar, agora, com as cores e a inspiração do Inverno. Irá realizar-se no domingo, dia 3 de fevereiro de 2019, entre as 15h30 e as 17h00 horas, na Mata de Vilar (https://goo.gl/maps/s5agBfU5PW92). Será realizado um pequeno percurso até ao local do concerto, pelo que pedimos que a chegada seja feita pelas 15h10 Os portões da mata e respetiva receção dos participantes encerrara às 15h40. De forma a evitar grandes perturbações ao nível ecológico, a capacidade do evento é limitada a 50 pessoas. O evento é de cariz GRATUITO, contudo haverá a possibilidade de ceder um donativo, que reverterá a favor de projetos e iniciativas de conservação e promoção da Mata de Vilar. INSCRIÇÕES obrigatórias aqui: https://bit.ly/2Wa5VF1 Após a inscrição receberá um e-mail de confirmação, com o seu bilhete, em formato digital, que poderá imprimir ou levar no telemóvel para validação da entrada. O Coro Feminino Do Conservatório do Vale do Sousa vem ao longo dos seus onze anos de existência, granjeando públicos e simultaneamente oferecendo uma inegável contribuição para a qualificação cultural da região, elevando o nome da Vila de Lousada. Apresentou-se já, nos mais variados espaços de concerto nacionais, destacando-se o Teatro da Trindade- Lisboa, CCB-Centro Cultural de Lisboa, Casa da Música- Porto, Universidade de Aveiro, Conservatório Calouste Gulbenkian – Braga, Festival Internacional de Coros em Albufeira, V Festival de órgão de Braga, entre outras presenças nas mais variadas localidades do país como o Santuário de Fátima, cidades como Beja, Miranda do Douro, Salreu, Crestuma, Melres, Paços de Ferreira, Porto, Gaia etc.. Em Outubro 2010, venceu o concurso nacional de música, evento promovido pelo Inatel. Internacionalmente destacam-se as presenças no “10èmes Rencontres Internationales de Choeurs d'Enfants” – França, Festival Internacional de Música de Cantonigrós, Barcelona – Espanha, “Florence International Choir Competition” (1º prémio na categoria “Youth Choirs” e o 3º prémio na categoria “Sacred”) ; “Festival Choral International Neuchatel” (2º prémio na sua categoria); Summer Choir Festival Lisboa (2º prémio “Sacred music” e “Folk music” e 1º Prémio “Female Choirs” ) e Concurso de Habaneras em Torrevieja. Festival Internacional Coral de Rimini (Itália), 1º lugar na categoria de Vozes Iguais (Coros Femininos), 2º lugar na categoria de Música Sacra e 5º lugar com diploma de ouro na categoria de música folk.",
+      "end_time":"2019-02-03T17:00:00+0100",
+      "name":"Concertos na Mata - Tonalidades de Inverno",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2019-02-03T15:30:00+0100",
+      "id":"328985047825371"
+    },
+    {
+      "description":"PODAS URBANAS. Como quando e porquê? As podas em árvores urbanas são uma prática muito enraizada nas nossas vilas e cidades. Sendo muitas vezes uma necessidade, resultam outras tantas vezes em atrocidade. Afinal, em que circunstâncias se justifica uma poda? E como deve ser feita, por forma a minimizar o risco para árvores e pessoas? Qual a época mais adequada para podar? Todas estas questões irão ser respondidas por quem, literalmente, sabe da poda. A atividade contará com uma apresentação teórica, seguida de debate e demonstração prática. Formador: Prof. Luís Martins (UTAD) Local: Casa das Videiras, Parque Urbano 25 Vagas Inscrições até 19 Janeiro ou até limite das vagas disponíveis. INSCRIÇÕES: http://www.cm-lousada.pt/pt/biolousada",
+      "end_time":"2019-01-26T13:00:00+0100",
+      "name":"BioLousada - Podas Urbanas",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2019-01-26T09:30:00+0100",
+      "id":"2170031393249307"
+    },
+    {
+      "description":"PRODUÇÃO CASEIRA DE COGUMELOS Os cogumelos são seres vivos surpreendentes… E muitos são puramente deliciosos! Já imaginou como seria produzir os seus próprios cogumelos comestíveis, em casa, com toda a segurança, e de forma biológica? Agora vai ser possível! Com esta edição do BioLousada poderá aprender a produzir cogumelos em borras de café, para que esta saudável iguaria nunca lhe falte! Inscrições: www.cm-lousada.pt/pt/biolousada Formador: Eng.º Ricardo Torres Local: Casa das Videiras, Parque Urbano 25 Vagas Inscrições até 12 Janeiro ou até limite das vagas disponíveis.",
+      "end_time":"2019-01-19T12:30:00+0100",
+      "name":"BioLousada - Produção caseira de cogumelos (2ª edição)",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2019-01-19T09:30:00+0100",
+      "id":"736429300068519"
+    },
+    {
+      "description":"Workshop PRODUÇÃO CASEIRA DE COGUMELOS Os cogumelos são seres vivos surpreendentes… E muitos são puramente deliciosos! Já imaginou como seria produzir os seus próprios cogumelos comestíveis, em casa, com toda a segurança, e de forma biológica? Agora vai ser possível! Com esta edição do BioLousada poderá aprender a inocular cogumelos Shiitake em troncos, para que esta saudável iguaria nunca lhe falte! Formador: Eng.º Ricardo Torres Local: Casa das Videiras, Parque Urbano, Lousada 25 Vagas Inscrições grátis mas obrigatórias até 8 Dezembro (ou até ao limite das vagas), em: http://www.cm-lousada.pt/pt/biolousada ou diretamente em: https://goo.gl/forms/3LskVpSZSYaeWJZx1",
+      "end_time":"2018-12-15T13:00:00+0100",
+      "name":"Produção Caseira de Cogumelos",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2018-12-15T09:30:00+0100",
+      "id":"1874955912539469"
+    },
+    {
+      "description":"No dia 8 de dezembro venha participar no primeiro \"Plogging com a BioLiving\", em Lousada. Este evento associa o exercício físico, a intervenção ambiental e, sobretudo, o convívio que é típico desta época natalícia. No final da atividade, quem trouxer o saco do lixo recolhido mais pesado será premiado com um cabaz de natal com produtos típicos da região. Todo o lixo recolhido será encaminhado para reciclagem. O Plogging será das 9:30 às 12:30, com ponto de encontro no parque do Intermarché de Lousada. Inscrições (grátis) pelo formulário: https://goo.gl/8WKcpN Para mais informações pf contactar: lousada.bioliving@gmail.com",
+      "end_time":"2018-12-08T12:30:00+0100",
+      "name":"Plogging com a BioLiving",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2018-12-08T09:30:00+0100",
+      "id":"1063499030517074"
+    },
+    {
+      "description":"AÇÃO DE VOLUNTARIADO Villa Maria - Turismo de Natureza Pampilhosa (Mealhada) 2 dezembro 2018 9H00 - 16H30 A Associação BioLiving vai realizar uma ação de voluntariado na Villa Maria - Turismo de Natureza no sentido de recuperar alguns dos estragos causados pela tempestade Leslie no passado dia 13 de outubro. Para efeitos de logística e seguros é necessário preencher a ficha de inscrição on-line. Almoço - Piquenique Partilhado: Partilha de almoço entre os participantes (O almoço é da responsabilidade de cada um). Nota: - A Villa Maria não tem água potável nem wc convencional. - Estarão à disposições garrafões de água para os participantes poderem encher as suas garrafas ou termos. - A organização oferece um cesto de fruta para os participantes poderem \"petiscar\" durante a manhã ou tarde. INSCRIÇÕES ON-LINE: https://tinyurl.com/voluntVilla INFORMAÇÕES: www.livingplace.pt geral@livingplace.pt 961 750 028",
+      "end_time":"2018-12-02T16:30:00+0100",
+      "name":"Ação de Voluntariado na Villa Maria",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2018-12-02T09:00:00+0100",
+      "id":"310048856392958"
+    },
+    {
+      "description":"A Associação BioLiving em parceria, com o Núcleo de Estudantes de Biologia - AAUAv, organiza mais um #HáConversa na UA. Dia 26 de novembro às 18h30 teremos connosco Bernardo Conde, fotografo apaixonado por viagens e pessoas, que já conta com muitos carimbos no passaporte. Ex-aluno da UA em Engenharia do Ambiente, acabou por dar um rumo diferente à sua vida profissional e dedicar-se à descoberta cultural mundo fora, contando as histórias daqueles com quem se cruza através da fotografia. Fundador do espaço Trilhos da Terra, Tour Leader na agência Nomad e impulsionador do National Geographic Exodus Aveiro Fest 2018, o Bernardo tem muitas histórias para contar! Vem conhecer um pouco da sua experiência e vivência na construção do seu percurso! Não percas esta oportunidade! O evento vai realizar-se no Complexo Pedagógico (23.1.7). Entrada gratuita. Inscrições em: https://goo.gl/forms/MLlWHqdknSkX9yI92",
+      "end_time":"2018-11-26T20:00:00+0000",
+      "name":"Há Conversa na UA com Bernardo Conde",
+      "place":{
+        "name":"Universidade de Aveiro, Complexo Pedagógico, sala 23.1.7"
+      },
+      "start_time":"2018-11-26T18:30:00+0000",
+      "id":"1898918533491297"
+    },
+    {
+      "description":"A Associação BioLiving associa-se ao Núcleo de Estudantes de Biologia - AAUAv e à iniciativa Sê Humano - A Solidariedade está no Teu ADN para mais uma ação de recolha de beatas no Campus da UA. Sabias que as beatas são o item mais descartado do mundo? Sabias que os filtros dos cigarros têm plástico na sua constituição? Sabias que uma beata pode demorar até 12 anos a decompor-se? Por minuto, em Portugal, são atirados para o chão cerca de 7 mil beatas que vão contaminar solos, rios, oceanos e acabam a ser comidos por vários animais. Dia 21 de novembro junta-te a nós e vem recolher as beatas que encontrarmos no chão do Campus. O ponto de encontro é junto ao DEGEIT - Departamento de Economia, Gestão, Engenharia Industrial e Turismo da UA às 15h. Inscrições em: https://goo.gl/forms/OqD4ppaPrZfYFRlk2",
+      "end_time":"2018-11-21T16:00:00+0000",
+      "name":"Campus Sem Filtros #2",
+      "place":{
+        "name":"Degeit - UA",
+        "location":{
+          "city":"Aveiro",
+          "country":"Portugal",
+          "latitude":40.631264513755,
+          "longitude":-8.657156120658,
+          "street":"Campus Universitário de Santiago - Universidade de Aveiro",
+          "zip":"3810-193"
+        },
+        "id":"308808822621097"
+      },
+      "start_time":"2018-11-21T15:00:00+0000",
+      "id":"372673966808982"
+    },
+    {
+      "description":"LOUSADA GEOLÓGICA - 17 Novembro Apesar de se tratar de meras pedras, certamente que iremos visitar antigas profundezas oceânicas, iremos ao inferno do interior da Terra e viajaremos até ao Polo sul. Tudo isto em Lousada! Em qualquer das paragens iremos também abordar alguns exemplos de como a geosfera afeta (ou afetou) a nossa vivência neste mundinho chamado Lousada. Inscrições em http://www.cm-lousada.pt/pt/biolousada gratuitas mas obrigatórias. Vagas atribuídas por ordem de inscrição até ao limite de vagas disponíveis.",
+      "end_time":"2018-11-17T12:30:00+0100",
+      "name":"Lousada Geológica",
+      "place":{
+        "name":"Lousada"
+      },
+      "start_time":"2018-11-17T09:30:00+0100",
+      "id":"1940502322684156"
+    },
+    {
+      "description":"No dia 31 de outubro venha celebrar a noite das bruxas, mergulhando no mundo das criaturas que só saem à noite! Entre sustos e arrepios, venha montar a sua criatura as trevas! Traga 1 rolo de papel higiénico e uma caixa de ovos! Venha disfarçado a rigor os melhores disfarces vão ganhar prémios assustadoramente deliciosos! Das 21:00 ás 23:00 horas no Parque de Casais, Lousada. Inscrições: https://docs.google.com/forms/d/e/1FAIpQLSeLy9oVNNNBFZCqMcHoZXrdi-ozGdwaGA7XzyNtfEBgQV7Kbg/viewform?usp=sf_link",
+      "end_time":"2018-10-31T23:00:00+0100",
+      "name":"Noite das Criaturas das Trevas",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2018-10-31T21:00:00+0100",
+      "id":"569021283554293"
+    },
+    {
+      "description":"Halloween? Mascara-te, pega na lanterna e vem descobrir os animais que habitam a noite, na companhia de quem os estuda. Os teus amigos para esta noite: - Insetos, aranhas, lesmas e centopeias (Gonçalo Abreu); - Sapos, salamandras (Guilherme Castro); - Morcegos e outros mamíferos malditos (Nuno Pinto). Em FROSSOS, Albergaria-a-Velha, vamos estar no Parque da Boca do Carreiro, das 20h30 às 23h00, com chá reconfortante no final. Inscrições gratuitas mas obrigatórias em: https://goo.gl/forms/9VwZejTfFa54Mniy2 Mais informações pelo email geral.bioliving@gmail.com.",
+      "end_time":"2018-10-30T23:00:00+0100",
+      "name":"Criaturas das Trevas 2018",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2018-10-30T20:30:00+0100",
+      "id":"1382003905267784"
+    },
+    {
+      "description":"O II BioFÓRUM 2018 realiza-se a 27 de Outubro em Frossos, Município de Albergaria-a-Velha, e tem como tema a \"Cidadania Ativa e Sustentabilidade\". O objetivo deste evento é envolver os cidadãos em temáticas importantes na gestão ambiental, pretendendo mostrar exemplos de projetos e iniciativas que se foquem em boas práticas relacionadas à sustentabilidade. A participação é gratuita no entanto carece de inscrição obrigatória e limitada aos lugares disponíveis. Inscrição: https://goo.gl/forms/15m6EMHWtrxJOSfu2",
+      "end_time":"2018-10-27T17:30:00+0100",
+      "name":"BioFÓRUM 2018 - Cidadania Ativa e Sustentabilidade",
+      "place":{
+        "name":"Teatro a Bateira, Frossos, Albergaria-a-Velha"
+      },
+      "start_time":"2018-10-27T09:30:00+0100",
+      "id":"2146417969012929"
+    },
+    {
+      "description":"Terça-feira, dia 23 de outubro, o Núcleo de Estudantes de Biologia, organizou para ti, em conjunto com a Associação BioLiving um \"Há Conversa... com Daniel Pinheiro - Biodocumentário. Irá decorrer no anfiteatro de Biologia (8.1.43), às 21:30h. A sessão consistirá na demonstração de um documentário da autoria de Daniel Pinheiro, seguido de uma discussão aberta com o mesmo (via Skype). O documentário passado tem a designação de \"ENCONTRO D'ÁGUAS - Segredos da Ria e do Baixo Vouga Lagunar\", podes consultar o trailer aqui: https://vimeo.com/195290061. Esta é uma fantástica oportunidade de conhecer um pouco o trabalho de um dos melhores documentaristas portugueses. Não faltes a este evento cheio de biologia e... pipocas �",
+      "end_time":"2018-10-23T23:00:00+0100",
+      "name":"Há Conversa - com Daniel Pinheiro: Biodocumentário",
+      "place":{
+        "name":"Anfiteatro do Departamento de Biologia - 8.1.43"
+      },
+      "start_time":"2018-10-23T21:30:00+0100",
+      "id":"352450902193152"
+    },
+    {
+      "description":"NOITE ASTRONÓMICA 20 de Outubro será uma noite diferente de todas as outras. Uma noite de descoberta, de deslumbre, de fascínio… A Associação BioLiving, o astrónomo Jose Augusto Matos e o Município de Albergaria-a-Velha levam até si a Pateira de Frossos, em estrelas, cometas e planetas! Venha descobrir o céu que cobre este encantador espaço natural, num arrojado passeio noturno aberto a todos! As inscrições são grátis mas obrigatórias, pelo formulário https://goo.gl/forms/QiNoCRYHhI7CyYVt1 até 19 de outubro. As vagas são limitadas! Aceitamos inscrições a partir dos 6 anos de idade. No final não faltará o habitual lanche-convívio. Vemo-nos na Pateira?",
+      "end_time":"2018-10-21T00:00:00+0100",
+      "name":"Noite Astronómica - Pateira de Frossos",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2018-10-20T21:30:00+0100",
+      "id":"2180654392172367"
+    },
+    {
+      "description":"A Associação BioLiving associa-se ao Núcleo de Estudantes de Biologia - AAUAv para uma ação de recolha de beatas no Campus da UA. Sabias que as beatas são o item mais descartado do mundo? Sabias que os filtros dos cigarros têm plástico na sua constituição? Sabias que uma beata pode demorar até 12 anos a decompor-se? Por minuto, em Portugal, são atirados para o chão cerca de 7 mil beatas que vão contaminar solos, rios, oceanos e acabam a ser comidos por vários animais. Dia 18 de outubro junta-te a nós e vem recolher algumas beatas no chão do Campus. O ponto de encontro é junto ao bar do Departamento de Biologia da UA às 15h30. Inscreve-te em: https://goo.gl/forms/26cNG2dlR6VtCb4Q2",
+      "end_time":"2018-10-18T16:30:00+0100",
+      "name":"Campus Sem Filtros",
+      "place":{
+        "name":"Departamento de Biologia - Universidade de Aveiro",
+        "location":{
+          "city":"Aveiro",
+          "country":"Portugal",
+          "latitude":40.633919517879,
+          "longitude":-8.6593294143677,
+          "street":"Universidade de Aveiro",
+          "zip":"3810-193"
+        },
+        "id":"251130584976784"
+      },
+      "start_time":"2018-10-18T15:30:00+0100",
+      "id":"343135806421122"
+    },
+    {
+      "description":"O #HáConversa... em Frossos, dia 16 de outubro! Na nossa sede, às 21h da terceira terça-feira do mês. Este mês contamos com o Doutor Victor Bandeira, biólogo do Departamento de Biologia da Universidade de Aveiro, para partilhar connosco a sua vasta experiência e conhecimento sobre a biodiversidade e o desenvolvimento rural e como estas duas questões se podem complementar. Neste serão, será ainda apresentada a sua recente obra intitulada \"Memórias da Igreja de São Bartolomeu de Veiros\". Como sempre, acompanharemos a conversa com chá e bolinhos :) Entrada grátis sem inscrição prévia necessária!",
+      "end_time":"2018-10-16T23:00:00+0200",
+      "name":"Há Conversa",
+      "place":{
+        "name":"Associação BioLiving",
+        "location":{
+          "city":"Frossos",
+          "latitude":43.06888777417,
+          "longitude":-7.03125,
+          "street":"Rua do Outeiro, Frossos",
+          "zip":"3850-635 Albergaria-a-Velha"
+        },
+        "id":"1648707125349333"
+      },
+      "start_time":"2018-10-16T21:00:00+0200",
+      "id":"237649916909028"
+    },
+    {
+      "description":"BioLousada Anilhagem Científica de Aves As aves fascinam o ser humano desde sempre, com as suas cores, formas, capacidade de voar... Mas já observou as aves bem de perto? Nesta atividade terá oportunidade de conhecer um pouco melhor as aves de Lousada! Será demonstrado o processo de anilhagem científica, em que as aves são marcadas para obter informação muito valiosa sobre a sua reprodução, idade, longevidade, migrações, entre outras. A não perder! Formador: Luís Pascoal da Silva, biólogo e anilhador credenciado Local: Cartão / Quinta dos Ingleses Sábado, 13 Outubro 8:30 – 11:00* *Nota: Os participantes que desejarem poderão iniciar a atividade mais cedo, desde o nascer do sol, para assistirem ao processo completo. 25 Vagas Inscrições até 8 Outubro em www.cm-lousada.pt/pt/biolousada",
+      "end_time":"2018-10-13T11:00:00+0200",
+      "name":"BioLousada: Anilhagem científica de aves",
+      "place":{
+        "name":"Lousada; Quinta dos Ingleses /Cartão"
+      },
+      "start_time":"2018-10-13T08:30:00+0200",
+      "id":"300796820722991"
+    }
+  ]
+}

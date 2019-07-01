@@ -47,6 +47,17 @@ if (isset($_GET["msg"])) {
             $message = "Foto submetida com sucesso!";
             $class = "alert-success";
             break;
+
+        case "updateNao":
+            $message = "Ocorreu um erro no update, por favor tente novamente";
+            $class = "alert-warning";
+            break;
+
+        case "updateSim":
+            $message = "Update feito com sucesso!";
+            $class = "alert-success";
+            break;
+
         default:
             $msg_show = false;
             break;
@@ -104,18 +115,6 @@ if (isset($_GET["msg"])) {
 
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
-
-<?php
-if(isset($_GET['msg'])) {
-    $msg = $_GET['msg'];
-    switch ($msg) {
-        case "updateSim":
-            echo "<script>alert('Update efetuado com sucesso!')</script>";
-            break;
-        case "updateNao":
-            echo "<script>alert('Update falhado!')</script>";
-            break;}}
-?>
 <?php include_once "components/firebase.php" ?>
 </body>
 </html>
