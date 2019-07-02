@@ -42,6 +42,7 @@ Base de Dados
                     <a class="collapse-item" href="tabela_users_events.php">Utilizadores e Eventos</a>
                     <a class="collapse-item" href="tabela_users_categorias.php">Utilizadores e Categorias</a>
                     <a class="collapse-item" href="tables_cong.php">Extras</a>
+                    <a class="collapse-item" href="eventos_sync.php">Sincronizar Eventos</a>
                 </div>
             </div>
         </li>

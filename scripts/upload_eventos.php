@@ -54,7 +54,7 @@ echo "<br>";
 echo json_last_error_msg();
 */
 
-
+/*
 foreach ($dados as $eventos){
     foreach ($eventos as $evento){
         $nome = $evento['name'];
@@ -100,8 +100,8 @@ function random_str($length, $keyspace = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKL
     }
     return implode('', $pieces);
 }
+*/
 
-/*
 //INSERT NA BD
 require_once "../connections/connection.php";
 foreach ($dados as $eventos){
@@ -148,7 +148,7 @@ foreach ($dados as $eventos){
         mysqli_close($link);
     }
 }
-*/
+
 ?>
 </body>
 </html>
