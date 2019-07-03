@@ -1,7 +1,6 @@
 <?php
 //+++++++++++++++ir buscar conteudo ao JSON com get Files//
 $dados = file_get_contents("../eventos.json");
-
 //parse para array
 $dados = json_decode($dados, true);
 

@@ -7,5 +7,14 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     accessToken: 'pk.eyJ1IjoiZ2FtZWxhcyIsImEiOiJjam1qaHdpd2YwZXBnM2ttc2xuN2czYmhoIn0.YUFt9dn3TQCMyvqwp8YE8g'
 }).addTo(mymap);
 
-var marker = L.marker([39.3999, -8.2245]).addTo(mymap);
-marker.bindPopup("<a class='font-weight-bold text-success' href='evento_detail.php?id=1'>Reflorestar Aveiro e Porque</a><br>Reflorestar Zonas Ardidas de Aveiro");
+function onEachFeature(feature, layer) {
+    if (feature.properties.name ) {
+        layer.bindPopup("<a href='evento_detail.php?id="+ feature.id + "'>" + feature.properties.name + "</a>");
+    }
+
+}
+
+
+L.geoJSON(locais, {
+    onEachFeature: onEachFeature
+}).addTo(mymap);
