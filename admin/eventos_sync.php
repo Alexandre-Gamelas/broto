@@ -132,6 +132,9 @@
                             <?php include "scripts/acc_all.php" ?>
                         </select>
                         <div class="col-12"></div>
+                        <!-- Inscrições -->
+                        <input class="col-md-8 col-12 form-control mt-3" required name="inscricao" type="text" value="https://www.facebook.com/associacaoBioLiving/">
+                        <div class="col-12"></div>
                         <button class="btn btn-success col-md-2 col-6 mt-3" type="submit">Submeter Evento</button>
                     </form>
                     <hr class="col-12">

@@ -11,6 +11,13 @@ include_once "components/head.php";
 <div id="map"></div>
 
 <body>
+<script src="js/leaflet.markercluster.js"></script>
+<style>
+    <?php include 'css/MarkerCluster.css'; ?>
+</style>
+<style>
+    <?php include 'css/MarkerCluster.Default.css'; ?>
+</style>
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
 <?php include_once "components/firebase.php" ?>

@@ -14,7 +14,9 @@ function onEachFeature(feature, layer) {
 
 }
 
-
-L.geoJSON(locais, {
+var markers = L.markerClusterGroup();
+var pontos = L.geoJSON(locais, {
     onEachFeature: onEachFeature
-}).addTo(mymap);
+});
+markers.addLayer(pontos);
+mymap.addLayer(markers);

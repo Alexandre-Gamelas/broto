@@ -15,9 +15,9 @@ function random_str($length, $keyspace = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKL
 require_once "../connections/connection.php";
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "INSERT INTO eventos (nome, data_inicio, data_fim, longitude, latitude, descricao, check_in, ref_categorias, ref_acessibilidade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$query = "INSERT INTO eventos (nome, data_inicio, data_fim, longitude, latitude, descricao, check_in, ref_categorias, ref_acessibilidade, inscricao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 if (mysqli_stmt_prepare($stmt, $query)) {
-    mysqli_stmt_bind_param($stmt, 'sssddssii', $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $check_in, $categoria, $acess);
+    mysqli_stmt_bind_param($stmt, 'sssddssiis', $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $check_in, $categoria, $acess, $inscricao);
 
     $nome = $_POST['nome'];
     $data_inicio = $_POST['data_inicio'];
@@ -27,6 +27,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     $descricao = $_POST['descricao'];
     $categoria = $_POST['categoria'];
     $acess = $_POST['acessibilidade'];
+    $inscricao = $_POST['inscricao'];
     $check_in = random_str(6);
 
     if (mysqli_stmt_execute($stmt)) {
