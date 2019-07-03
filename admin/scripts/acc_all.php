@@ -1,5 +1,4 @@
 <?php
-require "connections/connection.php";
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 $query = "SELECT * FROM acessibilidade WHERE 1";

@@ -42,9 +42,14 @@ Base de Dados
                     <a class="collapse-item" href="tabela_users_events.php">Utilizadores e Eventos</a>
                     <a class="collapse-item" href="tabela_users_categorias.php">Utilizadores e Categorias</a>
                     <a class="collapse-item" href="tables_cong.php">Extras</a>
-                    <a class="collapse-item" href="eventos_sync.php">Sincronizar Eventos</a>
                 </div>
             </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link pt-0" href="eventos_sync.php"">
+                <i class="fas fa-fw fa-sync"></i>
+                <span>Sincronizar Eventos</span></a>
         </li>
 
         <!-- Divider -->

@@ -7,7 +7,7 @@ $dados = json_decode($dados, true);
 
 $new_events = array();
 //CHECK NEW EVENTS
-require_once "../connections/connection.php";
+require "../connections/connection.php";
 foreach ($dados as $eventos){
     foreach ($eventos as $evento){
         $link = new_db_connection();

@@ -47,6 +47,37 @@
             <article class="col-12">
                 <h3>Sincronizar Eventos <a href="eventos_sync.php?work=1" style="text-decoration: none!important;" class="fas fa-plus-circle text-success ml-1"></a></h3>
             </article>
+
+            <?php
+            //FEEDBACK
+            if (isset($_GET["msg"])) {
+                $msg_show = true;
+                switch ($_GET["msg"]) {
+                    case "2":
+                        $message = "Alguma coisa falhou, por favor tente novamente";
+                        $class = "alert-danger";
+                        break;
+                    case "1":
+                        $message = "Evento submetido com sucesso!";
+                        $class = "alert-warning";
+                        break;
+                    default:
+                        $msg_show = false;
+                        break;
+                }
+
+                                echo "<div class=\"alert $class alert-dismissible fade show mx-5 mt-4\" role=\"alert\">
+                " . $message . "
+                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                    <span aria-hidden=\"true\">&times;</span>
+                </button>
+                </div>";
+                if ($msg_show) {
+                    echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                }
+            }
+            ?>
+
             <?php
             if(isset($_GET['work']) && $_GET['work'] == 1) {
                 include_once "scripts/new_events.php";
@@ -75,23 +106,36 @@
                         }
 
                         $descricao = $evento['description'];
-                    }
+
                     ?>
-                    <form class="form-row p-3 justify-content-center" action="" method="post">
-                        <input class="col-6 form-control" name="nome" type="text" value="<?= $nome ?>">
+                    <form class="form-row p-3 justify-content-center" action="scripts/enventos_sync_bd.php" method="post">
+                        <input class="col-8 form-control" required name="nome" type="text" value="<?= $nome ?>">
                         <div class="col-12"></div>
-                        <input class="col-6 form-control mt-3" name="data_inicio" type="text" value="<?= $data_inicio ?>">
+                        <input class="col-8 form-control mt-3" required name="data_inicio" type="text" value="<?= $data_inicio ?>">
                         <div class="col-12"></div>
-                        <input class="col-6 form-control mt-3" name="data_fim" type="text" value="<?= $data_fim ?>">
+                        <input class="col-8 form-control mt-3" required name="data_fim" type="text" value="<?= $data_fim ?>">
                         <div class="col-12"></div>
-                        <input class="col-6 form-control mt-3" name="latitude" type="text" value="<?= $latitude ?>">
+                        <input class="col-8 form-control mt-3" required name="latitude" type="text" value="<?= $latitude ?>">
                         <div class="col-12"></div>
-                        <input class="col-6 form-control mt-3" name="longitude" type="text" value="<?= $longitude?>">
+                        <input class="col-8 form-control mt-3" required name="longitude" type="text" value="<?= $longitude?>">
                         <div class="col-12"></div>
-                        <textarea class="col-6 form-control mt-3" name="descricao" type="text" rows="15"><?= $descricao ?></textarea>
+                        <textarea class="col-8 form-control mt-3" required name="descricao" type="text" rows="15"><?= $descricao ?></textarea>
+                        <div class="col-12"></div>
+                        <!-- CATEGGORIAS -->
+                        <select class="col-8 mt-3 form-control"  required name="categoria" title="">
+                            <?php include"scripts/categorias_all.php" ?>;
+                        </select>
+                        <div class="col-12"></div>
+                        <!-- ACESSIBILIDADE -->
+                        <select class="col-8 mt-3 form-control" required name="acessibilidade" title="">
+                            <?php include "scripts/acc_all.php" ?>;
+                        </select>
+                        <div class="col-12"></div>
+                        <button class="btn btn-success col-2 mt-3" type="submit">Submeter Evento</button>
                     </form>
                     <hr class="col-12">
                     <?php
+                    }
                 }
             }
             ?>

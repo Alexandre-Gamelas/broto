@@ -90,6 +90,7 @@ foreach ($dados as $eventos){
     }
 }
 
+*/
 
 function random_str($length, $keyspace = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
 {
@@ -100,7 +101,7 @@ function random_str($length, $keyspace = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKL
     }
     return implode('', $pieces);
 }
-*/
+
 
 //INSERT NA BD
 require_once "../connections/connection.php";
