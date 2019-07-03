@@ -30,14 +30,15 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     $check_in = random_str(6);
 
     if (mysqli_stmt_execute($stmt)) {
-        header("Location: ../eventos_sync.php?work=1?msg=1");
+        header("Location: ../eventos_sync.php?work=1&msg=1");
     } else {
         echo mysqli_stmt_error($stmt);
+        header("Location: ../eventos_sync.php?work=1&msg=2");
     }
 } else {
     echo mysqli_stmt_error($stmt);
+    header("Location: ../eventos_sync.php?work=1?msg=2");
 }
 mysqli_stmt_close($stmt);
 mysqli_close($link);
-header("Location: ../eventos_sync.php?work=1?msg=2");
 

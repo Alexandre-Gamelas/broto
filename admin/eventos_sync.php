@@ -46,37 +46,39 @@
 
             <article class="col-12">
                 <h3>Sincronizar Eventos <a href="eventos_sync.php?work=1" style="text-decoration: none!important;" class="fas fa-plus-circle text-success ml-1"></a></h3>
-            </article>
 
-            <?php
-            //FEEDBACK
-            if (isset($_GET["msg"])) {
-                $msg_show = true;
-                switch ($_GET["msg"]) {
-                    case "2":
-                        $message = "Alguma coisa falhou, por favor tente novamente";
-                        $class = "alert-danger";
-                        break;
-                    case "1":
-                        $message = "Evento submetido com sucesso!";
-                        $class = "alert-warning";
-                        break;
-                    default:
-                        $msg_show = false;
-                        break;
-                }
+                <?php
+                //FEEDBACK
+                if (isset($_GET["msg"])) {
+                    $msg_show = true;
+                    switch ($_GET["msg"]) {
+                        case "2":
+                            $message = "Alguma coisa falhou, por favor tente novamente";
+                            $class = "alert-danger";
+                            break;
+                        case "1":
+                            $message = "Evento submetido com sucesso!";
+                            $class = "alert-success";
+                            break;
+                        default:
+                            $msg_show = false;
+                            break;
+                    }
 
-                                echo "<div class=\"alert $class alert-dismissible fade show mx-5 mt-4\" role=\"alert\">
+                    echo "<div class=\"alert $class alert-dismissible fade show mx-5 mt-4\" role=\"alert\">
                 " . $message . "
                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                     <span aria-hidden=\"true\">&times;</span>
                 </button>
                 </div>";
-                if ($msg_show) {
-                    echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                    if ($msg_show) {
+                        echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                    }
                 }
-            }
-            ?>
+                ?>
+            </article>
+
+
 
             <?php
             if(isset($_GET['work']) && $_GET['work'] == 1) {
