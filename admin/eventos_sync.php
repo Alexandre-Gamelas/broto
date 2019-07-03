@@ -21,7 +21,6 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -138,15 +137,15 @@
                     <hr class="col-12">
                     <?php
                     }
+                } else {
+                    ?>
+                        <article class="col-12 text-center">
+                            <h4 class="text-warning">Todos os eventos estão sincronizados!</h4>
+                        </article>
+                    <?php
                 }
             }
             ?>
-
-
-
-
-
-
 
             <!-- /.container-fluid -->
 
@@ -233,7 +232,6 @@
 
 <!-- Page level custom scripts -->
 <script src="js/demo/datatables-demo.js"></script>
-
 </body>
 
 </html>
