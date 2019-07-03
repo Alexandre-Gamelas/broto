@@ -5,7 +5,7 @@ include_once "scripts/check_log.php";
 
 
         if($_SESSION['user']['fotografia'] != null || (strpos($_SESSION['user']['fotografia'], '.png') !== false) || $_SESSION['user']['fotografia'] !=""){
-            $fotografia = $_SESSION['user']['fotografia'];
+            $fotografia = str_replace("admin/", "", $_SESSION['user']['fotografia']);
         } else {
             $fotografia = 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png';
         }

@@ -110,29 +110,29 @@
 
                     ?>
                     <form class="form-row p-3 justify-content-center" action="scripts/enventos_sync_bd.php" method="post">
-                        <input class="col-8 form-control" required name="nome" type="text" value="<?= $nome ?>">
+                        <input class="col-md-8 col-12 form-control" required name="nome" type="text" value="<?= $nome ?>">
                         <div class="col-12"></div>
-                        <input class="col-8 form-control mt-3" required name="data_inicio" type="text" value="<?= $data_inicio ?>">
+                        <input class="col-md-8 col-12 form-control mt-3" required name="data_inicio" type="text" value="<?= $data_inicio ?>">
                         <div class="col-12"></div>
-                        <input class="col-8 form-control mt-3" required name="data_fim" type="text" value="<?= $data_fim ?>">
+                        <input class="col-md-8 col-12 form-control mt-3" required name="data_fim" type="text" value="<?= $data_fim ?>">
                         <div class="col-12"></div>
-                        <input class="col-8 form-control mt-3" required name="latitude" type="text" value="<?= $latitude ?>">
+                        <input class="col-md-8 col-12 form-control mt-3" required name="latitude" type="text" value="<?= $latitude ?>">
                         <div class="col-12"></div>
-                        <input class="col-8 form-control mt-3" required name="longitude" type="text" value="<?= $longitude?>">
+                        <input class="col-md-8 col-12 form-control mt-3" required name="longitude" type="text" value="<?= $longitude?>">
                         <div class="col-12"></div>
-                        <textarea class="col-8 form-control mt-3" required name="descricao" type="text" rows="15"><?= $descricao ?></textarea>
+                        <textarea class="col-md-8 col-12 form-control mt-3" required name="descricao" type="text" rows="15"><?= $descricao ?></textarea>
                         <div class="col-12"></div>
                         <!-- CATEGGORIAS -->
-                        <select class="col-8 mt-3 form-control"  required name="categoria" title="">
-                            <?php include"scripts/categorias_all.php" ?>;
+                        <select class="col-md-8 col-12 mt-3 form-control"  required name="categoria" title="">
+                            <?php include"scripts/categorias_all.php" ?>
                         </select>
                         <div class="col-12"></div>
                         <!-- ACESSIBILIDADE -->
-                        <select class="col-8 mt-3 form-control" required name="acessibilidade" title="">
-                            <?php include "scripts/acc_all.php" ?>;
+                        <select class="col-md-8 col-12 mt-3 form-control" required name="acessibilidade" title="">
+                            <?php include "scripts/acc_all.php" ?>
                         </select>
                         <div class="col-12"></div>
-                        <button class="btn btn-success col-2 mt-3" type="submit">Submeter Evento</button>
+                        <button class="btn btn-success col-md-2 col-6 mt-3" type="submit">Submeter Evento</button>
                     </form>
                     <hr class="col-12">
                     <?php
