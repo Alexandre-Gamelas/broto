@@ -63,8 +63,7 @@
                 <!-- DataTales Example -->
 
                 <?php
-                require_once "connections/connection.php";
-                $link = new_db_connection();
+
                 ?>
 
                 <div class='card shadow mb-4'>
@@ -81,7 +80,7 @@
                             <div class="form-group col-8 mt-2">
                                 <label for="">ID</label>
                                 <input readonly class='form-control inputRegistar' type='text' name='id'
-                                       placeholder='Gerado Automáticamente' value=''>
+                                       placeholder='Gerado Automaticamente' value=''>
                             </div>
 
                             <div class="form-group col-8 mt-2">
@@ -94,9 +93,13 @@
                                 <label for="">Tipo de Categoria</label>
                                 <select type="text" title="papeis" class="form-control inputRegistar" name="tipo" required>
                                     <?php
+                                    require_once "connections/connection.php";
+
+                                    $link = new_db_connection();
+
                                     $stmt = mysqli_stmt_init($link);
 
-                                    $query = "SELECT id_tipos, nome_tipo FROM tipos_categorias";
+                                    $query = "SELECT id_tipos, nome_tipo FROM tipos_categorias ORDER BY nome_tipo";
 
                                     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
@@ -111,6 +114,7 @@
                                         }
                                         mysqli_stmt_close($stmt); // Close statement
                                     }
+                                    mysqli_close($link);
                                     ?>
                                 </select>
                             </div>
@@ -120,8 +124,6 @@
                     </div>
                 </div>
                 <?php
-
-                mysqli_close($link);
 
                 ?>
             </div>

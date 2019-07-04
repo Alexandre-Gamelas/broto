@@ -3,7 +3,7 @@ require_once "connections/connection.php";
 
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "SELECT * FROM tipos_categorias";
+$query = "SELECT * FROM tipos_categorias ORDER BY nome_tipo";
 
 if (mysqli_stmt_prepare($stmt, $query)) {
 

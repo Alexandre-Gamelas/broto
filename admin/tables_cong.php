@@ -22,7 +22,22 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <script>
+        function transfere_nac(indice, texto) {
+            document.getElementById("nac_id_alterar").value = indice;
+            document.getElementById("nac_nome_alterar").value = texto;
+        }
 
+        function transfere_tipo(indice, texto) {
+            document.getElementById("tipo_id_alterar").value = indice;
+            document.getElementById("tipo_nome_alterar").value = texto;
+        }
+
+        function transfere_acc(indice, texto) {
+            document.getElementById("acc_id_alterar").value = indice;
+            document.getElementById("acc_nome_alterar").value = texto;
+        }
+    </script>
 
 </head>
 
@@ -98,7 +113,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <select id="lista_cp" onchange="transfere_acc(this.value, this.options[this.selectedIndex].text);">
+                            <select id="lista_acessi" onchange="transfere_acc(this.value, this.options[this.selectedIndex].text);">
                                 <?php include "componentes/lista_acc.php";?>
                             </select>
                             <form id="form_nacional" method="post" action="scripts\altera_acc.php">
@@ -155,22 +170,7 @@
 <script src="js/demo/datatables-demo.js"></script>
 
 
-<script>
-    function transfere_nac(indice, texto) {
-        document.getElementById("nac_id_alterar").value = indice;
-        document.getElementById("nac_nome_alterar").value = texto;
-    }
 
-    function transfere_tipo(indice, texto) {
-        document.getElementById("tipo_id_alterar").value = indice;
-        document.getElementById("tipo_nome_alterar").value = texto;
-    }
-
-    function transfere_acc(indice, texto) {
-        document.getElementById("acc_id_alterar").value = indice;
-        document.getElementById("acc_nome_alterar").value = texto;
-    }
-</script>
 
 </body>
 
