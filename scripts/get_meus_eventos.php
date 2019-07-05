@@ -9,6 +9,7 @@ if (mysqli_stmt_prepare($stmt2, $query2)) {
         $id_user = $_SESSION['user']['id_user'];
     if (mysqli_stmt_execute($stmt2)) {
         mysqli_stmt_bind_result($stmt2, $id_evento);
+        //Para dar a class active
         $contador = 1;
         while (mysqli_stmt_fetch($stmt2)) {
             if($contador == 1)
@@ -28,6 +29,7 @@ if (mysqli_stmt_prepare($stmt2, $query2)) {
             $contador++;
         }
     } else {
+        echo "wtf";
         mysqli_stmt_error($stmt2);
     }
 } else {

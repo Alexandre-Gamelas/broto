@@ -22,7 +22,10 @@ if(isset($_POST["email"]) && isset($_POST["password"])) {
                     $_SESSION['user']["nome"] = $nome;
                     $_SESSION['user']["id_user"] = $id_user;
                     $_SESSION['user']["papel"] = $papel;
-                    $_SESSION['user']["fotografia"] = "admin/".$foto;
+                    if(substr($foto, 0, 5) == 'https')
+                        $_SESSION['user']["fotografia"] = $foto;
+                    else
+                        $_SESSION['user']["fotografia"] = "admin/".$foto;
                     $_SESSION['user']['email'] = $_POST["email"];
                     $_SESSION['user']['data_nasc'] = $nasc;
                     $_SESSION['user']['nacionalidade'] = $nac;
