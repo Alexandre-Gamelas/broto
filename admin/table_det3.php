@@ -72,7 +72,7 @@
                                 if (mysqli_stmt_prepare($stmt, $query)) {
                                     mysqli_stmt_bind_param($stmt, 'i', $registo);
                                     if (mysqli_stmt_execute($stmt)) {
-                                        mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $super, $ref_categorias, $ref_acessibilidade, $fotografia);
+                                        mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
                                         while (mysqli_stmt_fetch($stmt)) {
                                             ?>
                                                    <div class='card shadow mb-4'>

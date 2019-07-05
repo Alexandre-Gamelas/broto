@@ -68,9 +68,7 @@
                                 $registo = $_GET['id'];
                                 $link = new_db_connection();
                                 $stmt = mysqli_stmt_init($link);
-                                $query = "SELECT categorias.*, tipos_categorias.nome_tipo FROM categorias
-                                      INNER JOIN tipos_categorias ON categorias.ref_tipos_categorias = id_tipos
-                                      WHERE id_categorias = ?";
+                                $query = "SELECT categorias.*, tipos_categorias.nome_tipo FROM categorias INNER JOIN tipos_categorias ON categorias.ref_tipos_categorias = id_tipos WHERE id_categorias = ?";
                                 if (mysqli_stmt_prepare($stmt, $query)) {
                                     mysqli_stmt_bind_param($stmt, 'i', $registo);
                                     if (mysqli_stmt_execute($stmt)) {
@@ -103,17 +101,17 @@
                                                                  <label for="">Tipo de Categoria</label>
                                                                  <select type="text" title="papeis" class="form-control inputRegistar"  name="ref_tipos_categorias" >
                                                                      <?php
-                                                                     $stmt = mysqli_stmt_init($link);
+                                                                     $stmt2 = mysqli_stmt_init($link);
 
-                                                                     $query = "SELECT id_tipos, nome_tipo FROM tipos_categorias";
+                                                                     $query2 = "SELECT id_tipos, nome_tipo FROM tipos_categorias";
 
-                                                                     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
+                                                                     if (mysqli_stmt_prepare($stmt2, $query2)) { // Prepare the statement
 
-                                                                         mysqli_stmt_execute($stmt); // Execute the prepared statement
+                                                                         mysqli_stmt_execute($stmt2); // Execute the prepared statement
 
-                                                                         mysqli_stmt_bind_result($stmt, $id, $tipo_select); // Bind results
+                                                                         mysqli_stmt_bind_result($stmt2, $id, $tipo_select); // Bind results
 
-                                                                         while (mysqli_stmt_fetch($stmt)) { // Fetch values
+                                                                         while (mysqli_stmt_fetch($stmt2)) { // Fetch values
 
 
                                                                              if($tipo_select == $tipo)
@@ -122,7 +120,7 @@
                                                                                  echo "<option value='$id'>$tipo_select</option>";
 
                                                                          }
-                                                                         mysqli_stmt_close($stmt); // Close statement
+                                                                         mysqli_stmt_close($stmt2); // Close statement
                                                                      }
                                                                      ?>
                                                                  </select>
