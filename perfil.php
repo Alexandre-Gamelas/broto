@@ -78,9 +78,10 @@ if (isset($_GET["msg"])) {
 
 
 <!-- QR CODE BUTTON -->
-<section class="row justify-content-center mb-5 pb-5 mt-5 ">
+<?php $pagina='Faça check in!'; include "components/barra_de_pagina.php"?>
+<section class="row justify-content-center mb-5 pb-5 mt-2 ">
     <article data-toggle="modal" data-target="#qrModal" class="col-8 text-center">
-        <a id="qrcode" class="fas fa-qrcode fa-9x p-5" style="border-radius:50%; border: 10px solid rgba(31, 171, 137, 1); color: rgba(31, 171, 137, 1)"></a>
+        <a id="qrcode" class="fas fa-qrcode fa-9x p-5" style="border-radius:50%; border: 10px solid rgba(31, 171, 137, 1); color: rgba(31, 171, 137, 1);"></a>
     </article>
 </section>
 

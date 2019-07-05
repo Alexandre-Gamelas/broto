@@ -9,7 +9,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 
 function onEachFeature(feature, layer) {
     if (feature.properties.name ) {
-        layer.bindPopup("<a href='evento_detail.php?id="+ feature.id + "'>" + feature.properties.name + "</a>");
+        layer.bindPopup("<a class='text-success' href='evento_detail.php?id="+ feature.id + "'>" + feature.properties.name + "</a>");
     }
 
 }

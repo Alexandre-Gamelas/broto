@@ -23,7 +23,7 @@ if (isset($_GET["msg"])) {
             $message = "Esta conta está bloqueada";
             $class = "alert-danger";
             break;
-        case 2:
+        case 2: case 4:
             $message = "Ocorreu um erro no login";
             $class = "alert-warning";
             break;
