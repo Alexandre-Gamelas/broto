@@ -1,8 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['user']))
-    header("location: menu.php");
-?>
 <!doctype html>
 <html lang="en">
 <?php include_once "components/head.php" ?>
