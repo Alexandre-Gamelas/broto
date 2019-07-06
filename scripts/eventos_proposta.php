@@ -1,7 +1,7 @@
 <?php
 require_once "connections/connection.php";
 
-function model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao) {
+function model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao) {
 
     $matriz["id_eventos"] = $id_eventos;
     $matriz["nome"] = $nome;
@@ -17,6 +17,8 @@ function model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $l
     $matriz["ref_acessibilidade"] = $ref_acessibilidade;
     $matriz["check_in"] = $check_in;
     $matriz["inscricao"] = $inscricao;
+    $matriz["localizacao"] = $localizacao;
+
     return $matriz;
 }
 
@@ -24,14 +26,14 @@ function model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $l
 function ev_mais_participado() {
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
-    $query = "SELECT * FROM deca_18l4_21.eventos WHERE data_inicio >= CAST(now() as date) ORDER BY participantes DESC;";
+    $query = "SELECT * FROM eventos WHERE data_inicio >= CAST(now() as date) ORDER BY participantes DESC;";
     $matriz_eventos[]="";
     if (mysqli_stmt_prepare($stmt, $query)) {
         if (mysqli_stmt_execute($stmt)){
-            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
             while (mysqli_stmt_fetch($stmt)) {
                 //Construir Registo para retornar em ARRAY
-                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
                 return $matriz_eventos;
 
             }
@@ -56,10 +58,10 @@ function ev_cat_favorita($id_user) {
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $id_user);
         if (mysqli_stmt_execute($stmt)){
-            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
             while (mysqli_stmt_fetch($stmt)) {
                 //Construir Registo para retornar em ARRAY
-                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
                 return $matriz_eventos;
 
             }
@@ -82,10 +84,10 @@ function ev_suacat_mais_participada($id_user) {
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $id_user);
         if (mysqli_stmt_execute($stmt)){
-            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
             while (mysqli_stmt_fetch($stmt)) {
                 //Construir Registo para retornar em ARRAY
-                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
                 return $matriz_eventos;
 
             }
@@ -108,10 +110,10 @@ function ev_mais_amigos($id_user) {
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $id_user);
         if (mysqli_stmt_execute($stmt)){
-            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
             while (mysqli_stmt_fetch($stmt)) {
                 //Construir Registo para retornar em ARRAY
-                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
                 return $matriz_eventos;
 
             }
@@ -135,10 +137,10 @@ function ev_suacat_mais_amigos($id_user) {
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'ii', $id_user, $id_user);
         if (mysqli_stmt_execute($stmt)){
-            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
             while (mysqli_stmt_fetch($stmt)) {
                 //Construir Registo para retornar em ARRAY
-                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
                 return $matriz_eventos;
 
             }
@@ -161,10 +163,10 @@ function ev_next_mais_amigos($id_user) {
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $id_user);
         if (mysqli_stmt_execute($stmt)){
-            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+            mysqli_stmt_bind_result($stmt, $id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
             while (mysqli_stmt_fetch($stmt)) {
                 //Construir Registo para retornar em ARRAY
-                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao);
+                $matriz_eventos = model_dados($id_eventos, $nome, $data_inicio, $data_fim, $longitude, $latitude, $descricao, $participantes, $alcance, $ref_categorias, $ref_acessibilidade, $fotografia, $check_in, $inscricao, $localizacao);
                 return $matriz_eventos;
 
             }
@@ -201,6 +203,11 @@ function get_propostas($user) {
     if (!isset($cautela["erro"])) $matriz_total[] = $cautela ;
 
     return $matriz_total;
+
+}
+
+function demote_eventos($matriz[]) {
+
 
 }
 
