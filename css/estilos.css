@@ -100,6 +100,10 @@ textarea::placeholder{
 .curva{
     border-radius: 100%;
 }
+.curva_evento{
+    border-radius: 75vw;
+    min-height: 12vh;
+}
 .text-search{
     color: #808184 !important;
     font-weight: bold;

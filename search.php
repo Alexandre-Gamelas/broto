@@ -29,6 +29,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     if (mysqli_stmt_execute($stmt)) {
         /* bind result variables */
         mysqli_stmt_bind_result($stmt, $id_user, $nome, $email, $foto);
+
         echo '<div id="pessoas" class="mb-5 pb-5">';;
         if (!mysqli_stmt_fetch($stmt)) {
             ?>
@@ -40,6 +41,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             <?php
         } else {
             if ($id_user != $_SESSION['user']['id_user']) {
+                $foto="admin/".$foto;
                 ?>
                 <a href="amigo_detail.php?id=<?= $id_user ?>">
                     <div class="row align-items-center search_carta m-3 ">
@@ -61,7 +63,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                     <div class="row align-items-center search_carta m-3 ">
 
                         <div class="w-25">
-                            <img src="<?= $foto ?>" class="mw-100 curva" alt="...">
+                            <img src="<?= $_SESSION['user']['fotografia'] ?>" class="mw-100 curva" alt="...">
                         </div>
                         <div class="w-75  pl-3">
                             <h5 class="m-0 text-search"><?= $nome ?> - Tu &nbsp <i
@@ -80,7 +82,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                     <div class="row align-items-center search_carta m-3 ">
 
                         <div class="w-25">
-                            <img src="<?= $foto ?>" class="mw-100 curva" alt="...">
+                            <img src="<?= $_SESSION['user']['fotografia'] ?>" class="mw-100 curva" alt="...">
                         </div>
                         <div class="w-75  pl-3">
                             <h5 class="m-0 text-search"><?= $nome ?> - Tu &nbsp <i
@@ -89,7 +91,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                         </div>
                     </div>
                     </a><?php } else {
-                    ?>
+                    $foto="admin/".$foto;?>
                     <a href="amigo_detail.php?id=<?= $id_user ?>">
                         <div class="row align-items-center search_carta m-3">
 
@@ -142,12 +144,12 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
             <?php
         }else{
-            ?>
+            $foto="admin/".$foto?>
             <a href="evento_detail.php?id=<?= $id_evento ?>">
             <div class="row align-items-center search_carta m-3">
 
                 <div class="w-25">
-                    <img src="<?= $foto ?>" class="mw-100 curva" alt="...">
+                    <img src="<?= $foto ?>" class="mw-100 curva_evento" alt="...">
                 </div>
                 <div class="w-75  pl-3">
                     <h5 class="m-0 text-search"><?= $nome ?> <i class="fas fa-user-circle text-gradient"></i></h5>
@@ -158,11 +160,12 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 </a>
 <?php
         while (mysqli_stmt_fetch($stmt)) {
+            $foto="admin/".$foto;
             ?><a href="evento_detail.php?id=<?= $id_evento ?>">
             <div class="row align-items-center search_carta m-3">
 
                 <div class="w-25">
-                    <img src="<?= $foto ?>" class="mw-100 curva" alt="...">
+                    <img src="<?= $foto ?>" class="mw-100 curva_evento" alt="...">
                 </div>
                 <div class="w-75  pl-3">
                     <h5 class="m-0 text-search"><?= $nome ?> <i class="fas fa-user-circle text-gradient"></i></h5>
