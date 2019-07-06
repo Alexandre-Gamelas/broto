@@ -92,6 +92,47 @@ foreach ($dados as $eventos){
 
 */
 
+function geocode($address){
+
+    $address = urlencode($address);
+
+    $url = "https://maps.googleapis.com/maps/api/geocode/json?address={$address}&key=AIzaSyCJEImAaf8MDn8XMInuKvusvjuLSasqNaw";
+
+    $resp_json = file_get_contents($url);
+
+    $resp = json_decode($resp_json, true);
+
+    if($resp['status']=='OK'){
+
+        $latitude = isset($resp['results'][0]['geometry']['location']['lat']) ? $resp['results'][0]['geometry']['location']['lat'] : "";
+        $longitude = isset($resp['results'][0]['geometry']['location']['lng']) ? $resp['results'][0]['geometry']['location']['lng'] : "";
+        $formatted_address = isset($resp['results'][0]['formatted_address']) ? $resp['results'][0]['formatted_address'] : "";
+
+        if($latitude && $longitude && $formatted_address){
+
+            $data_arr = array();
+
+            array_push(
+                $data_arr,
+                $latitude,
+                $longitude,
+                $formatted_address
+            );
+
+            return $data_arr;
+
+        }else{
+            return false;
+        }
+
+    }
+
+    else{
+        echo "<strong>ERROR: {$resp['status']}</strong>";
+        return false;
+    }
+}
+
 function random_str($length, $keyspace = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
 {
     $pieces = [];
@@ -130,11 +171,22 @@ foreach ($dados as $eventos){
                 $latitude = $evento['place']['location']['latitude'];
                 $longitude = $evento['place']['location']['longitude'];
             } else {
-                $latitude = 0;
-                $longitude = 0;
-            }
+                 //GEOCODE
 
-            $descricao = $evento['description'];
+                            $adress = $evento['place']['name'];
+                            if(geocode($adress)[0])
+                                $latitude = geocode($adress)[0];
+                            else
+                                $latitude = 0;
+
+                            if(geocode($adress)[1])
+                                $longitude = geocode($adress)[1];
+                            else
+                                $longitude = 0;
+                        }
+
+                        $descricao = $evento['description'];
+
             $check_in = random_str(6);
 
             if (mysqli_stmt_execute($stmt)) {

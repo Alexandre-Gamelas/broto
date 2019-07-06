@@ -86,7 +86,6 @@
                     foreach ($new_events as $evento) {
                         if(isset($evento['name']))
                             $nome = $evento['name'];
-                        //pensar num else?
 
                         if(isset($evento["start_time"]))
                             $data_inicio = explode("T", $evento["start_time"])[0];
@@ -102,8 +101,53 @@
                             $latitude = $evento['place']['location']['latitude'];
                             $longitude = $evento['place']['location']['longitude'];
                         } else {
-                            $latitude = 0;
-                            $longitude = 0;
+                            //GEOCODE
+
+                            function geocode($address){
+
+                            $address = urlencode($address);
+
+                            $url = "https://maps.googleapis.com/maps/api/geocode/json?address={$address}&key=AIzaSyCJEImAaf8MDn8XMInuKvusvjuLSasqNaw";
+
+                            $resp_json = file_get_contents($url);
+
+                            $resp = json_decode($resp_json, true);
+
+                            if($resp['status']=='OK'){
+
+                                $latitude = isset($resp['results'][0]['geometry']['location']['lat']) ? $resp['results'][0]['geometry']['location']['lat'] : "";
+                                $longitude = isset($resp['results'][0]['geometry']['location']['lng']) ? $resp['results'][0]['geometry']['location']['lng'] : "";
+                                $formatted_address = isset($resp['results'][0]['formatted_address']) ? $resp['results'][0]['formatted_address'] : "";
+
+                                if($latitude && $longitude && $formatted_address){
+
+                                    $data_arr = array();
+
+                                    array_push(
+                                        $data_arr,
+                                        $latitude,
+                                        $longitude,
+                                        $formatted_address
+                                    );
+
+                                    return $data_arr;
+
+                                }else{
+                                    return false;
+                                }
+
+                            }
+
+                            else{
+                                echo "<strong>ERROR: {$resp['status']}</strong>";
+                                return false;
+                            }
+                        }
+
+                            $adress = $evento['place']['name'];
+
+                            $latitude = geocode($adress)[0];
+                            $longitude = geocode($adress)[1];
                         }
 
                         $descricao = $evento['description'];
