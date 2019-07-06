@@ -93,7 +93,7 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="register.php">Create an Account!</a>
+                    <a class="small" href="register.php">Crie uma Conta!</a>
                   </div>
                 </div>
               </div>

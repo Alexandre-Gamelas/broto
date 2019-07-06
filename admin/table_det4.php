@@ -101,26 +101,26 @@
                                                                  <label for="">Tipo de Categoria</label>
                                                                  <select type="text" title="papeis" class="form-control inputRegistar"  name="ref_tipos_categorias" >
                                                                      <?php
-                                                                     $stmt2 = mysqli_stmt_init($link);
+                                                                     $stmt = mysqli_stmt_init($link);
 
-                                                                     $query2 = "SELECT id_tipos, nome_tipo FROM tipos_categorias";
+                                                                     $query = "SELECT id_tipos, nome_tipo FROM tipos_categorias WHERE 1";
 
-                                                                     if (mysqli_stmt_prepare($stmt2, $query2)) { // Prepare the statement
+                                                                     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
-                                                                         mysqli_stmt_execute($stmt2); // Execute the prepared statement
+                                                                         mysqli_stmt_execute($stmt); // Execute the prepared statement
 
-                                                                         mysqli_stmt_bind_result($stmt2, $id, $tipo_select); // Bind results
+                                                                         mysqli_stmt_bind_result($stmt, $id, $tipo_select); // Bind results
 
-                                                                         while (mysqli_stmt_fetch($stmt2)) { // Fetch values
+                                                                         while (mysqli_stmt_fetch($stmt)) { // Fetch values
 
 
-                                                                             if($tipo_select == $tipo)
+                                                                             if($tipo_select === $tipo)
                                                                                  echo "<option selected value='$id'>$tipo_select</option>";
                                                                              else
                                                                                  echo "<option value='$id'>$tipo_select</option>";
 
                                                                          }
-                                                                         mysqli_stmt_close($stmt2); // Close statement
+                                                                         mysqli_stmt_close($stmt); // Close statement
                                                                      }
                                                                      ?>
                                                                  </select>

@@ -62,7 +62,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" name="email" placeholder="Email Address">
+                  <input type="email" class="form-control form-control-user" name="email" placeholder="Endereço Email">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
@@ -73,13 +73,13 @@
                   </div>
                 </div>
                 <button type="submit" class="btn btn-success btn-user btn-block">
-                  Register Account
+                  Registar Conta
                 </button>
                 <hr>
               </form>
 
               <div class="text-center">
-                <a class="small" href="login.php">Already have an account? Login!</a>
+                <a class="small" href="login.php">Já tem conta? Faça Login!</a>
               </div>
             </div>
           </div>

@@ -206,11 +206,32 @@ function get_propostas($user) {
 
 }
 
-/*
-function demote_eventos($matriz[]) {
+function demote_eventos($matriz, $id_sel, $id_user) {
+
+    $link = new_db_connection();
+    $stmt = mysqli_stmt_init($link);
+
+    $lista = "";
+    foreach($matriz as $evento) {
+        if ($evento['id_eventos']!=$id_sel) {
+            $lista = $lista . (string)$evento['ref_categorias'].',';
+        }
+    }
 
 
+    $lista = "(".substr($lista,0,strlen($lista)-1).")";
+    var_dump($lista);
+    $query = "UPDATE utilizadores_has_categorias SET peso = peso - 1 WHERE ref_utilizadores = ".$id_user." AND ref_categorias IN ".$lista;
+
+    if (mysqli_stmt_prepare($stmt, $query)) {
+        if (mysqli_stmt_execute($stmt)) {
+         //   echo "<h5>Demotion with success</h5>";
+        }else{
+          //  echo "<h5>Demotion with success</h5>";
+        }
+        mysqli_stmt_close($stmt);
+    }
+    mysqli_close($link);
 }
-*/
 
 ?>
