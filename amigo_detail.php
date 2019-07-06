@@ -22,7 +22,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         /* bind result variables */
         mysqli_stmt_bind_result($stmt, $nome, $email, $foto, $bio, $nacionalidade);
         if (mysqli_stmt_fetch($stmt)) {
-
+            $foto="admin/".$foto;
             include_once "components/header_amigo.php";
             ?>
 
