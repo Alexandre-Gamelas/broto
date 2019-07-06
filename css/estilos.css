@@ -428,3 +428,17 @@ textarea::placeholder{
     border-top-left-radius: 0;
     border-bottom-left-radius: 19px;
 }
+/********** MAIN PAGE *************/
+.caixa-categoria {
+    -webkit-box-shadow: 4px 7px 10px 0 rgba(125, 125, 125, 1);
+    -moz-box-shadow: 4px 7px 10px 0 rgba(125, 125, 125, 1);
+    box-shadow: 4px 7px 10px 0 rgba(125, 125, 125, 1);
+
+    height: 15vh;
+    border-radius: 7.5vh;
+    margin: 3rem auto auto auto;
+}
+
+.texto-cat{
+    color: #B2B2B2;
+}

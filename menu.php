@@ -10,6 +10,7 @@ include_once "components/head.php";
 ?>
 
 <body>
+<!-- RECOMENDAÇÕES -->
 <?php
     include "scripts/get_eventos_prop.php";
    // var_dump($eventos_recomendados)
@@ -62,10 +63,31 @@ include_once "components/head.php";
     </a>
 </div>
     
+<!--- top categorias -->
+<?php
+$pagina="Top Categorias";
+include "components/barra_de_pagina.php";
+include "scripts/get_meus_categorias.php";
+foreach ($categorias as $categoria){
+    ?>
+
+    <section class="row caixa-categoria col-10 align-items-center pl-0 pr-0">
+
+        <article class="col-4 pl-0 pr-0">
+            <img class="img-fluid pl-0" src="<?= $categoria[2] ?>" alt="">
+        </article>
+
+        <article class="col-8 pr-0 pl-2">
+            <h5 class="font-italic font-weight-bold texto-cat"><?= $categoria[0] ?></h5>
+            <h6 class="font-weight-light texto-cat"><?= $categoria[1] ?></h6>
+        </article>
+
+    </section>
 
 
-
-
+    <?php
+}
+?>
 
 
 
