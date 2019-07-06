@@ -2,48 +2,27 @@
 
 require_once "./scripts/eventos_proposta.php";
 $user = $_SESSION['user']["id_user"];
+$eventos_recomendados = array();
 
-$Evento = ev_mais_participado();
-    ?>
-    <div class='carousel-item active'>
-        <img class='d-block w-100' src='admin/<?= $Evento["fotografia"] ?>'><a href="evento_detail.php?id=<?= $Evento["id_eventos"] ?>"><h5 class="text-center nome-evento pb-3 pt-3 mb-0"><?= $Evento["nome"] ?></h5></a>
-    </div>
-    <?php
+$evento_mais_participado = ev_mais_participado();
 
-    $Evento = ev_cat_favorita($user);
-    ?>
-<div class='carousel-item '>
-    <img class='d-block w-100' src='admin/<?= $Evento["fotografia"] ?>'><a href="evento_detail.php?id=<?= $Evento["id_eventos"] ?>"><h5 class="text-center nome-evento pb-3 pt-3 mb-0"><?= $Evento["nome"] ?></h5></a>
-</div>
-<?php
+$evento_categoria_favorita = ev_cat_favorita($user);
 
-$Evento = ev_suacat_mais_participada($user);
-?>
-<div class='carousel-item '>
-    <img class='d-block w-100' src='admin/<?= $Evento["fotografia"] ?>'><a href="evento_detail.php?id=<?= $Evento["id_eventos"] ?>"><h5 class="text-center nome-evento pb-3 pt-3 mb-0"><?= $Evento["nome"] ?></h5></a>
-</div>
-<?php
+$evento_cat_mais_participado = ev_suacat_mais_participada($user);
 
-$Evento = ev_mais_amigos($user);
-?>
-<div class='carousel-item '>
-    <img class='d-block w-100' src='admin/<?= $Evento["fotografia"] ?>'><a href="evento_detail.php?id=<?= $Evento["id_eventos"] ?>"><h5 class="text-center nome-evento pb-3 pt-3 mb-0"><?= $Evento["nome"] ?></h5></a>
-</div>
-<?php
+$evento_mais_amigos = ev_mais_amigos($user);
 
-$Evento = ev_suacat_mais_amigos($user);
-?>
-<div class='carousel-item '>
-    <img class='d-block w-100' src='admin/<?= $Evento["fotografia"] ?>'><a href="evento_detail.php?id=<?= $Evento["id_eventos"] ?>"><h5 class="text-center nome-evento pb-3 pt-3 mb-0"><?= $Evento["nome"] ?></h5></a>
-</div>
-<?php
+$evento_cat_mais_amigos = ev_suacat_mais_amigos($user);
 
-$Evento = ev_next_mais_amigos($user);
-?>
-<div class='carousel-item '>
-    <img class='d-block w-100' src='admin/<?= $Evento["fotografia"] ?>'><a href="evento_detail.php?id=<?= $Evento["id_eventos"] ?>"><h5 class="text-center nome-evento pb-3 pt-3 mb-0"><?= $Evento["nome"] ?></h5></a>
-</div>
-<?php
+$evento_next_mais_amigos = ev_next_mais_amigos($user);
+
+
+$eventos_recomendados['evento_mais_participado'] = $evento_mais_participado;
+$eventos_recomendados['evento_categoria_favorita'] = $evento_categoria_favorita;
+$eventos_recomendados['evento_cat_mais_participada'] = $evento_cat_mais_participado;
+$eventos_recomendados['evento_mais_amigos'] = $evento_mais_amigos;
+$eventos_recomendados['evento_cat_mais_amigos'] = $evento_cat_mais_amigos;
+$eventos_recomendados['evento_next_mais_amigos'] = $evento_next_mais_amigos;
 
 
 ?>

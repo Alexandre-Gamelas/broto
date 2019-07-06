@@ -5,8 +5,8 @@
         <img src="assets/img/frontend/wave_nav.png" alt="" class="wave-perfil">
     </article>
 
-    <article class="col-10 m-4 position-absolute" style="z-index: 1001">
-        <h3 class="text-white font-weight-bold mb-3"><?= $nome?></h3>
+    <article class="col-9 m-4 position-absolute" style="z-index: 1001">
+        <h4 class="text-white font-weight-bold mb-3"><?= $nome?></h4>
         <p class="text-white"><i class="fas fa-map-marker-alt"></i> Associação Bioliving</p>
     </article>
 
