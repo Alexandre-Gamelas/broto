@@ -90,11 +90,6 @@ foreach ($categorias as $categoria){
 ?>
 
 
-
-
-
-
-
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
 <?php include_once "components/firebase.php" ?>
