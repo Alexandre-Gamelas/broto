@@ -28,7 +28,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     $categoria = $_POST['categoria'];
     $acess = $_POST['acessibilidade'];
     $inscricao = $_POST['inscricao'];
-    $check_in = random_str(6);
+    $check_in = random_str(20);
 
     if (mysqli_stmt_execute($stmt)) {
         header("Location: ../eventos_sync.php?work=1&msg=1");

@@ -16,6 +16,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         while (mysqli_stmt_fetch($stmt)) {
             echo "<option value=$id_categoria>$nome_categoria</option>";
         }
+        echo "<option value='nova'>Nova Categoria*</option>";
         echo "</select>";
     } else {
         echo "Error: " . mysqli_stmt_error($stmt);
@@ -24,3 +25,4 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 } else {
     echo "Error: " . mysqli_error($link);
 }
+?>

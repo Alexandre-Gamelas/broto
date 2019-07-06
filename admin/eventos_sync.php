@@ -154,32 +154,74 @@
 
                     ?>
                     <form class="form-row p-3 justify-content-center" action="scripts/enventos_sync_bd.php" method="post">
-                        <input class="col-md-8 col-12 form-control" required name="nome" type="text" value="<?= $nome ?>">
+                        <div class="form-group col-md-8 col-12">
+                            <label for="">Nome do Evento</label>
+                            <input class=" form-control" required name="nome" type="text" value="<?= $nome ?>">
+                        </div>
+
                         <div class="col-12"></div>
-                        <input class="col-md-8 col-12 form-control mt-3" required name="data_inicio" type="text" value="<?= $data_inicio ?>">
+
+                        <div class="form-group col-md-8 col-12 mt-2">
+                            <label for="">Data Inicio</label>
+                            <input class="form-control" required name="data_inicio" type="text" value="<?= $data_inicio ?>">
+                        </div>
+
                         <div class="col-12"></div>
-                        <input class="col-md-8 col-12 form-control mt-3" required name="data_fim" type="text" value="<?= $data_fim ?>">
+
+                        <div class="form-group col-md-8 col-12 mt-2">
+                            <label for="">Data Fim</label>
+                            <input class=" form-control " required name="data_fim" type="text" value="<?= $data_fim ?>">
+                        </div>
+
                         <div class="col-12"></div>
-                        <input class="col-md-8 col-12 form-control mt-3" required name="latitude" type="text" value="<?= $latitude ?>">
+
+                        <div class="form-group col-md-8 col-12 mt-2">
+                            <label for="">Latitude</label>
+                            <input class=" form-control " required name="latitude" type="text" value="<?= $latitude ?>">
+                        </div>
+
                         <div class="col-12"></div>
-                        <input class="col-md-8 col-12 form-control mt-3" required name="longitude" type="text" value="<?= $longitude?>">
+
+                        <div class="form-group col-md-8 col-12 mt-2">
+                            <label for="">Longitude</label>
+                            <input class=" form-control " required name="longitude" type="text" value="<?= $longitude?>">
+                        </div>
+
                         <div class="col-12"></div>
-                        <textarea class="col-md-8 col-12 form-control mt-3" required name="descricao" type="text" rows="15"><?= $descricao ?></textarea>
+
+                        <div class="form-group col-md-8 col-12 mt-2">
+                            <label for="">Descrição</label>
+                            <textarea class=" form-control " required name="descricao" type="text" rows="15"><?= $descricao ?></textarea>
+                        </div>
+
                         <div class="col-12"></div>
+
                         <!-- CATEGGORIAS -->
-                        <select class="col-md-8 col-12 mt-3 form-control"  required name="categoria" title="">
-                            <?php include"scripts/categorias_all.php" ?>
-                        </select>
+                        <div class="form-group col-md-8 col-12 mt-2">
+                            <label for="">Categoria</label>
+                            <select id="categorias" class="  form-control"  required name="categoria" title="">
+                                <?php include"scripts/categorias_all.php" ?>
+                        </div>
+
                         <div class="col-12"></div>
+
                         <!-- ACESSIBILIDADE -->
-                        <select class="col-md-8 col-12 mt-3 form-control" required name="acessibilidade" title="">
-                            <?php include "scripts/acc_all.php" ?>
-                        </select>
+                        <div class="form-group col-md-8 col-12 mt-2">
+                            <label for="">Acessibilidade</label>
+                            <select class="  form-control" required name="acessibilidade" title="">
+                                <?php include "scripts/acc_all.php" ?>
+                            </select>
+                        </div>
+
                         <div class="col-12"></div>
+
                         <!-- Inscrições -->
-                        <input class="col-md-8 col-12 form-control mt-3" required name="inscricao" type="text" value="https://www.facebook.com/associacaoBioLiving/">
+                        <div class="form-group col-md-8 col-12 mt-2">
+                            <label for="">Inscrições</label>
+                            <input class=" form-control " required name="inscricao" type="text" value="https://www.facebook.com/associacaoBioLiving/">
+                        </div>
                         <div class="col-12"></div>
-                        <button class="btn btn-success col-md-2 col-6 mt-3" type="submit">Submeter Evento</button>
+                        <button class="btn btn-success col-md-2 col-6 mt-2" type="submit">Submeter Evento</button>
                     </form>
                     <hr class="col-12">
                     <?php
@@ -279,6 +321,15 @@
 
 <!-- Page level custom scripts -->
 <script src="js/demo/datatables-demo.js"></script>
+
+<script>
+    $("#categorias").change(function(){
+        if($(this).val()=="nova"){
+            console.log("hey");
+            window.location = "insert_categorias.php";
+        }});
+</script>
+
 </body>
 
 </html>
