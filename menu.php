@@ -35,6 +35,7 @@ include_once "components/head.php";
                 $nome = $eventos['nome'];
                 $fotografia = $eventos['fotografia'];
                 $data = $eventos['data_inicio'];
+                $local = $eventos['localizacao'];
 
                 $inicio = explode("-", $data);
                 $dia = $inicio[2];

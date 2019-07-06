@@ -206,9 +206,11 @@ function get_propostas($user) {
 
 }
 
+/*
 function demote_eventos($matriz[]) {
 
 
 }
+*/
 
 ?>
