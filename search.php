@@ -11,8 +11,10 @@ require_once "connections/connection.php";
 ?>
 <body>
 <div class="row justify-content-center mt-4 mb-5">
-    <button id="btn_pessoas" class="col-5 cem-broto gradient-broto button-1-broto text-white mr-3 "> Pessoas</button>
-    <button id="btn_eventos" class="col-5 cem-broto gradient-broto button-1-broto text-white"> Eventos</button>
+    <button id="btn_pessoas" class="col-5 cem-broto gradient-broto button-3-broto text-white mr-3 search-active">
+        Pessoas
+    </button>
+    <button id="btn_eventos" class="col-5 cem-broto gradient-broto button-3-broto text-white search-deactive"> Eventos</button>
 </div>
 <?php
 
@@ -41,7 +43,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             <?php
         } else {
             if ($id_user != $_SESSION['user']['id_user']) {
-                $foto="admin/".$foto;
+                $foto = "admin/" . $foto;
                 ?>
                 <a href="amigo_detail.php?id=<?= $id_user ?>">
                     <div class="row align-items-center search_carta m-3 ">
@@ -56,7 +58,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                         </div>
                     </div>
                 </a>
-            <?php
+                <?php
             } else {
                 ?>
                 <a href="perfil.php">
@@ -72,7 +74,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                         </div>
                     </div>
                 </a>
-            <?php
+                <?php
             }
 
             while (mysqli_stmt_fetch($stmt)) {
@@ -91,7 +93,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                         </div>
                     </div>
                     </a><?php } else {
-                    $foto="admin/".$foto;?>
+                    $foto = "admin/" . $foto; ?>
                     <a href="amigo_detail.php?id=<?= $id_user ?>">
                         <div class="row align-items-center search_carta m-3">
 
@@ -143,39 +145,40 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
 
             <?php
-        }else{
-            $foto="admin/".$foto?>
+        } else {
+            $foto = "admin/" . $foto ?>
             <a href="evento_detail.php?id=<?= $id_evento ?>">
-            <div class="row align-items-center search_carta m-3">
+                <div class="row align-items-center search_carta m-3">
 
-                <div class="w-25">
-                    <img src="<?= $foto ?>" class="mw-100 curva_evento" alt="...">
+                    <div class="w-25">
+                        <img src="<?= $foto ?>" class="mw-100 curva_evento" alt="...">
+                    </div>
+                    <div class="w-75  pl-3">
+                        <h5 class="m-0 text-search"><?= $nome ?> <i class="fas fa-user-circle text-gradient"></i></h5>
+
+
+                    </div>
                 </div>
-                <div class="w-75  pl-3">
-                    <h5 class="m-0 text-search"><?= $nome ?> <i class="fas fa-user-circle text-gradient"></i></h5>
-
-
-</div>
-</div>
-</a>
-<?php
-        while (mysqli_stmt_fetch($stmt)) {
-            $foto="admin/".$foto;
-            ?><a href="evento_detail.php?id=<?= $id_evento ?>">
-            <div class="row align-items-center search_carta m-3">
-
-                <div class="w-25">
-                    <img src="<?= $foto ?>" class="mw-100 curva_evento" alt="...">
-                </div>
-                <div class="w-75  pl-3">
-                    <h5 class="m-0 text-search"><?= $nome ?> <i class="fas fa-user-circle text-gradient"></i></h5>
-
-
-                </div>
-            </div>
             </a>
             <?php
-        }}
+            while (mysqli_stmt_fetch($stmt)) {
+                $foto = "admin/" . $foto;
+                ?><a href="evento_detail.php?id=<?= $id_evento ?>">
+                <div class="row align-items-center search_carta m-3">
+
+                    <div class="w-25">
+                        <img src="<?= $foto ?>" class="mw-100 curva_evento" alt="...">
+                    </div>
+                    <div class="w-75  pl-3">
+                        <h5 class="m-0 text-search"><?= $nome ?> <i class="fas fa-user-circle text-gradient"></i></h5>
+
+
+                    </div>
+                </div>
+                </a>
+                <?php
+            }
+        }
 
         echo "</div>";
     } else {
@@ -193,4 +196,32 @@ include_once "components/side_menu.php";
 include_once "components/firebase.php"
 ?>
 <script src="js/search.js"></script>
+<script>
+    var pessoas = true;
+
+    $("#btn_pessoas").click(function () {
+        if (!pessoas) {
+            $(this).removeClass("search-deactive");
+            $(this).addClass("search-active");
+            $("#btn_eventos").addClass("search-deactive");
+            $("#btn_eventos").removeClass("search-active");
+
+            pessoas = true;
+        }
+    })
+
+    $("#btn_eventos").click(function () {
+        if (pessoas) {
+            $(this).removeClass("search-deactive");
+            $(this).addClass("search-active");
+
+            $("#btn_pessoas").addClass("search-deactive");
+            $("#btn_pessoas").removeClass("search-active");
+
+            pessoas = false;
+        }
+    })
+
+
+</script>
 </body>
