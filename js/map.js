@@ -20,3 +20,48 @@ var pontos = L.geoJSON(locais, {
 });
 markers.addLayer(pontos);
 mymap.addLayer(markers);
+$("#todos").css("border-bottom", "solid 2px rgba(98, 210, 162, 1)")
+
+var pontos_futuro = L.geoJSON(locais_futuro, {
+    onEachFeature: onEachFeature
+});
+
+var pontos_passado = L.geoJSON(locais_passado, {
+    onEachFeature: onEachFeature
+});
+
+
+
+$("#passado").click(function () {
+    mymap.removeLayer(markers);
+    markers.clearLayers();
+    markers.addLayer(pontos_passado);
+    mymap.addLayer(markers);
+
+    $(this).css("border-bottom", "solid 2px rgba(98, 210, 162, 1)")
+    $("#futuro").css("border", "none")
+    $("#todos").css("border", "none")
+
+});
+
+$("#futuro").click(function () {
+    mymap.removeLayer(markers);
+    markers.clearLayers();
+    markers.addLayer(pontos_futuro);
+    mymap.addLayer(markers);
+
+    $(this).css("border-bottom", "solid 2px rgba(98, 210, 162, 1)")
+    $("#passado").css("border", "none")
+    $("#todos").css("border", "none")
+});
+
+$("#todos").click(function () {
+    mymap.removeLayer(markers);
+    markers.clearLayers();
+    markers.addLayer(pontos);
+    mymap.addLayer(markers);
+
+    $(this).css("border-bottom", "solid 2px rgba(98, 210, 162, 1)")
+    $("#futuro").css("border", "none")
+    $("#passado").css("border", "none")
+});

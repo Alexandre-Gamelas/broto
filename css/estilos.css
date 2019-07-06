@@ -340,6 +340,33 @@ textarea::placeholder{
 #map{
     height: 100vh;
 }
+
+#options-mapa{
+    position: fixed;
+    top: 13vh;
+    left: 1vw;
+    padding-left: 10px;
+    z-index: 1000;
+}
+#options-mapa button{
+    background-color: white;
+    border: 1px solid grey;
+}
+
+#options-mapa p {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 3vmin;
+    text-underline-position: under
+}
+
+#options-mapa .dropdown-menu{
+    width: 50px!important;
+}
+
+.dropright .dropdown-toggle::after{
+    display: none!important;
+}
 /**********EVENTO***********/
 .background-evento{
     background : -moz-linear-gradient(50% 0% -90deg,rgba(31, 171, 137, 1) 0%,rgba(126, 175, 150, 1) 98.5%);
