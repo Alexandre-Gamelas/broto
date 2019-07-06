@@ -7,7 +7,7 @@
 
     <article class="col-9 m-4 position-absolute" style="z-index: 1001">
         <h4 class="text-white font-weight-bold mb-3"><?= $nome?></h4>
-        <p class="text-white"><i class="fas fa-map-marker-alt"></i> Associação Bioliving</p>
+        <p class="text-white"><i class="fas fa-map-marker-alt"></i> <?= $local?></p>
     </article>
 
     <div id="data" class="text-center text-white" style="z-index: 1001">
