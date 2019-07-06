@@ -5,13 +5,68 @@ session_start();
 if(!isset($_SESSION['user']))
     header("location: index.php?msg=0");
 include_once "components/head.php";
+require_once "connections/connection.php";
 ?>
 <body>
-<?php include_once "components/header_perfil.php" ?>
+<?php include_once "components/header_perfil.php"
+
+
+?>
 
 <section class="row justify-content-center mt-4 mb-5 align-items-center">
     <article class="col-10" >
         <h4 class="cinzento-escuro font-weight-bold"><?= $_SESSION['user']['nome']?> <a class="cinzento-escuro ml-2 fas fa-pencil-alt" href="editar_perfil.php?id=<?= $_SESSION['user']['id_user']?>"></a></h4>
+        <div class="row">
+        <a href="seguidores.php" class="col-5"><span class="cinzento-escuro font-weight-bold">Seguidores:</span>
+            <?php
+            $link = new_db_connection();
+            $stmt = mysqli_stmt_init($link);
+            $query = "SELECT COUNT(ref_amigos) FROM utilizadores_has_amigos WHERE ref_amigos = ?";
+
+            if (mysqli_stmt_prepare($stmt, $query)) {
+                mysqli_stmt_bind_param($stmt, "i",  $id);
+                $id=$_SESSION['user']['id_user'];
+            if (mysqli_stmt_execute($stmt)) {
+            /* bind result variables */
+            mysqli_stmt_bind_result($stmt, $seguidores);
+            if (mysqli_stmt_fetch($stmt)) {
+                echo "<span class='cinzento-escuro font-weight-normal'>$seguidores</span>";
+            }else{
+                echo mysqli_stmt_error($stmt);
+            }
+            }else{
+                echo mysqli_stmt_error($stmt);
+            }}else{
+                echo mysqli_stmt_error($stmt);
+            }
+            mysqli_stmt_close($stmt);
+            mysqli_close($link);?>
+        </a>
+            <a href="seguidos.php" class="col-5"><span class="cinzento-escuro font-weight-bold">A Seguir:</span>
+                <?php
+                $link = new_db_connection();
+                $stmt = mysqli_stmt_init($link);
+                $query = "SELECT COUNT(ref_utilizadores) FROM utilizadores_has_amigos WHERE ref_utilizadores = ?";
+
+                if (mysqli_stmt_prepare($stmt, $query)) {
+                    mysqli_stmt_bind_param($stmt, "i",  $id);
+                    $id=$_SESSION['user']['id_user'];
+                    if (mysqli_stmt_execute($stmt)) {
+                        /* bind result variables */
+                        mysqli_stmt_bind_result($stmt, $seguidores);
+                        if (mysqli_stmt_fetch($stmt)) {
+                            echo "<span class='cinzento-escuro font-weight-normal'>$seguidores</span>";
+                        }else{
+                            echo mysqli_stmt_error($stmt);
+                        }
+                    }else{
+                        echo mysqli_stmt_error($stmt);
+                    }}else{
+                    echo mysqli_stmt_error($stmt);
+                }
+                mysqli_stmt_close($stmt);
+                mysqli_close($link);?>
+            </a></div>
         <hr class="img-fluid">
         <h5 class="cinzento-escuro"><?= $_SESSION['user']['nacionalidade']?></h5>
         <p class="cinzento-escuro mt-3 mb-3"><?= $_SESSION['user']['bio'] ?></p>
