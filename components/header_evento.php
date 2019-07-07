@@ -2,11 +2,15 @@
     <article class="col-12 position-relative h-15 header1">
         <img src="admin/<?= $fotografia ?>" alt="" class="img-fluid">
         <div class="gradient-broto position-absolute"></div>
+        <?php
+        if(!isset($recomendacoes)){
+        ?>
         <img src="assets/img/frontend/wave_nav.png" alt="" class="wave-perfil">
+        <?php } ?>
     </article>
 
     <article class="col-9 m-4 position-absolute" style="z-index: 1001">
-        <h4 class="text-white font-weight-bold mb-3"><?= $nome?></h4>
+        <h4 id="nome" class="text-white font-weight-bold mb-3"><?= $nome?></h4>
         <p class="text-white"><i class="fas fa-map-marker-alt"></i> <?= $local?></p>
     </article>
 
@@ -17,3 +21,14 @@
         </div>
     </div>
 </section>
+
+<?php
+if(isset($recomendacoes)) {
+    ?>
+    <script>
+        $("#nome").click(function () {
+            window.location = "evento_detail.php?id=<?= $id_evento ?>"
+        })
+    </script>
+    <?php
+}

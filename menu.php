@@ -42,6 +42,7 @@ include_once "components/head.php";
                 $dia = $inicio[2];
                 $mes = $inicio[1];
                 $mes = substr(date('F', mktime(0, 0, 0, $mes, 10)), 0, 3);
+                $recomendacoes = true;
                 include "components/header_evento.php";
                 $contador++;
             ?>
@@ -50,8 +51,9 @@ include_once "components/head.php";
 
             <?php
         }
-        ?>
 
+        ?>
+        <img src="assets/img/frontend/wave_nav.png" alt="" class="wave-perfil">
     </div>
     <a class="carousel-control-prev mt-5 pt-4" href="#carouselMenu" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
