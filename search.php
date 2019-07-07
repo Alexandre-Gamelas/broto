@@ -195,7 +195,9 @@ include_once "components/bot_menu.php";
 include_once "components/side_menu.php";
 include_once "components/firebase.php"
 ?>
+
 <script src="js/search.js"></script>
+
 <script>
     var pessoas = true;
 
@@ -220,7 +222,22 @@ include_once "components/firebase.php"
 
             pessoas = false;
         }
-    })
+    });
+
+    $("form > *").focus(function () {
+        $("#menu-bot, #listaMenu > *").hide();
+        $("#searchBar").removeClass("mt-5");
+        $("#menu-bot, #listaMenu > *").css("opacity", 0)
+    });
+
+    $("form > *").focusout(function () {
+        $("#menu-bot, #listaMenu > *").show();
+        $("#searchBar").addClass("mt-5");
+        $("#menu-bot, #listaMenu > *").animate({
+            opacity: 1
+        }, 600)
+    });
+
 
 
 </script>
