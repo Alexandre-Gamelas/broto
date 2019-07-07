@@ -76,7 +76,7 @@ foreach ($categorias as $categoria){
     <section class="row caixa-categoria col-10 align-items-center pl-0 pr-0">
 
         <article class="col-4 pl-0 pr-0">
-            <img class="img-fluid pl-0" src="<?= $categoria[2] ?>" alt="">
+            <img class="img-fluid pl-0" src="admin/<?= $categoria[2] ?>" alt="">
         </article>
 
         <article class="col-8 pr-0 pl-2">
