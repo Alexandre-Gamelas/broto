@@ -13,9 +13,9 @@ if($_GET['id'] != $_SESSION['user']['id_user'])
     Header("Location: scripts/script_logout.php");
 $user_id = $_GET['id'];
 ?>
-<?php include_once "components/header_perfil.php" ?>
+<?php include_once "components/header_editar.php" ?>
 <!-- ICON EDITAR FOTO -->
-<a data-toggle="modal" data-target="#fotografiaModal"x><i class="far fa-edit edit-foto fa-2x text-success"></i></a>
+
 
 
 <?PHP
