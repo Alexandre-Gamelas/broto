@@ -493,3 +493,58 @@ textarea::placeholder{
 
     transition: 0.7s ease;
 }
+
+/********* COMENTARIOS ***********/
+.caixa-comentarios{
+    min-height: 15vh;
+}
+
+#foto-comentario{
+    height: 9vh;
+    width: 9vh;
+    border-radius: 50%;
+}
+
+#caixa-texto-comentario{
+    background-color: lightgrey;
+    border-radius: 10px;
+}
+
+.seta-comentario{
+    position: absolute;
+    top: 2vh;
+    left: -4%;
+    color: lightgrey;
+
+}
+
+#texto-comentario, #data-comentario{
+    font-size: 3.3vmin;
+    text-shadow: 0.3px 0.3px grey;
+}
+
+.input-comentario{
+    border: none!important;
+}
+
+.input-comentario::placeholder{
+    border-bottom: 1px solid lightgrey;
+    text-align: left!important;
+    font-size: 3.5vmin;
+    padding-bottom: 5px;
+}
+
+.button-4-broto{
+    font-size: 3vmin;
+    border-radius: 5px;
+    opacity: 0;
+}
+
+#cancelar-comentario{
+    border: 2px solid grey;
+}
+
+#submeter-comentario{
+    border: 2px solid green;
+
+}

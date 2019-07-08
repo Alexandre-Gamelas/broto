@@ -91,7 +91,7 @@ foreach ($categorias as $categoria){
 }
 ?>
 
-
+<div class="mt-5 pt-5 pb-5"></div>
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
 <?php include_once "components/firebase.php" ?>
