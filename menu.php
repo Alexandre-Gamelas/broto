@@ -70,7 +70,8 @@ include_once "components/head.php";
 $pagina="Top Categorias";
 include "components/barra_de_pagina.php";
 include "scripts/get_meus_categorias.php";
-foreach ($categorias as $categoria){
+if($existe_cat==true){
+    foreach ($categorias as $categoria){
     ?>
 
     <section class="row caixa-categoria col-10 align-items-center pl-0 pr-0">
@@ -88,7 +89,22 @@ foreach ($categorias as $categoria){
 
 
     <?php
-}
+}}else{
+        ?>
+        <section class="row caixa-categoria col-10 align-items-center pl-0 pr-0">
+
+            <article class="col-4 pl-0 pr-0">
+                <img class="img-fluid pl-0" src="admin/img/fotosCategoria/cat_notfound.svg" alt="">
+            </article>
+
+            <article class="col-8 pr-0 pl-2">
+                <h5 class="font-italic font-weight-bold texto-cat">Não há dados para definir as suas categorias principais</h5>
+
+            </article>
+
+        </section>
+<?php
+    }
 ?>
 
 <div class="mt-5 pt-5 pb-5"></div>
