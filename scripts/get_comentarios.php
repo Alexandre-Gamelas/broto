@@ -2,7 +2,7 @@
 if(isset($_SESSION['user'])) {
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
-    $query = "SELECT comentarios.conteudo, comentarios.data, utilizadores.nome, utilizadores.id_utilizadores, utilizadores.fotografia FROM comentarios
+    $query = "SELECT comentarios.id_comentario, comentarios.conteudo, comentarios.data, utilizadores.nome, utilizadores.id_utilizadores, utilizadores.fotografia FROM comentarios
 INNER JOIN utilizadores ON comentarios.ref_utilizadores = id_utilizadores
 INNER JOIN eventos ON comentarios.ref_eventos = id_eventos
 WHERE comentarios.ref_eventos = ?";
@@ -13,9 +13,10 @@ WHERE comentarios.ref_eventos = ?";
         if (mysqli_stmt_bind_param($stmt, 'i', $id_evento)) {
 
             if (mysqli_stmt_execute($stmt)) {
-                mysqli_stmt_bind_result($stmt, $comentario, $data, $nome, $id_utilizador, $foto_user);
+                mysqli_stmt_bind_result($stmt, $id_comentario, $comentario, $data, $nome, $id_utilizador, $foto_user);
                 while (mysqli_stmt_fetch($stmt)) {
                     $coment = array();
+                    $coment['id_comentario'] = $id_comentario;
                     $coment['nome'] = $nome;
                     $coment['comentario'] = $comentario;
                     $coment['id_utilizador'] = $id_utilizador;

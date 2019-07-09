@@ -510,7 +510,7 @@ textarea::placeholder{
 }
 
 #caixa-texto-comentario{
-    background-color: lightgrey;
+    background-color: #cccdcf;
     border-radius: 10px;
 }
 
@@ -552,4 +552,11 @@ textarea::placeholder{
     border: 2px solid   rgba(157, 243, 196, 1);
     background-color: rgba(31, 171, 137, 1);
 
+}
+
+
+.apagar-comentario{
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }

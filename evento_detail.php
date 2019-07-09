@@ -20,7 +20,7 @@ require_once "scripts/get_event.php";
 </section>
 
 <div id="carouselEvento" class="carousel slide mt-0 ml-4 mr-4 mb-5" data-ride="carousel">
-    <ol class="carousel-indicators mb-5">
+    <ol class="carousel-indicators mb-2">
         <li data-target="#carouselEvento" data-slide-to="0" class="active"></li>
         <li data-target="#carouselEvento" data-slide-to="1"></li>
         <li data-target="#carouselEvento" data-slide-to="2"></li>
@@ -59,6 +59,14 @@ if (isset($_GET["msg"])) {
             $message = "Comentário Submetido!";
             $class = "alert-success";
             break;
+        case "apagado":
+            $message = "Comentário Apagado!";
+            $class = "alert-success";
+            break;
+        case "naoapagado":
+            $message = "Comentário não apagado, tente novamente";
+            $class = "alert-warning";
+            break;
         case "nao":
             $message = "Erro no comentário!";
             $class = "alert-warning";
@@ -82,7 +90,8 @@ if (isset($_GET["msg"])) {
 
 <?php include_once "scripts/get_comentarios.php" ?>
 <?php
-    foreach ($comentarios as $comentario){
+if(sizeof($comentarios) > 0) {
+    foreach ($comentarios as $comentario) {
         ?>
 
         <section class="row caixa-comentarios p-2 pl-4 pr-4 mt-3 justify-content-center">
@@ -94,17 +103,34 @@ if (isset($_GET["msg"])) {
                 </article>
             </a>
             <article id="caixa-texto-comentario" class="col-9 ml-3 position-relative">
+                <?php
+                    if($_SESSION['user']['papel'] == 1){
+                        echo "<a href='scripts/apagar_comentario.php?id=".$comentario['id_comentario']."&evento=$id_evento' class=\"fas fa-times text-danger apagar-comentario\"></a>";
+                    }
+                ?>
                 <i class="fas fa-caret-left fa-2x seta-comentario"></i>
-                <a href="amigo_detail.php?id=<?= $comentario['id_utilizador'] ?>"><h6 class="text-white font-weight-bold pt-2"><?= $comentario['nome'] ?> <i class="fas fa-reply-all ml-2"></i></h6></a>
+                <a href="amigo_detail.php?id=<?= $comentario['id_utilizador'] ?>"><h6
+                            class="text-white font-weight-bold pt-2"><?= $comentario['nome'] ?> <i
+                                class="fas fa-reply-all ml-2"></i></h6></a>
                 <p id="texto-comentario" class="text-white"><?= $comentario['comentario'] ?></p>
-                <p id="data-comentario" class="text-white text-right mb-2"><?= $comentario['data']?></p>
+                <p id="data-comentario" class="text-white text-right mb-2"><?= $comentario['data'] ?></p>
                 <hr class="mt-1">
             </article>
         </section>
 
-<?php
+        <?php
     }
+} else {
+    ?>
 
+        <section class="row justify-content-center mt-4">
+            <article class="col-12 text-center cinzento-escuro">
+                <h3>Sê o primeiro a comentar!</h3>
+            </article>
+        </section>
+
+    <?php
+}
 ?>
 
 <form action="scripts/post_comentario.php?id_evento=<?= $id_evento ?>" method="post" class="form-row align-items-start justify-content-end p-3">
@@ -112,10 +138,6 @@ if (isset($_GET["msg"])) {
     <button id="cancelar-comentario" class="col-4 button-4-broto p-1 mr-2 mt-3 bg-transparent">CANCELAR</button>
     <button id="submeter-comentario" class="col-4 button-4-broto p-1 mt-3 text-white" type="submit">COMENTAR</button>
 </form>
-
-
-
-
 
 <div class="mb-5 pb-5"></div>
 <?php include_once "components/bot_menu.php" ?>
