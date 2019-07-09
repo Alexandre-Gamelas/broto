@@ -19,10 +19,9 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     }
 } else {
     echo mysqli_stmt_error($stmt);
-    mysqli_stmt_close($stmt);
-    mysqli_close($link);
 }
-
+mysqli_stmt_close($stmt);
+mysqli_close($link);
 $inicio = explode("-", $data_inicio);
 $dia = $inicio[2];
 $mes = $inicio[1];

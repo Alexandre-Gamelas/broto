@@ -10,7 +10,7 @@
     </article>
 
     <article class="col-9 m-4 position-absolute" style="z-index: 1001">
-        <h4 id="nome" class="text-white font-weight-bold mb-3"><?= $nome?></h4>
+        <h4 class="nome text-white font-weight-bold mb-3"><?= $nome?></h4>
         <p class="text-white"><i class="fas fa-map-marker-alt"></i> <?= $local?></p>
     </article>
 
@@ -26,7 +26,7 @@
 if(isset($recomendacoes)) {
     ?>
     <script>
-        $("#nome").click(function () {
+        $(".nome").click(function () {
             window.location = "evento_detail.php?id=<?= $id_evento ?>"
         })
     </script>
