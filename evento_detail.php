@@ -120,7 +120,6 @@ if (isset($_GET["msg"])) {
 <div class="mb-5 pb-5"></div>
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
-<?php include_once "components/firebase.php" ?>
 </body>
 <script>
     $(".input-comentario").focus(function () {

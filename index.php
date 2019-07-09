@@ -69,6 +69,5 @@ switch ($_GET["msg"]) {
         </a>
     </article>
 </section>
-<?php include_once "components/firebase.php" ?>
 </body>
 </html>

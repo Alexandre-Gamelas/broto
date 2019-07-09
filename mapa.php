@@ -20,7 +20,6 @@ include_once "components/head.php";
 </style>
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
-<?php include_once "components/firebase.php" ?>
 <?php
         include_once "connections/connection.php";
         $link = new_db_connection();
