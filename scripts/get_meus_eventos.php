@@ -10,8 +10,9 @@ if (mysqli_stmt_prepare($stmt2, $query2)) {
     if (mysqli_stmt_execute($stmt2)) {
         mysqli_stmt_bind_result($stmt2, $id_evento);
         //Para dar a class active
-        $contador = 1;
+        $contador = 0;
         while (mysqli_stmt_fetch($stmt2)) {
+            $contador++;
             if($contador == 1)
                 $class = 'active';
             else
@@ -26,7 +27,14 @@ if (mysqli_stmt_prepare($stmt2, $query2)) {
             </div>
 
             <?php
-            $contador++;
+        }
+        if($contador == 0){
+            ?>
+            <div class='carousel-item active'>
+                <img class='d-block w-100' src='admin/img/fotosEvento/maissugestoes.jpg'>
+                <a href="mapa.php"><h5 class="text-center nome-evento pb-3 pt-3 mb-0">Ainda não participaste em nenhum evento! Dá uma olhada no <span class="font-weight-bold font-italic">mapa!</span></h5></a>
+            </div>
+            <?php
         }
     } else {
         echo "wtf";

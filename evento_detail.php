@@ -247,6 +247,31 @@ if (sizeof($comentarios) > 0) {
     <button id="submeter-comentario" class="col-4 button-4-broto p-1 mt-3 text-white" type="submit">COMENTAR</button>
 </form>
 
+<!-- GERAR QR CODE -->
+<?php
+    if($_SESSION['user']['papel'] == 1){
+        ?>
+        <?php $pagina = "Check In <i class=\"pl-1 fas fa-qrcode\"></i>"; include "components/barra_de_pagina.php"?>
+        <section class="row justify-content-center mt-4">
+            <article class="col-6 text-center">
+                <div id="qrcode" class="img-fluid"></div>
+            </article>
+        </section>
+        <?php
+        echo "<script> var texto = '$check_in'</script>"
+        ?>
+        <script>
+            jQuery('#qrcode').qrcode({
+                width: 128,
+                height: 128,
+                text	: texto
+            });
+        </script>
+        <?php
+    }
+?>
+
+
 <div class="mb-5 pb-5"></div>
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
@@ -263,5 +288,7 @@ if (sizeof($comentarios) > 0) {
             opacity: 0
         }, 500)
     });
+
+
 </script>
 </html>
