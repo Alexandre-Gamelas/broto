@@ -7,6 +7,7 @@ INNER JOIN utilizadores_has_categorias ON categorias.id_categorias = utilizadore
 WHERE ref_utilizadores = ?
 ORDER BY peso
 LIMIT 2";
+$existe_cat=false;
 $categorias = array();
 if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, 'i', $id_user);
@@ -14,9 +15,16 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         $id_user = $_SESSION['user']['id_user'];
     if (mysqli_stmt_execute($stmt)) {
         mysqli_stmt_bind_result($stmt, $nome, $descricacao, $imagem);
-        while (mysqli_stmt_fetch($stmt)) {
+        if(mysqli_stmt_fetch($stmt)){
+            $existe_cat=true;
             $dados = array($nome, $descricacao, $imagem);
             array_push($categorias, $dados);
+        while (mysqli_stmt_fetch($stmt)) {
+
+            $dados = array($nome, $descricacao, $imagem);
+            array_push($categorias, $dados);
+        }}else{
+            $existe_cat=false;
         }
     } else {
         mysqli_stmt_error($stmt);
