@@ -53,6 +53,12 @@ Base de Dados
                 <span>Sincronizar Eventos</span></a>
         </li>
 
+    <li class="nav-item">
+        <a class="nav-link pt-0" href="fotos_galeria_add.php">
+        <i class="fas fa-fw fa-plus"></i>
+        <span>Adicionar Fotos Galeria</span></a>
+    </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
         <!-- Sidebar Toggler (Sidebar) -->
