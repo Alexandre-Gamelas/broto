@@ -78,12 +78,12 @@ if($inseriu){
             echo "<p>INSERIU</p>";
             $inseriu = true;
             if(isset($_GET['from']) && $_GET['from'] == 'detail')
-                header("Location: ../evento_detail.php?id=$id_evento&msg=checkSim");
+                header("Location: ../evento_detail.php?id=$id_evento&msg2=checkSim");
             else
                 header("Location: ../perfil.php?msg=checkinSim");
         } else {
             if(isset($_GET['from']) && $_GET['from'] == 'detail')
-                header("Location: ../evento_detail.php?id=$id_evento&msg=checkNao");
+                header("Location: ../evento_detail.php?id=$id_evento&msg2=checkNao");
             else
                 header("Location: ../perfil.php?msg=checkinErro");
             echo mysqli_stmt_error($stmt);

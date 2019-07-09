@@ -13,9 +13,9 @@ require_once "scripts/get_event.php";
 <?php include "scripts/check_evento.php"; include_once "components/header_evento.php"?>
 <?php
 //FEEDBACK
-if (isset($_GET["msg"])) {
+if (isset($_GET["msg2"])) {
     $msg_show = true;
-    switch ($_GET["msg"]) {
+    switch ($_GET["msg2"]) {
         case "checkSim":
             $message = "Check in efetuado com sucesso!";
             $class = "alert-success";
