@@ -93,5 +93,4 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 }
 include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
-<?php include_once "components/firebase.php" ?>
 </body>

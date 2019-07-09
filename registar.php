@@ -49,7 +49,6 @@ if (isset($_GET["msg"])) {
 </form>
 
 
-<?php include_once "components/firebase.php" ?>
 <script src="js/Verificar_Pass.js"></script>
 </body>
 </html>

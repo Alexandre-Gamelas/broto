@@ -10,8 +10,17 @@
     </article>
 
     <article class="col-9 m-4 position-absolute" style="z-index: 1001">
-        <h4 id="nome" class="text-white font-weight-bold mb-3"><?= $nome?></h4>
-        <p class="text-white"><i class="fas fa-map-marker-alt"></i> <?= $local?></p>
+        <h4 class="nome text-white font-weight-bold mb-3"><?= $nome?></h4>
+        <p class="text-white mb-0"><i class="fas fa-map-marker-alt "></i> <?= $local?></p>
+        <?php
+        $data = date("Y-m-d");
+        if(isset($data_inicio) && $data_inicio < $data && isset($participou) && !$participou && !isset($recomendacoes)){
+            ?>
+            <p class="text-white">Foste a este evento? <a href="scripts/check_in.php?check_in=<?=$check_in?>&from=detail" class="font-weight-bold font-italic text-white">Faz o teu check in!</a></p>
+            <?php
+        }
+
+        ?>
     </article>
 
     <div id="data" class="text-center text-white" style="z-index: 1001">
@@ -26,7 +35,7 @@
 if(isset($recomendacoes)) {
     ?>
     <script>
-        $("#nome").click(function () {
+        $(".nome").click(function () {
             window.location = "evento_detail.php?id=<?= $id_evento ?>"
         })
     </script>

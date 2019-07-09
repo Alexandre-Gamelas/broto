@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../connections/connection.php";
+require "../connections/connection.php";
 //fazer check se o evento existe
 $existe = false;
 $link = new_db_connection();
@@ -34,10 +34,14 @@ if(mysqli_stmt_prepare($stmt, $query)){
 } else {
     echo mysqli_stmt_error($stmt);
 }
+//verificar se o utilizador já foi ao evento!!!!!
+
+include "check_evento.php";
+
 
 //inserir em utilizadores tem eventos
 $inseriu = false;
-if($existe){
+if($existe && !$participou){
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
     $id_user = $_SESSION['user']['id_user'];
@@ -73,9 +77,15 @@ if($inseriu){
         if(mysqli_stmt_execute($stmt)){
             echo "<p>INSERIU</p>";
             $inseriu = true;
-            header("Location: ../perfil.php?msg=checkinSim");
+            if(isset($_GET['from']) && $_GET['from'] == 'detail')
+                header("Location: ../evento_detail.php?id=$id_evento&msg2=checkSim");
+            else
+                header("Location: ../perfil.php?msg=checkinSim");
         } else {
-            header("Location: ../perfil.php?msg=checkinErro");
+            if(isset($_GET['from']) && $_GET['from'] == 'detail')
+                header("Location: ../evento_detail.php?id=$id_evento&msg2=checkNao");
+            else
+                header("Location: ../perfil.php?msg=checkinErro");
             echo mysqli_stmt_error($stmt);
         }
     } else {

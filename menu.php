@@ -22,36 +22,54 @@ include_once "components/head.php";
     <div class="carousel-inner">
 
         <?php
-        foreach ($eventos_recomendados as $eventos){
-            if($contador > 0)
-                $class = "";
-            else
-                $class = "active";
-            ?>
+            foreach ($eventos_recomendados as $eventos) {
+                if ($contador > 0)
+                    $class = "";
+                else
+                    $class = "active";
+                ?>
 
-        <div class='carousel-item <?=$class?>'>
+                <div class='carousel-item <?= $class ?>'>
 
-        <?php
-                $id_evento = $eventos['id_eventos'];
-                $nome = $eventos['nome'];
-                $fotografia = $eventos['fotografia'];
-                $data = $eventos['data_inicio'];
-                $local = $eventos['localizacao'];
+                    <?php
+                    $id_evento = $eventos['id_eventos'];
+                    $nome = $eventos['nome'];
+                    $fotografia = $eventos['fotografia'];
+                    $data = $eventos['data_inicio'];
+                    $local = $eventos['localizacao'];
 
-                $inicio = explode("-", $data);
-                $dia = $inicio[2];
-                $mes = $inicio[1];
-                $mes = substr(date('F', mktime(0, 0, 0, $mes, 10)), 0, 3);
-                $recomendacoes = true;
-                include "components/header_evento.php";
-                $contador++;
-            ?>
+                    $inicio = explode("-", $data);
+                    $dia = $inicio[2];
+                    $mes = $inicio[1];
+                    $mes = substr(date('F', mktime(0, 0, 0, $mes, 10)), 0, 3);
+                    $recomendacoes = true;
+                    include "components/header_evento.php";
+                    $contador++;
+                    ?>
 
-        </div>
+                </div>
 
-            <?php
-        }
+                <?php
+            }
 
+            if(sizeof($eventos_recomendados) < 6){
+                /// EMPURRAR O SLIDE DE SUGESTAO MAPA!!!
+                ?>
+                    <div class="carousel-item">
+                        <section class="row position-relative">
+                            <article class="col-12 position-relative h-15 header1">
+                                <img src="admin/img/fotosEvento/maissugestoes.jpg" alt="" class="img-fluid">
+                                <div class="gradient-broto position-absolute"></div>
+                            </article>
+
+                            <article class="col-9 m-4 position-absolute" style="z-index: 1001">
+                                <h4 class="nome text-white font-weight-bold mb-3">Reparamos que ainda não participaste em muitos eventos!</h4>
+                                <a href="mapa.php"><p class="text-white mb-0"><i class="fas fa-map-marker-alt "></i> Dá uma olhada no nosso <span class="font-weight-bold font-italic">mapa!</span></p></a>
+                            </article>
+                        </section>
+                    </div>
+                <?php
+            }
         ?>
         <img src="assets/img/frontend/wave_nav.png" alt="" class="wave-perfil">
     </div>
@@ -110,6 +128,5 @@ if($existe_cat==true){
 <div class="mt-5 pt-5 pb-5"></div>
 <?php include_once "components/bot_menu.php" ?>
 <?php include_once "components/side_menu.php"; ?>
-<?php include_once "components/firebase.php" ?>
 </body>
 </html>

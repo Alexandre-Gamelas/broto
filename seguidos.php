@@ -53,7 +53,6 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 mysqli_close($link);
 include_once "components/bot_menu.php";
 include_once "components/side_menu.php";
-include_once "components/firebase.php"
 ?>
 
 </body>

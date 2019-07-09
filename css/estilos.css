@@ -505,8 +505,12 @@ textarea::placeholder{
     border-radius: 50%;
 }
 
+#foto-comentario img{
+    border-radius: 50%;
+}
+
 #caixa-texto-comentario{
-    background-color: lightgrey;
+    background-color: #cccdcf;
     border-radius: 10px;
 }
 
@@ -545,6 +549,18 @@ textarea::placeholder{
 }
 
 #submeter-comentario{
-    border: 2px solid green;
+    border: 2px solid   rgba(157, 243, 196, 1);
+    background-color: rgba(31, 171, 137, 1);
 
+}
+
+
+.apagar-comentario{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.text-white{
+    text-shadow: 0.5px 0.5px grey!important;
 }
