@@ -41,6 +41,7 @@ Base de Dados
                     <a class="collapse-item" href="tables_categorias.php">Categorias</a>
                     <a class="collapse-item" href="tabela_users_events.php">Utilizadores e Eventos</a>
                     <a class="collapse-item" href="tabela_users_categorias.php">Utilizadores e Categorias</a>
+                    <a class="collapse-item" href="tables_galeria.php">Galeria de Fotos</a>
                     <a class="collapse-item" href="tables_cong.php">Extras</a>
                 </div>
             </div>
