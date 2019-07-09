@@ -41,6 +41,7 @@ Base de Dados
                     <a class="collapse-item" href="tables_categorias.php">Categorias</a>
                     <a class="collapse-item" href="tabela_users_events.php">Utilizadores e Eventos</a>
                     <a class="collapse-item" href="tabela_users_categorias.php">Utilizadores e Categorias</a>
+                    <a class="collapse-item" href="tables_galeria.php">Galeria Fotos</a>
                     <a class="collapse-item" href="tables_cong.php">Extras</a>
                 </div>
             </div>
@@ -51,6 +52,12 @@ Base de Dados
                 <i class="fas fa-fw fa-sync"></i>
                 <span>Sincronizar Eventos</span></a>
         </li>
+
+    <li class="nav-item">
+        <a class="nav-link pt-0" href="fotos_galeria_add.php"">
+        <i class="fas fa-fw fa-plus"></i>
+        <span>Adicionar Fotos a Galeria de Evento</span></a>
+    </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">

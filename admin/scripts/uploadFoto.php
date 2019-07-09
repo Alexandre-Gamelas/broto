@@ -8,7 +8,7 @@ if (isset($_GET['tipo'])){
         case "user":
             $target_dir = "../img/fotosUser/";
             break;
-        case "evento":
+        case "evento": case "galeria":
             $target_dir = "../img/fotosEvento/";
             break;
         case "categoria":
@@ -96,13 +96,19 @@ if ($uploadOk == 0) {
                 case "categoria":
                     $query = "UPDATE categorias SET imagem = ? WHERE categorias.id_categorias LIKE ?";
                     break;
+                case "galeria":
+                    $query = "INSERT INTO galeria_eventos (fotografia, ref_eventos) VALUES (?, ?)";
+                    break;
             }
         }
 
         if (mysqli_stmt_prepare($stmt, $query)) {
             mysqli_stmt_bind_param($stmt, 'ss', $foto, $id);
             $foto = substr($target_file, 3);
-            $id = $_GET['id'];
+            if($_GET['tipo'] == "galeria")
+                $id=$_POST['id'];
+            else
+                $id = $_GET['id'];
             if (mysqli_stmt_execute($stmt)) {
                 if (isset($_GET['tipo'])){
                     $message = 6;
@@ -124,6 +130,9 @@ if ($uploadOk == 0) {
                             break;
                         case "categoria":
                             header("Location: ../table_det4.php?id=".$_GET['id']."&msg=fotoSim");
+                            break;
+                        case "galeria":
+                            header("Location: ../fotos_galeria_add.php?msg=fotoSim");
                             break;
                     }
                 }
@@ -149,6 +158,9 @@ if ($uploadOk == 0) {
                     break;
                 case "categoria":
                     header("Location: ../table_det4.php?id=".$_GET['id']."&msg=&msg=$message");
+                    break;
+                case "galeria":
+                    header("Location: ../fotos_galeria_add.php?msg=$message");
                     break;
             }
         }

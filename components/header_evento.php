@@ -9,8 +9,8 @@
         <?php } ?>
     </article>
 
-    <article class="col-9 m-4 position-absolute pr-4" style="z-index: 1001">
-        <h4 class="nome text-white font-weight-bold mb-3"><?= $nome?></h4>
+    <article class="col-9 m-4 position-absolute" style="z-index: 1001">
+        <h4 class="nome text-white font-weight-bold mb-3 pr-4"><?= $nome?></h4>
         <p class="text-white mb-0"><i class="fas fa-map-marker-alt "></i> <?= $local?></p>
         <?php
         $data = date("Y-m-d");
