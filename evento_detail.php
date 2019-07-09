@@ -215,8 +215,7 @@ if (sizeof($comentarios) > 0) {
                 ?>
                 <i class="fas fa-caret-left fa-2x seta-comentario"></i>
                 <a href="amigo_detail.php?id=<?= $comentario['id_utilizador'] ?>"><h6
-                            class="text-white font-weight-bold pt-2"><?= $comentario['nome'] ?> <i
-                                class="fas fa-reply-all ml-2"></i></h6></a>
+                            class="text-white font-weight-bold pt-2"><?= $comentario['nome'] ?></h6></a>
                 <p id="texto-comentario" class="text-white"><?= $comentario['comentario'] ?></p>
                 <p id="data-comentario" class="text-white text-right mb-2"><?= $comentario['data'] ?></p>
                 <hr class="mt-1">
