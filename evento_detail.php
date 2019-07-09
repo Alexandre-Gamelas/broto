@@ -3,14 +3,15 @@
 <?php
 session_start();
 include_once "components/head.php";
-if(isset($_GET['id']))
+if (isset($_GET['id']))
     $id_evento = $_GET['id'];
 else
     header("Location: mapa.php");
 require_once "scripts/get_event.php";
 ?>
 <body>
-<?php include "scripts/check_evento.php"; include_once "components/header_evento.php"?>
+<?php include "scripts/check_evento.php";
+include_once "components/header_evento.php" ?>
 <?php
 //FEEDBACK
 if (isset($_GET["msg2"])) {
@@ -44,27 +45,49 @@ if (isset($_GET["msg2"])) {
 
 <section class="row justify-content-center background-evento mt-4 ml-4 mr-4 mb-0">
     <article class="col-12 text-center mt-2">
-        <a href="<?= $inscricao ?>" target="_blank" class="text-white"><h3 class="text-white text-uppercase"><i class="text-white fas fa-external-link-alt mr-2"></i>inscreve-te</h3></a>
+        <a href="<?= $inscricao ?>" target="_blank" class="text-white"><h3 class="text-white text-uppercase"><i
+                        class="text-white fas fa-external-link-alt mr-2"></i>inscreve-te</h3></a>
         <p class="text-white"><?= $descricao ?></p>
     </article>
 </section>
 
+<!-- FOTOGRAFIAS -->
+<?php include "scripts/get_fotografias.php";
+$contador = 0 ?>
 <div id="carouselEvento" class="carousel slide mt-0 ml-4 mr-4 mb-5" data-ride="carousel">
     <ol class="carousel-indicators mb-2">
-        <li data-target="#carouselEvento" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselEvento" data-slide-to="1"></li>
-        <li data-target="#carouselEvento" data-slide-to="2"></li>
+        <?php
+
+        foreach ($fotografias as $fotografia) {
+            if ($contador == 0)
+                $class = "active";
+            else
+                $class = "";
+            ?>
+            <li data-target="#carouselEvento" data-slide-to="<?= $contador?>" class="<?= $class?>"></li>
+            <?php
+            $contador++;
+        }
+
+        ?>
     </ol>
     <div class="carousel-inner carouselEvento">
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="admin/<?= $fotografia?>" alt="First slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="admin/<?= $fotografia?>" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="admin/<?= $fotografia?>" alt="Third slide">
-        </div>
+        <?php
+        $contador = 0;
+        foreach ($fotografias as $fotografia) {
+            if ($contador == 0)
+                $class = "active";
+            else
+                $class = "";
+            ?>
+                <div class="carousel-item <?= $class ?>">
+                    <img class="d-block w-100" src="admin/<?= $fotografia ?>">
+                </div>
+
+            <?php
+            $contador++;
+        }
+        ?>
     </div>
     <a class="carousel-control-prev" href="#carouselEvento" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -76,9 +99,61 @@ if (isset($_GET["msg2"])) {
     </a>
 </div>
 
-<!-- COMENTARIOS --->
+<!-- estatisticas -->
+<?php
+foreach ($estatisticas as $tipo => $estatistica) {
+    switch ($tipo) {
+        case "Categoria":
+            $estatistica = explode("-", $estatistica);
+            $nome = $estatistica[0];
+            $imagem = $estatistica[1];
+            break;
+        case "Acessibilidade":
+            $imagem = "img/access.svg";
+            break;
+        case "Participantes":
+            $imagem = "img/participantes.svg";
+            break;
+        case "Alcance":
+            $imagem = "img/alcance2.svg";
+            break;
+    }
+    ?>
+    <section class="row caixa-categoria col-10 align-items-center pl-0 pr-0">
 
-<?php $pagina = "Comentários <i class=\"pl-1 fas fa-comments\"></i>"; include "components/barra_de_pagina.php"; ?>
+        <article class="col-4 pl-0 pr-0">
+            <img class="img-fluid pl-0" src="admin/<?= $imagem ?>" alt="">
+        </article>
+
+        <article class="col-8 pr-0 pl-2">
+            <h5 class="font-italic font-weight-bold texto-cat">
+                <?= $tipo ?>
+            </h5>
+
+
+            <h6 class="font-weight-light texto-cat">
+                <?php
+                if ($tipo == "Categoria")
+                    echo $nome;
+                else
+                    echo $estatistica;
+
+                ?>
+
+            </h6>
+
+        </article>
+
+    </section>
+    <?php
+}
+?>
+
+
+<!-- COMENTARIOS --->
+<div class="mt-5"></div>
+<?php $pagina = "Comentários <i class=\"pl-1 fas fa-comments\"></i>";
+include "components/barra_de_pagina.php"; ?>
 
 <?php
 //FEEDBACK
@@ -120,7 +195,7 @@ if (isset($_GET["msg"])) {
 
 <?php include_once "scripts/get_comentarios.php" ?>
 <?php
-if(sizeof($comentarios) > 0) {
+if (sizeof($comentarios) > 0) {
     foreach ($comentarios as $comentario) {
         ?>
 
@@ -134,9 +209,9 @@ if(sizeof($comentarios) > 0) {
             </a>
             <article id="caixa-texto-comentario" class="col-9 ml-3 position-relative">
                 <?php
-                    if($_SESSION['user']['papel'] == 1){
-                        echo "<a href='scripts/apagar_comentario.php?id=".$comentario['id_comentario']."&evento=$id_evento' class=\"fas fa-times text-danger apagar-comentario\"></a>";
-                    }
+                if ($_SESSION['user']['papel'] == 1) {
+                    echo "<a href='scripts/apagar_comentario.php?id=" . $comentario['id_comentario'] . "&evento=$id_evento' class=\"fas fa-times text-danger apagar-comentario\"></a>";
+                }
                 ?>
                 <i class="fas fa-caret-left fa-2x seta-comentario"></i>
                 <a href="amigo_detail.php?id=<?= $comentario['id_utilizador'] ?>"><h6
@@ -153,19 +228,22 @@ if(sizeof($comentarios) > 0) {
 } else {
     ?>
 
-        <section class="row justify-content-center mt-4">
-            <article class="col-12 text-center cinzento-escuro">
-                <h3>Sê o primeiro a comentar!</h3>
-            </article>
-        </section>
+    <section class="row justify-content-center mt-4">
+        <article class="col-12 text-center cinzento-escuro">
+            <h3>Sê o primeiro a comentar!</h3>
+        </article>
+    </section>
 
     <?php
 }
 ?>
 
-<form action="scripts/post_comentario.php?id_evento=<?= $id_evento ?>" method="post" class="form-row align-items-start justify-content-end p-3">
-    <input class="input-comentario form-control ml-4 col-12" name="comentario" type="text" placeholder="Insere o teu comentário...">
-    <button id="cancelar-comentario" class="col-4 button-4-broto p-1 mr-2 mt-3 bg-transparent">CANCELAR</button>
+<form action="scripts/post_comentario.php?id_evento=<?= $id_evento ?>" method="post"
+      class="form-row align-items-start justify-content-end p-3">
+    <input class="input-comentario form-control ml-4 col-12" name="comentario" type="text"
+           placeholder="Insere o teu comentário...">
+    <button id="cancelar-comentario" class="col-4 button-4-broto p-1 mr-2 mt-3 bg-transparent" type="reset">CANCELAR
+    </button>
     <button id="submeter-comentario" class="col-4 button-4-broto p-1 mt-3 text-white" type="submit">COMENTAR</button>
 </form>
 
