@@ -560,3 +560,7 @@ textarea::placeholder{
     right: 10px;
     top: 10px;
 }
+
+.text-white{
+    text-shadow: 0.5px 0.5px grey!important;
+}

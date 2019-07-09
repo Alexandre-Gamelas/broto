@@ -11,7 +11,16 @@
 
     <article class="col-9 m-4 position-absolute" style="z-index: 1001">
         <h4 class="nome text-white font-weight-bold mb-3"><?= $nome?></h4>
-        <p class="text-white"><i class="fas fa-map-marker-alt"></i> <?= $local?></p>
+        <p class="text-white mb-0"><i class="fas fa-map-marker-alt "></i> <?= $local?></p>
+        <?php
+        $data = date("Y-m-d");
+        if($data_inicio < $data && !$participou){
+            ?>
+            <p class="text-white">Foste a este evento? <a href="scripts/check_in.php?check_in=<?=$check_in?>&from=detail" class="font-weight-bold font-italic text-white">Faz o teu check in!</a></p>
+            <?php
+        }
+
+        ?>
     </article>
 
     <div id="data" class="text-center text-white" style="z-index: 1001">

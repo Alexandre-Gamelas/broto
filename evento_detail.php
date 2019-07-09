@@ -10,7 +10,37 @@ else
 require_once "scripts/get_event.php";
 ?>
 <body>
-<?php include_once "components/header_evento.php"?>
+<?php include "scripts/check_evento.php"; include_once "components/header_evento.php"?>
+<?php
+//FEEDBACK
+if (isset($_GET["msg"])) {
+    $msg_show = true;
+    switch ($_GET["msg"]) {
+        case "checkSim":
+            $message = "Check in efetuado com sucesso!";
+            $class = "alert-success";
+            break;
+        case "checkNao":
+            $message = "Erro no check in, por favor tente novamente";
+            $class = "alert-warning";
+            break;
+        default:
+            $msg_show = false;
+            break;
+    }
+
+    echo "<div class=\"alert $class alert-dismissible fade show mx-5 mt-3\" role=\"alert\">
+" . $message . "
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>";
+    if ($msg_show) {
+        echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+    }
+}
+?>
+
 
 <section class="row justify-content-center background-evento mt-4 ml-4 mr-4 mb-0">
     <article class="col-12 text-center mt-2">
